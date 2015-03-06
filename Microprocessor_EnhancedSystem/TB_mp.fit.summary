@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Mar 05 18:58:42 2015
+Fitter Status : Successful - Fri Mar 06 13:39:40 2015
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : TB_mp
 Top-level Entity Name : microprocessor
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 766 / 114,480 ( < 1 % )
+Total logic elements : 770 / 114,480 ( < 1 % )
     Total combinational functions : 602 / 114,480 ( < 1 % )
     Dedicated logic registers : 381 / 114,480 ( < 1 % )
 Total registers : 381
-Total pins : 141 / 529 ( 27 % )
+Total pins : 142 / 529 ( 27 % )
 Total virtual pins : 0
 Total memory bits : 4,096 / 3,981,312 ( < 1 % )
 Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )

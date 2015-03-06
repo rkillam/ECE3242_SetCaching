@@ -14,7 +14,8 @@ use ieee.std_logic_unsigned.all;
 use work.MP_lib.all;
 
 entity datapath is				
-port(	clock_dp:	in 	std_logic;
+port(	
+	clock_dp:	in 	std_logic;
 	rst_dp:		in 	std_logic;
 	imm_data:	in 	std_logic_vector(15 downto 0);
 	mem_data: 	in 	std_logic_vector(15 downto 0);
@@ -26,7 +27,7 @@ port(	clock_dp:	in 	std_logic;
 	RFr1e_dp:	in 	std_logic;
 	RFr2e_dp:	in 	std_logic;
 	jp_en:		in 	std_logic;
-	ALUs_dp:	in 	std_logic_vector(1 downto 0);
+	ALUs_dp:	in 	std_logic_vector(2 downto 0);
 	oe_dp:		in 	std_logic;
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);

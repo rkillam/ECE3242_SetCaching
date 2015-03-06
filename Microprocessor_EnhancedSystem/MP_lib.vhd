@@ -24,12 +24,13 @@ CONSTANT REG_ADDR_LOAD  : STD_LOGIC_VECTOR(3 DOWNTO 0) := x"A";  -- "1010";
 constant HALT  			: std_logic_vector(3 downto 0) := x"F";  -- "1111";
 
 component alu is
-port (	num_A: 	in std_logic_vector(15 downto 0);
+port (	
+		num_A: 	in std_logic_vector(15 downto 0);
 		num_B: 	in std_logic_vector(15 downto 0);
-		jpsign:	in std_logic;
-		ALUs:	in std_logic_vector(1 downto 0);
-		ALUz:	out std_logic;
-		ALUout:	out std_logic_vector(15 downto 0)
+		jpsign:	in std_logic;						 -- JMP?	
+		ALUs:	in std_logic_vector(2 downto 0);     -- OP selector
+		ALUz:	out std_logic;                       -- Reached 0!   
+		ALUout:	out std_logic_vector(15 downto 0)    -- final calc value
 );
 end component;
 
@@ -44,7 +45,8 @@ port( 	Ia: 	in std_logic_vector(15 downto 0);
 end component;
 
 component controller is
-port(	clock:		in std_logic;
+port(	
+	clock:		in std_logic;
 	rst:		in std_logic;
 	IR_word:	in std_logic_vector(15 downto 0);
 	main_mem_status: IN STD_LOGIC;
@@ -55,7 +57,7 @@ port(	clock:		in std_logic;
 	RFwe_ctrl:	out std_logic;
 	RFr1e_ctrl:	out std_logic;
 	RFr2e_ctrl:	out std_logic;						 
-	ALUs_ctrl:	out std_logic_vector(1 downto 0);	 
+	ALUs_ctrl:	out std_logic_vector(2 downto 0);	 
 	jmpen_ctrl:	out std_logic;
 	PCinc_ctrl:	out std_logic;
 	PCclr_ctrl:	out std_logic;
@@ -146,7 +148,8 @@ port( 	I0: 	in std_logic_vector(15 downto 0);
 end component;
 
 component ctrl_unit is
-port(	clock_cu:	in 	std_logic;
+port(	
+	clock_cu:	in 	std_logic;
 	rst_cu:		in 	std_logic;
 	PCld_cu:	in 	std_logic;
 	mdata_out: 	in 	std_logic_vector(15 downto 0);
@@ -162,7 +165,7 @@ port(	clock_cu:	in 	std_logic;
 	RFr1e_cu:	out	std_logic;
 	RFr2e_cu:	out	std_logic;
 	jpen_cu:	out std_logic;
-	ALUs_cu:	out	std_logic_vector(1 downto 0);	
+	ALUs_cu:	out	std_logic_vector(2 downto 0);	
 	Mre_cu:		out std_logic;
 	Mwe_cu:		out std_logic;
 	oe_cu:		out std_logic;
@@ -172,7 +175,8 @@ port(	clock_cu:	in 	std_logic;
 end component;
 
 component datapath is				
-port(	clock_dp:	in 	std_logic;
+port(	
+	clock_dp:	in 	std_logic;
 	rst_dp:		in 	std_logic;
 	imm_data:	in 	std_logic_vector(15 downto 0);
 	mem_data: 	in 	std_logic_vector(15 downto 0);
@@ -184,7 +188,7 @@ port(	clock_dp:	in 	std_logic;
 	RFr1e_dp:	in 	std_logic;
 	RFr2e_dp:	in 	std_logic;
 	jp_en:		in 	std_logic;
-	ALUs_dp:	in 	std_logic_vector(1 downto 0);
+	ALUs_dp:	in 	std_logic_vector(2 downto 0);
 	oe_dp:		in 	std_logic;
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);

@@ -14,7 +14,8 @@ use ieee.std_logic_unsigned.all;
 use work.MP_lib.all;
 
 entity controller is
-port(	clock:		in std_logic;
+port(	
+	clock:		in std_logic;
 	rst:		in std_logic;
 	IR_word:	in std_logic_vector(15 downto 0);
 	main_mem_status: IN STD_LOGIC;
@@ -25,7 +26,7 @@ port(	clock:		in std_logic;
 	RFwe_ctrl:	out std_logic;
 	RFr1e_ctrl:	out std_logic;
 	RFr2e_ctrl:	out std_logic;						 
-	ALUs_ctrl:	out std_logic_vector(1 downto 0);	 
+	ALUs_ctrl:	out std_logic_vector(2 downto 0);	 
 	jmpen_ctrl:	out std_logic;
 	PCinc_ctrl:	out std_logic;
 	PCclr_ctrl:	out std_logic;
@@ -181,7 +182,7 @@ begin
 			RFr1a_ctrl <= IR_word(11 downto 8);	
 			RFr1e_ctrl <= '1'; -- mem[direct] <= RF[rn]			
 			Ms_ctrl <= "01";
-			ALUs_ctrl <= "00";	  
+			ALUs_ctrl <= "000";	  
 			IRld_ctrl <= '0';
 			state <= S_SHORT_SAVEa;			-- read value from RF
 	  when S_SHORT_SAVEa =>   
@@ -235,7 +236,7 @@ begin
 			RFr1a_ctrl <= x"0";	
 			RFr1e_ctrl <= '1'; -- mem[direct] <= RF[0]			
 			Ms_ctrl <= "01";
-			ALUs_ctrl <= "00";	  
+			ALUs_ctrl <= "000";	  
 			IRld_ctrl <= '0';
 			state <= S_LONG_SAVE_a;
 			
@@ -314,7 +315,7 @@ begin
 			RFr1a_ctrl <= IR_word(11 downto 8);	
 			RFr1e_ctrl <= '1'; -- mem[RF[rn]] <= RF[rm]
 			Ms_ctrl <= "00";
-			ALUs_ctrl <= "01";
+			ALUs_ctrl <= "001";
 			RFr2a_ctrl <= IR_word(7 downto 4); 
 			RFr2e_ctrl <= '1'; -- set addr.& data
 			state <= S_REG_ADDR_SAVEa;
@@ -352,7 +353,7 @@ begin
 			RFr1e_ctrl <= '1'; -- RF[r1] <= RF[r2] + RF[r3]
 			RFr2e_ctrl <= '1'; 
 			RFr2a_ctrl <= IR_word(3 downto 0);
- 			ALUs_ctrl <= "10";
+ 			ALUs_ctrl <= "010";
 			state <= S_ADDa;
 	  when S_ADDa =>   
 			RFr1e_ctrl <= '0';
@@ -370,7 +371,7 @@ begin
 			RFr1e_ctrl <= '1'; -- RF[r1] <= RF[r2] - RF[r3]
 			RFr2a_ctrl <= IR_word(3 downto 0);
 			RFr2e_ctrl <= '1';  
-			ALUs_ctrl <= "11";
+			ALUs_ctrl <= "011";
 			state <= S_SUBTa;
 	  when S_SUBTa =>   
 			RFr1e_ctrl <= '0';
@@ -386,7 +387,7 @@ begin
 			jmpen_ctrl <= '1';
 			RFr1a_ctrl <= IR_word(11 downto 8);	
 			RFr1e_ctrl <= '1'; -- jz if R[rn] = 0
-			ALUs_ctrl <= "00";
+			ALUs_ctrl <= "000";
 			state <= S_JUMP_Za;
 	  when S_JUMP_Za =>   state <= S_JUMP_Zb;
 	  when S_JUMP_Zb =>   jmpen_ctrl <= '0';

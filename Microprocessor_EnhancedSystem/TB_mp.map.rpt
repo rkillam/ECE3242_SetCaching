@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TB_mp
-Thu Mar 05 18:58:16 2015
+Fri Mar 06 13:39:08 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -17,17 +17,18 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   9. Analysis & Synthesis IP Cores Summary
  10. State Machine - |microprocessor|ctrl_unit:Unit0|controller:U0|state
  11. User-Specified and Inferred Latches
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated
- 16. Parameter Settings for User Entity Instance: MainMemory:Unit2|altsyncram:altsyncram_component
- 17. altsyncram Parameter Settings by Entity Instance
- 18. Port Connectivity Checks: "MainMemory:Unit2"
- 19. Port Connectivity Checks: "ctrl_unit:Unit0|bigmux:U3"
- 20. Port Connectivity Checks: "ctrl_unit:Unit0"
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated
+ 17. Parameter Settings for User Entity Instance: MainMemory:Unit2|altsyncram:altsyncram_component
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "MainMemory:Unit2"
+ 20. Port Connectivity Checks: "ctrl_unit:Unit0|bigmux:U3"
+ 21. Port Connectivity Checks: "ctrl_unit:Unit0"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -53,7 +54,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar 05 18:58:16 2015            ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 06 13:39:08 2015            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; TB_mp                                            ;
 ; Top-level Entity Name              ; microprocessor                                   ;
@@ -62,7 +63,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 601                                              ;
 ;     Dedicated logic registers      ; 381                                              ;
 ; Total registers                    ; 381                                              ;
-; Total pins                         ; 141                                              ;
+; Total pins                         ; 142                                              ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 4,096                                            ;
 ; Embedded Multiplier 9-bit elements ; 0                                                ;
@@ -228,12 +229,12 @@ applicable agreement for further details.
 ;     -- Dedicated logic registers            ; 381           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 141           ;
+; I/O pins                                    ; 142           ;
 ; Total memory bits                           ; 4096          ;
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ; Maximum fan-out node                        ; cpu_clk~input ;
 ; Maximum fan-out                             ; 412           ;
-; Total fan-out                               ; 4176          ;
+; Total fan-out                               ; 4177          ;
 ; Average fan-out                             ; 3.26          ;
 +---------------------------------------------+---------------+
 
@@ -243,7 +244,7 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
-; |microprocessor                           ; 601 (1)           ; 381 (0)      ; 4096        ; 0            ; 0       ; 0         ; 141  ; 0            ; |microprocessor                                                                                 ; work         ;
+; |microprocessor                           ; 601 (1)           ; 381 (0)      ; 4096        ; 0            ; 0       ; 0         ; 142  ; 0            ; |microprocessor                                                                                 ; work         ;
 ;    |MainMemory:Unit2|                     ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2                                                                ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component                                ; work         ;
 ;          |altsyncram_fos3:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated ; work         ;
@@ -370,6 +371,16 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++--------------------------------------------+----------------------------------------+
+; Register name                              ; Reason for Removal                     ;
++--------------------------------------------+----------------------------------------+
+; ctrl_unit:Unit0|controller:U0|ALUs_ctrl[2] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1      ;                                        ;
++--------------------------------------------+----------------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
@@ -401,19 +412,19 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[14]            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[5]             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[13]            ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[2]             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[0] ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr1[10]         ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr1[1]          ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr2[7]          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[1] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux3              ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux10             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux14             ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|alu:U3|Mux1                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux4             ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux15            ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|controller:U0|Selector10    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux0              ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux4              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux15             ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|alu:U3|Mux22                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux6             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux13            ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|controller:U0|Selector38    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
@@ -539,7 +550,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -549,7 +560,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Mar 05 18:58:13 2015
+    Info: Processing started: Fri Mar 06 13:39:00 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TB_mp -c TB_mp
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file mainmemory.vhd
@@ -598,7 +609,7 @@ Info (12021): Found 2 design units, including 0 entities, in source file mp_lib.
     Info (12022): Found design unit 1: MP_lib
     Info (12022): Found design unit 2: MP_lib-body
 Info (12127): Elaborating entity "microprocessor" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at microprocessor.vhd(48): used implicit default value for signal "big_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at microprocessor.vhd(50): used implicit default value for signal "big_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "ctrl_unit" for hierarchy "ctrl_unit:Unit0"
 Info (12128): Elaborating entity "controller" for hierarchy "ctrl_unit:Unit0|controller:U0"
 Info (12128): Elaborating entity "PC" for hierarchy "ctrl_unit:Unit0|PC:U1"
@@ -642,6 +653,41 @@ Info (12128): Elaborating entity "datapath" for hierarchy "datapath:Unit1"
 Info (12128): Elaborating entity "smallmux" for hierarchy "datapath:Unit1|smallmux:U1"
 Info (12128): Elaborating entity "reg_file" for hierarchy "datapath:Unit1|reg_file:U2"
 Info (12128): Elaborating entity "alu" for hierarchy "datapath:Unit1|alu:U3"
+Warning (10492): VHDL Process Statement warning at alu.vhd(42): signal "mult_result" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at alu.vhd(33): inferring latch(es) for signal or variable "alu_tmp", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at alu.vhd(33): inferring latch(es) for signal or variable "mult_result", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "mult_result[0]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[1]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[2]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[3]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[4]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[5]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[6]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[7]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[8]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[9]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[10]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[11]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[12]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[13]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[14]" at alu.vhd(33)
+Info (10041): Inferred latch for "mult_result[15]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[0]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[1]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[2]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[3]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[4]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[5]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[6]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[7]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[8]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[9]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[10]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[11]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[12]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[13]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[14]" at alu.vhd(33)
+Info (10041): Inferred latch for "alu_tmp[15]" at alu.vhd(33)
 Info (12128): Elaborating entity "obuf" for hierarchy "datapath:Unit1|obuf:U4"
 Info (12128): Elaborating entity "MainMemory" for hierarchy "MainMemory:Unit2"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "MainMemory:Unit2|altsyncram:altsyncram_component"
@@ -700,6 +746,38 @@ Info (12133): Instantiated megafunction "MainMemory:Unit2|altsyncram:altsyncram_
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fos3.tdf
     Info (12023): Found entity 1: altsyncram_fos3
 Info (12128): Elaborating entity "altsyncram_fos3" for hierarchy "MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated"
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[0]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[1]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[2]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[3]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[4]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[5]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[6]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[7]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[8]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[9]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[10]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[11]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[12]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[13]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[14]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[15]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[0]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[1]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[2]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[3]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[4]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[5]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[6]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[7]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[8]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[9]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[10]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[11]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[12]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[13]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[14]" is permanently enabled
+Warning (14026): LATCH primitive "datapath:Unit1|alu:U3|alu_tmp[15]" is permanently enabled
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "ctrl_unit:Unit0|IR:U2|IRout[0]" merged with LATCH primitive "ctrl_unit:Unit0|IR:U2|dir_addr[0]"
     Info (13026): Duplicate LATCH primitive "ctrl_unit:Unit0|IR:U2|dir_addr[8]" merged with LATCH primitive "ctrl_unit:Unit0|IR:U2|IRout[8]"
@@ -724,19 +802,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "D_immd_bus[13]" is stuck at GND
     Warning (13410): Pin "D_immd_bus[14]" is stuck at GND
     Warning (13410): Pin "D_immd_bus[15]" is stuck at GND
+    Warning (13410): Pin "D_ALUs_s[2]" is stuck at GND
     Warning (13410): Pin "D_big_addr" is stuck at GND
 Info (17036): Removed 4 MSB VCC or GND address nodes from RAM block "MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated|ALTSYNCRAM"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1035 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1036 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 139 output pins
+    Info (21059): Implemented 140 output pins
     Info (21061): Implemented 878 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 514 megabytes
-    Info: Processing ended: Thu Mar 05 18:58:16 2015
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 521 megabytes
+    Info: Processing ended: Fri Mar 06 13:39:08 2015
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:04
 
 
