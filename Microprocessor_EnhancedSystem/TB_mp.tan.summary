@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.208 ns
+From           : cpu_rst
+To             : ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[2]
+From Clock     : --
+To Clock       : cpu_clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.151 ns
+From           : ctrl_unit:Unit0|controller:U0|oe_ctrl
+To             : cpu_output[4]
+From Clock     : cpu_clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.689 ns
+From           : cpu_rst
+To             : ctrl_unit:Unit0|controller:U0|RFr2e_ctrl
+From Clock     : --
+To Clock       : cpu_clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'cpu_clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 33.11 MHz ( period = 30.206 ns )
+From           : ctrl_unit:Unit0|IR:U2|IRout[9]
+To             : memory:Unit2|data_out[14]
+From Clock     : cpu_clk
+To Clock       : cpu_clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'cpu_clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : memory:Unit2|data_out[12]
+To             : ctrl_unit:Unit0|IR:U2|IRout[12]
+From Clock     : cpu_clk
+To Clock       : cpu_clk
+Failed Paths   : 16
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 16
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'cpu_clk'
+Slack : -6.381
+TNS   : -1659.710
+
+Type  : Slow 1200mV 85C Model Setup 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : -1.681
+TNS   : -22.145
+
+Type  : Slow 1200mV 85C Model Hold 'cpu_clk'
+Slack : -2.138
+TNS   : -2.138
+
+Type  : Slow 1200mV 85C Model Hold 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'cpu_clk'
+Slack : -0.683
+TNS   : -10.928
+
+Type  : Slow 1200mV 85C Model Removal 'cpu_clk'
+Slack : 1.197
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu_clk'
+Slack : -3.000
+TNS   : -546.445
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'cpu_clk'
+Slack : -5.716
+TNS   : -1482.648
+
+Type  : Slow 1200mV 0C Model Setup 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : -1.589
+TNS   : -20.961
+
+Type  : Slow 1200mV 0C Model Hold 'cpu_clk'
+Slack : -1.931
+TNS   : -1.931
+
+Type  : Slow 1200mV 0C Model Hold 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : 0.550
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'cpu_clk'
+Slack : -0.512
+TNS   : -8.192
+
+Type  : Slow 1200mV 0C Model Removal 'cpu_clk'
+Slack : 1.103
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu_clk'
+Slack : -3.000
+TNS   : -545.565
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'cpu_clk'
+Slack : -2.572
+TNS   : -646.153
+
+Type  : Fast 1200mV 0C Model Setup 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : -0.563
+TNS   : -6.526
+
+Type  : Fast 1200mV 0C Model Hold 'cpu_clk'
+Slack : -1.212
+TNS   : -1.212
+
+Type  : Fast 1200mV 0C Model Hold 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : 0.395
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'cpu_clk'
+Slack : 0.150
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'cpu_clk'
+Slack : 0.558
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu_clk'
+Slack : -3.000
+TNS   : -429.763
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+Slack : 0.353
+TNS   : 0.000
+
+------------------------------------------------------------

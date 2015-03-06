@@ -1,0 +1,74 @@
+Quartus II Archive log --	F:/ECG/Digital design/Simple_Microprocessor.qarlog
+
+Archive:	F:/ECG/Digital design/Simple_Microprocessor.qar
+Date:		Thu Dec 10 10:58:07 2009
+Quartus II 64-Bit		8.0 Build 231 07/10/2008 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+F:/ECG/Digital design/Microprocessor/IR.vhd
+F:/ECG/Digital design/Microprocessor/MP_lib.vhd
+F:/ECG/Digital design/Microprocessor/Memory1.vhd
+F:/ECG/Digital design/Microprocessor/PC.vhd
+F:/ECG/Digital design/Microprocessor/TB_mp.asm.rpt
+F:/ECG/Digital design/Microprocessor/TB_mp.asm.rpt.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.done
+F:/ECG/Digital design/Microprocessor/TB_mp.fit.eqn
+F:/ECG/Digital design/Microprocessor/TB_mp.fit.eqn.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.fit.rpt
+F:/ECG/Digital design/Microprocessor/TB_mp.fit.rpt.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.fit.smsg
+F:/ECG/Digital design/Microprocessor/TB_mp.fit.summary
+F:/ECG/Digital design/Microprocessor/TB_mp.flow.rpt
+F:/ECG/Digital design/Microprocessor/TB_mp.flow.rpt.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.map.eqn
+F:/ECG/Digital design/Microprocessor/TB_mp.map.eqn.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.map.rpt
+F:/ECG/Digital design/Microprocessor/TB_mp.map.rpt.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.map.summary
+F:/ECG/Digital design/Microprocessor/TB_mp.pin
+F:/ECG/Digital design/Microprocessor/TB_mp.pof
+F:/ECG/Digital design/Microprocessor/TB_mp.qsf
+F:/ECG/Digital design/Microprocessor/TB_mp.sim.rpt
+F:/ECG/Digital design/Microprocessor/TB_mp.sim.rpt.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.sof
+F:/ECG/Digital design/Microprocessor/TB_mp.tan.rpt
+F:/ECG/Digital design/Microprocessor/TB_mp.tan.rpt.htm
+F:/ECG/Digital design/Microprocessor/TB_mp.tan.summary
+F:/ECG/Digital design/Microprocessor/TB_mp.vhd
+F:/ECG/Digital design/Microprocessor/TB_mp.vwf
+F:/ECG/Digital design/Microprocessor/TestControlUnit.vwf
+F:/ECG/Digital design/Microprocessor/TestController.vwf
+F:/ECG/Digital design/Microprocessor/TestControllerTiming.vwf
+F:/ECG/Digital design/Microprocessor/TestMicroprocessor.vwf
+F:/ECG/Digital design/Microprocessor/alu.vhd
+F:/ECG/Digital design/Microprocessor/bigmux.vhd
+F:/ECG/Digital design/Microprocessor/controller.vhd
+F:/ECG/Digital design/Microprocessor/ctrl_unit.vhd
+F:/ECG/Digital design/Microprocessor/datapath.vhd
+F:/ECG/Digital design/Microprocessor/db/TB_mp.cbx.xml
+F:/ECG/Digital design/Microprocessor/db/TB_mp.qpf
+F:/ECG/Digital design/Microprocessor/db/TB_mp.sim_ori.vwf
+F:/ECG/Digital design/Microprocessor/db/mux_3nc.tdf
+F:/ECG/Digital design/Microprocessor/db/mux_dqc.tdf
+F:/ECG/Digital design/Microprocessor/db/mux_joc.tdf
+F:/ECG/Digital design/Microprocessor/db/mux_ooc.tdf
+F:/ECG/Digital design/Microprocessor/db/mux_umc.tdf
+F:/ECG/Digital design/Microprocessor/memory.vhd
+F:/ECG/Digital design/Microprocessor/memory.vwf
+F:/ECG/Digital design/Microprocessor/microprocessor.vhd
+F:/ECG/Digital design/Microprocessor/obuf.vhd
+F:/ECG/Digital design/Microprocessor/reg_file.vhd
+F:/ECG/Digital design/Microprocessor/serv_req_info.txt
+F:/ECG/Digital design/Microprocessor/smallmux.vhd
+F:/ECG/Digital design/Microprocessor/undo_redo.txt
+c:/altera/80/quartus/bin64/assignment_defaults.qdf
+	======= Total: 57 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Tue Jan 12 23:53:26 2010
+Source archive file:	E:/Eduardo/Courses/CMPE2213/Project/Pool of solved projects/Microprocessor/Simple_Microprocessor.qar
+Archive was extracted into	E:/Eduardo/Courses/CMPE2213/Project/Pool of solved projects/Microprocessor
+		 - successfully.

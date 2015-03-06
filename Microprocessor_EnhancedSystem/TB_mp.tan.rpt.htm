@@ -1,0 +1,3425 @@
+<HTML>
+
+<HEAD>
+<TITLE>Classic Timing Analyzer report for TB_mp</TITLE>
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+
+<CENTER>
+<H1>Classic Timing Analyzer report for TB_mp</H1>
+<H3>Tue Dec 01 09:39:56 2009<BR>
+Quartus II Version 8.0 Build 231 07/10/2008 Service Pack 1 SJ Full Version</H3>
+</CENTER>
+
+<P><HR></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Table of Contents</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<OL>
+<LI><A HREF="#1">Legal Notice</A></LI>
+<LI><A HREF="#2">Timing Analyzer Summary</A></LI>
+<LI><A HREF="#3">Timing Analyzer Settings</A></LI>
+<LI><A HREF="#4">Clock Settings Summary</A></LI>
+<LI><A HREF="#5">Clock Setup: 'cpu_clk'</A></LI>
+<LI><A HREF="#6">Clock Hold: 'cpu_clk'</A></LI>
+<LI><A HREF="#7">tsu</A></LI>
+<LI><A HREF="#8">tco</A></LI>
+<LI><A HREF="#9">th</A></LI>
+<LI><A HREF="#10">Timing Analyzer Messages</A></LI>
+</OL>
+
+<P><A NAME="1"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Legal Notice</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<PRE>Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+</PRE>
+
+<P><A NAME="2"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Timing Analyzer Summary</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Type</TH>
+<TH>Slack</TH>
+<TH>Required Time</TH>
+<TH>Actual Time</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>From Clock</TH>
+<TH>To Clock</TH>
+<TH>Failed Paths</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Worst-case tsu</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">5.658 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[0]</TD>
+<TD ALIGN="LEFT">--</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">0</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Worst-case tco</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.837 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">--</TD>
+<TD ALIGN="LEFT">0</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Worst-case th</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.176 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2e_ctrl</TD>
+<TD ALIGN="LEFT">--</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">0</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Clock Setup: 'cpu_clk'</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">35.81 MHz ( period = 27.928 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">0</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Clock Hold: 'cpu_clk'</TD>
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[12]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">16</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Total number of failed paths</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">16</TD>
+</TR>
+</TABLE>
+<P><A NAME="3"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Timing Analyzer Settings</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Option</TH>
+<TH>Setting</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>Entity Name</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Device Name</TD>
+<TD ALIGN="LEFT">EP2C35F672C6</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Timing Models</TD>
+<TD ALIGN="LEFT">Final</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Default hold multicycle</TD>
+<TD ALIGN="LEFT">Same as Multicycle</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Cut paths between unrelated clock domains</TD>
+<TD ALIGN="LEFT">On</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Cut off read during write signal paths</TD>
+<TD ALIGN="LEFT">On</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Cut off feedback from I/O pins</TD>
+<TD ALIGN="LEFT">On</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Report Combined Fast/Slow Timing</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Ignore Clock Settings</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Analyze latches as synchronous elements</TD>
+<TD ALIGN="LEFT">On</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Enable Recovery/Removal analysis</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Enable Clock Latency</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Use TimeQuest Timing Analyzer</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Number of source nodes to report per destination node</TD>
+<TD ALIGN="LEFT">10</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Number of destination nodes to report</TD>
+<TD ALIGN="LEFT">10</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Number of paths to report</TD>
+<TD ALIGN="LEFT">200</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Report Minimum Timing Checks</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Use Fast Timing Models</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Report IO Paths Separately</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Perform Multicorner Analysis</TD>
+<TD ALIGN="LEFT">On</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Reports the worst-case path for each clock domain and analysis</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Removes common clock path pessimism (CCPP) during slack computation</TD>
+<TD ALIGN="LEFT">Off</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+<P><A NAME="4"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Clock Settings Summary</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Clock Node Name</TH>
+<TH>Clock Setting Name</TH>
+<TH>Type</TH>
+<TH>Fmax Requirement</TH>
+<TH>Early Latency</TH>
+<TH>Late Latency</TH>
+<TH>Based on</TH>
+<TH>Multiply Base Fmax by</TH>
+<TH>Divide Base Fmax by</TH>
+<TH>Offset</TH>
+<TH>Phase offset</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">User Pin</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">0.000 ns</TD>
+<TD ALIGN="LEFT">0.000 ns</TD>
+<TD ALIGN="LEFT">--</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+<P><A NAME="5"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Clock Setup: 'cpu_clk'</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Slack</TH>
+<TH>Actual fmax (period)</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>From Clock</TH>
+<TH>To Clock</TH>
+<TH>Required Setup Relationship</TH>
+<TH>Required Longest P2P Time</TH>
+<TH>Actual Longest P2P Time</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">35.81 MHz ( period = 27.928 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">10.091 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.47 MHz ( period = 27.418 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.755 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.49 MHz ( period = 27.402 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.756 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.49 MHz ( period = 27.402 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.829 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.63 MHz ( period = 27.298 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.776 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.74 MHz ( period = 27.218 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.666 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.75 MHz ( period = 27.214 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.733 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">36.87 MHz ( period = 27.124 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.699 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.02 MHz ( period = 27.010 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.652 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.14 MHz ( period = 26.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.581 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.26 MHz ( period = 26.840 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.453 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.26 MHz ( period = 26.836 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.575 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.666 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.473 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.50 MHz ( period = 26.664 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.372 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.63 MHz ( period = 26.578 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.351 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.70 MHz ( period = 26.526 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.292 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.77 MHz ( period = 26.476 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.384 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.82 MHz ( period = 26.444 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.335 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.86 MHz ( period = 26.412 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.353 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.86 MHz ( period = 26.412 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.232 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.88 MHz ( period = 26.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.319 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.93 MHz ( period = 26.366 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.225 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">37.95 MHz ( period = 26.352 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.313 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.02 MHz ( period = 26.302 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.307 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.03 MHz ( period = 26.292 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.299 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.05 MHz ( period = 26.284 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.202 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.06 MHz ( period = 26.276 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.300 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.10 MHz ( period = 26.244 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.273 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.26 MHz ( period = 26.140 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.211 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.27 MHz ( period = 26.128 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.198 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.33 MHz ( period = 26.092 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.210 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.36 MHz ( period = 26.068 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.180 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.37 MHz ( period = 26.064 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.176 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.39 MHz ( period = 26.046 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.165 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.41 MHz ( period = 26.038 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.170 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.43 MHz ( period = 26.020 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.127 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.44 MHz ( period = 26.012 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.130 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.46 MHz ( period = 26.000 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.055 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.50 MHz ( period = 25.976 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[4]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.136 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.51 MHz ( period = 25.966 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.105 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.53 MHz ( period = 25.954 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[3]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.965 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.985 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.112 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.57 MHz ( period = 25.926 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.985 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.59 MHz ( period = 25.916 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.078 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.62 MHz ( period = 25.890 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.069 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.63 MHz ( period = 25.886 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.091 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.63 MHz ( period = 25.884 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.062 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.64 MHz ( period = 25.880 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.093 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.66 MHz ( period = 25.864 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.093 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.72 MHz ( period = 25.824 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.029 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.74 MHz ( period = 25.816 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.75 MHz ( period = 25.804 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.042 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.77 MHz ( period = 25.796 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.960 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.80 MHz ( period = 25.772 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.017 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.83 MHz ( period = 25.754 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.012 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.88 MHz ( period = 25.720 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.013 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.88 MHz ( period = 25.718 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.011 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.89 MHz ( period = 25.716 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.992 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.89 MHz ( period = 25.714 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.997 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.90 MHz ( period = 25.708 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.972 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.93 MHz ( period = 25.684 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.984 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.95 MHz ( period = 25.676 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.989 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.96 MHz ( period = 25.668 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.972 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">38.99 MHz ( period = 25.650 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.883 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.02 MHz ( period = 25.628 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.956 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.03 MHz ( period = 25.622 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.964 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.03 MHz ( period = 25.622 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[4]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.948 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.06 MHz ( period = 25.602 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.936 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.06 MHz ( period = 25.602 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[4]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.918 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.08 MHz ( period = 25.586 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.935 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.11 MHz ( period = 25.568 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.895 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.11 MHz ( period = 25.568 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.895 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.15 MHz ( period = 25.542 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.918 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.15 MHz ( period = 25.542 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.915 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.914 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.538 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[137][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.916 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.16 MHz ( period = 25.534 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.895 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.17 MHz ( period = 25.532 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.875 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.21 MHz ( period = 25.504 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.887 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.21 MHz ( period = 25.502 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.912 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.23 MHz ( period = 25.488 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.24 MHz ( period = 25.482 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[4]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.863 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.29 MHz ( period = 25.452 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.874 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.29 MHz ( period = 25.452 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.895 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.30 MHz ( period = 25.446 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.825 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.30 MHz ( period = 25.446 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.825 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.836 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.37 MHz ( period = 25.400 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.850 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.39 MHz ( period = 25.388 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.847 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.39 MHz ( period = 25.384 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.836 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.42 MHz ( period = 25.366 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.806 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.42 MHz ( period = 25.366 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.806 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.42 MHz ( period = 25.366 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.806 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.42 MHz ( period = 25.366 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.806 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.44 MHz ( period = 25.358 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.819 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.44 MHz ( period = 25.358 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.800 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.44 MHz ( period = 25.358 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.799 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.48 MHz ( period = 25.330 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.825 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.50 MHz ( period = 25.314 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.798 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.52 MHz ( period = 25.306 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.784 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.54 MHz ( period = 25.294 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.776 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.55 MHz ( period = 25.286 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.776 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.280 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[4]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[15]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.793 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][15]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.56 MHz ( period = 25.278 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[167][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.685 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.61 MHz ( period = 25.246 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.755 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.62 MHz ( period = 25.240 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.769 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.63 MHz ( period = 25.234 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.660 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.63 MHz ( period = 25.234 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.660 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.63 MHz ( period = 25.234 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.660 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.63 MHz ( period = 25.234 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[90][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.660 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.64 MHz ( period = 25.230 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[15]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.780 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.67 MHz ( period = 25.210 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.759 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.71 MHz ( period = 25.184 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.742 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.71 MHz ( period = 25.184 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[3]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.567 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.74 MHz ( period = 25.164 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.633 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.75 MHz ( period = 25.158 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[183][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.746 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.77 MHz ( period = 25.144 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.692 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">39.79 MHz ( period = 25.132 ns )</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">memory:Unit2|tmp_ram[141][2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.693 ns</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">Timing analysis restricted to 200 rows.</TD>
+<TD ALIGN="LEFT">To change the limit use Settings (Assignments menu)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+<P><A NAME="6"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Clock Hold: 'cpu_clk'</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Minimum Slack</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>From Clock</TH>
+<TH>To Clock</TH>
+<TH>Required Hold Relationship</TH>
+<TH>Required Shortest P2P Time</TH>
+<TH>Actual Shortest P2P Time</TH>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[12]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">0.590 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.020 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.271 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.311 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.358 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.526 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.744 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.737 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.748 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.927 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.912 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.890 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.062 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[7]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|dir_addr[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.102 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[15]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[15]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.253 ns</TD>
+</TR>
+<TR valign="middle" style="color: RED">
+<TD ALIGN="LEFT">Not operational: Clock Skew > Data Delay</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|IR:U2|IRout[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.314 ns</TD>
+</TR>
+</TABLE>
+<P><A NAME="7"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>tsu</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Slack</TH>
+<TH>Required tsu</TH>
+<TH>Actual tsu</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>To Clock</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">5.658 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">5.658 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">3.403 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.371 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.354 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.329 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.329 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">2.329 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.652 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.652 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.652 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.642 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.406 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|ALUs_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.406 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1e_ctrl</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.406 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|ALUs_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">1.406 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2e_ctrl</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+</TABLE>
+<P><A NAME="8"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>tco</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Slack</TH>
+<TH>Required tco</TH>
+<TH>Actual tco</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>From Clock</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.837 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.812 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.769 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.744 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">9.520 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.962 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.925 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.925 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.924 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.857 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[2]</TD>
+<TD ALIGN="LEFT">cpu_output[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.789 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[15]</TD>
+<TD ALIGN="LEFT">cpu_output[15]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.733 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.720 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.635 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[4]</TD>
+<TD ALIGN="LEFT">cpu_output[4]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.625 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[8]</TD>
+<TD ALIGN="LEFT">cpu_output[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.474 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.412 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[6]</TD>
+<TD ALIGN="LEFT">cpu_output[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.408 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[11]</TD>
+<TD ALIGN="LEFT">cpu_output[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.362 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[0]</TD>
+<TD ALIGN="LEFT">cpu_output[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.254 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[11]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">8.048 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[8]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.932 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[3]</TD>
+<TD ALIGN="LEFT">cpu_output[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.791 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[5]</TD>
+<TD ALIGN="LEFT">cpu_output[5]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.790 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[12]</TD>
+<TD ALIGN="LEFT">cpu_output[12]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.788 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[7]</TD>
+<TD ALIGN="LEFT">cpu_output[7]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.759 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[15]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.749 ns</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|oe_ctrl</TD>
+<TD ALIGN="LEFT">cpu_output[6]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.631 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[13]</TD>
+<TD ALIGN="LEFT">cpu_output[13]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.468 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[14]</TD>
+<TD ALIGN="LEFT">cpu_output[14]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.455 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[10]</TD>
+<TD ALIGN="LEFT">cpu_output[10]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.417 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[9]</TD>
+<TD ALIGN="LEFT">cpu_output[9]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">7.363 ns</TD>
+<TD ALIGN="LEFT">memory:Unit2|data_out[1]</TD>
+<TD ALIGN="LEFT">cpu_output[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+</TABLE>
+<P><A NAME="9"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>th</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<TABLE BORDER="1" cellspacing="1" cellpadding="2">
+<TR valign="middle" bgcolor="#C0C0C0">
+<TH>Minimum Slack</TH>
+<TH>Required th</TH>
+<TH>Actual th</TH>
+<TH>From</TH>
+<TH>To</TH>
+<TH>To Clock</TH>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.176 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|ALUs_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.176 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1e_ctrl</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.176 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|ALUs_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.176 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2e_ctrl</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.412 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.422 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.422 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-1.422 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-2.099 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-2.099 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[3]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-2.099 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-2.124 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-2.141 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[2]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-3.173 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-5.428 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[1]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+<TR valign="middle">
+<TD ALIGN="LEFT">N/A</TD>
+<TD ALIGN="LEFT">None</TD>
+<TD ALIGN="LEFT">-5.428 ns</TD>
+<TD ALIGN="LEFT">cpu_rst</TD>
+<TD ALIGN="LEFT">ctrl_unit:Unit0|controller:U0|RFwa_ctrl[0]</TD>
+<TD ALIGN="LEFT">cpu_clk</TD>
+</TR>
+</TABLE>
+<P><A NAME="10"><HR></A></P>
+<TABLE WIDTH="100%" BORDER="0"><TR VALIGN="TOP">
+<TD><H2>Timing Analyzer Messages</H2></TD>
+<TD ALIGN="RIGHT"><A HREF="#top">Top</a></TD></TR></TABLE>
+<PRE>
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.0 Build 231 07/10/2008 Service Pack 1 SJ Full Version
+    Info: Processing started: Tue Dec 01 09:39:30 2009
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off TB_mp -c TB_mp --timing_analysis_only
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[13]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[14]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[15]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[12]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[3]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[11]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[1]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[9]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[7]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[10]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[5]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|IRout[8]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[6]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[2]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[4]" is a latch
+    Warning: Node "ctrl_unit:Unit0|IR:U2|dir_addr[0]" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "cpu_clk" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "ctrl_unit:Unit0|controller:U0|IRld_ctrl" as buffer
+Info: Clock "cpu_clk" has Internal fmax of 35.81 MHz between source register "ctrl_unit:Unit0|IR:U2|dir_addr[0]" and destination register "memory:Unit2|data_out[3]" (period= 27.928 ns)
+    Info: + Longest register to register delay is 10.091 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X35_Y21_N24; Fanout = 3; REG Node = 'ctrl_unit:Unit0|IR:U2|dir_addr[0]'
+        Info: 2: + IC(0.268 ns) + CELL(0.275 ns) = 0.543 ns; Loc. = LCCOMB_X35_Y21_N0; Fanout = 1; COMB Node = 'ctrl_unit:Unit0|bigmux:U3|Mux15~13'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.944 ns; Loc. = LCCOMB_X35_Y21_N18; Fanout = 535; COMB Node = 'ctrl_unit:Unit0|bigmux:U3|Mux15~14'
+        Info: 4: + IC(2.261 ns) + CELL(0.150 ns) = 3.355 ns; Loc. = LCCOMB_X25_Y17_N0; Fanout = 1; COMB Node = 'memory:Unit2|Mux12~1143'
+        Info: 5: + IC(0.660 ns) + CELL(0.150 ns) = 4.165 ns; Loc. = LCCOMB_X24_Y18_N24; Fanout = 1; COMB Node = 'memory:Unit2|Mux12~1144'
+        Info: 6: + IC(2.689 ns) + CELL(0.419 ns) = 7.273 ns; Loc. = LCCOMB_X32_Y21_N20; Fanout = 1; COMB Node = 'memory:Unit2|Mux12~1147'
+        Info: 7: + IC(0.258 ns) + CELL(0.275 ns) = 7.806 ns; Loc. = LCCOMB_X32_Y21_N6; Fanout = 1; COMB Node = 'memory:Unit2|Mux12~1150'
+        Info: 8: + IC(1.256 ns) + CELL(0.275 ns) = 9.337 ns; Loc. = LCCOMB_X40_Y22_N8; Fanout = 1; COMB Node = 'memory:Unit2|Mux12~1182'
+        Info: 9: + IC(0.251 ns) + CELL(0.419 ns) = 10.007 ns; Loc. = LCCOMB_X40_Y22_N16; Fanout = 1; COMB Node = 'memory:Unit2|Mux12~1183'
+        Info: 10: + IC(0.000 ns) + CELL(0.084 ns) = 10.091 ns; Loc. = LCFF_X40_Y22_N17; Fanout = 3; REG Node = 'memory:Unit2|data_out[3]'
+        Info: Total cell delay = 2.197 ns ( 21.77 % )
+        Info: Total interconnect delay = 7.894 ns ( 78.23 % )
+    Info: - Smallest clock skew is -3.909 ns
+        Info: + Shortest clock path from clock "cpu_clk" to destination register is 2.673 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 4462; COMB Node = 'cpu_clk~clkctrl'
+            Info: 3: + IC(1.019 ns) + CELL(0.537 ns) = 2.673 ns; Loc. = LCFF_X40_Y22_N17; Fanout = 3; REG Node = 'memory:Unit2|data_out[3]'
+            Info: Total cell delay = 1.536 ns ( 57.46 % )
+            Info: Total interconnect delay = 1.137 ns ( 42.54 % )
+        Info: - Longest clock path from clock "cpu_clk" to source register is 6.582 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+            Info: 2: + IC(1.294 ns) + CELL(0.787 ns) = 3.080 ns; Loc. = LCFF_X24_Y14_N9; Fanout = 2; REG Node = 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+            Info: 3: + IC(2.013 ns) + CELL(0.000 ns) = 5.093 ns; Loc. = CLKCTRL_G15; Fanout = 16; COMB Node = 'ctrl_unit:Unit0|controller:U0|IRld_ctrl~clkctrl'
+            Info: 4: + IC(1.339 ns) + CELL(0.150 ns) = 6.582 ns; Loc. = LCCOMB_X35_Y21_N24; Fanout = 3; REG Node = 'ctrl_unit:Unit0|IR:U2|dir_addr[0]'
+            Info: Total cell delay = 1.936 ns ( 29.41 % )
+            Info: Total interconnect delay = 4.646 ns ( 70.59 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 16 non-operational path(s) clocked by clock "cpu_clk" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "memory:Unit2|data_out[12]" and destination pin or register "ctrl_unit:Unit0|IR:U2|IRout[12]" for clock "cpu_clk" (Hold time is 3.064 ns)
+    Info: + Largest clock skew is 3.904 ns
+        Info: + Longest clock path from clock "cpu_clk" to destination register is 6.594 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+            Info: 2: + IC(1.294 ns) + CELL(0.787 ns) = 3.080 ns; Loc. = LCFF_X24_Y14_N9; Fanout = 2; REG Node = 'ctrl_unit:Unit0|controller:U0|IRld_ctrl'
+            Info: 3: + IC(2.013 ns) + CELL(0.000 ns) = 5.093 ns; Loc. = CLKCTRL_G15; Fanout = 16; COMB Node = 'ctrl_unit:Unit0|controller:U0|IRld_ctrl~clkctrl'
+            Info: 4: + IC(1.351 ns) + CELL(0.150 ns) = 6.594 ns; Loc. = LCCOMB_X32_Y22_N18; Fanout = 3; REG Node = 'ctrl_unit:Unit0|IR:U2|IRout[12]'
+            Info: Total cell delay = 1.936 ns ( 29.36 % )
+            Info: Total interconnect delay = 4.658 ns ( 70.64 % )
+        Info: - Shortest clock path from clock "cpu_clk" to source register is 2.690 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 4462; COMB Node = 'cpu_clk~clkctrl'
+            Info: 3: + IC(1.036 ns) + CELL(0.537 ns) = 2.690 ns; Loc. = LCFF_X32_Y22_N9; Fanout = 3; REG Node = 'memory:Unit2|data_out[12]'
+            Info: Total cell delay = 1.536 ns ( 57.10 % )
+            Info: Total interconnect delay = 1.154 ns ( 42.90 % )
+    Info: - Micro clock to output delay of source is 0.250 ns
+    Info: - Shortest register to register delay is 0.590 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X32_Y22_N9; Fanout = 3; REG Node = 'memory:Unit2|data_out[12]'
+        Info: 2: + IC(0.319 ns) + CELL(0.271 ns) = 0.590 ns; Loc. = LCCOMB_X32_Y22_N18; Fanout = 3; REG Node = 'ctrl_unit:Unit0|IR:U2|IRout[12]'
+        Info: Total cell delay = 0.271 ns ( 45.93 % )
+        Info: Total interconnect delay = 0.319 ns ( 54.07 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "ctrl_unit:Unit0|controller:U0|RFwa_ctrl[1]" (data pin = "cpu_rst", clock pin = "cpu_clk") is 5.658 ns
+    Info: + Longest pin to register delay is 8.359 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P1; Fanout = 8; PIN Node = 'cpu_rst'
+        Info: 2: + IC(2.193 ns) + CELL(0.275 ns) = 3.467 ns; Loc. = LCCOMB_X46_Y17_N16; Fanout = 4; COMB Node = 'ctrl_unit:Unit0|controller:U0|RFwa_ctrl[3]~68'
+        Info: 3: + IC(4.232 ns) + CELL(0.660 ns) = 8.359 ns; Loc. = LCFF_X35_Y21_N23; Fanout = 16; REG Node = 'ctrl_unit:Unit0|controller:U0|RFwa_ctrl[1]'
+        Info: Total cell delay = 1.934 ns ( 23.14 % )
+        Info: Total interconnect delay = 6.425 ns ( 76.86 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "cpu_clk" to destination register is 2.665 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 4462; COMB Node = 'cpu_clk~clkctrl'
+        Info: 3: + IC(1.011 ns) + CELL(0.537 ns) = 2.665 ns; Loc. = LCFF_X35_Y21_N23; Fanout = 16; REG Node = 'ctrl_unit:Unit0|controller:U0|RFwa_ctrl[1]'
+        Info: Total cell delay = 1.536 ns ( 57.64 % )
+        Info: Total interconnect delay = 1.129 ns ( 42.36 % )
+Info: tco from clock "cpu_clk" to destination pin "cpu_output[10]" through register "ctrl_unit:Unit0|controller:U0|oe_ctrl" is 9.837 ns
+    Info: + Longest clock path from clock "cpu_clk" to source register is 2.681 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 4462; COMB Node = 'cpu_clk~clkctrl'
+        Info: 3: + IC(1.027 ns) + CELL(0.537 ns) = 2.681 ns; Loc. = LCFF_X25_Y14_N23; Fanout = 17; REG Node = 'ctrl_unit:Unit0|controller:U0|oe_ctrl'
+        Info: Total cell delay = 1.536 ns ( 57.29 % )
+        Info: Total interconnect delay = 1.145 ns ( 42.71 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Longest register to pin delay is 6.906 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X25_Y14_N23; Fanout = 17; REG Node = 'ctrl_unit:Unit0|controller:U0|oe_ctrl'
+        Info: 2: + IC(4.244 ns) + CELL(2.662 ns) = 6.906 ns; Loc. = PIN_R17; Fanout = 0; PIN Node = 'cpu_output[10]'
+        Info: Total cell delay = 2.662 ns ( 38.55 % )
+        Info: Total interconnect delay = 4.244 ns ( 61.45 % )
+Info: th for register "ctrl_unit:Unit0|controller:U0|ALUs_ctrl[0]" (data pin = "cpu_rst", clock pin = "cpu_clk") is -1.176 ns
+    Info: + Longest clock path from clock "cpu_clk" to destination register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'cpu_clk'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 4462; COMB Node = 'cpu_clk~clkctrl'
+        Info: 3: + IC(1.018 ns) + CELL(0.537 ns) = 2.672 ns; Loc. = LCFF_X45_Y14_N29; Fanout = 34; REG Node = 'ctrl_unit:Unit0|controller:U0|ALUs_ctrl[0]'
+        Info: Total cell delay = 1.536 ns ( 57.49 % )
+        Info: Total interconnect delay = 1.136 ns ( 42.51 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 4.114 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P1; Fanout = 8; PIN Node = 'cpu_rst'
+        Info: 2: + IC(2.455 ns) + CELL(0.660 ns) = 4.114 ns; Loc. = LCFF_X45_Y14_N29; Fanout = 34; REG Node = 'ctrl_unit:Unit0|controller:U0|ALUs_ctrl[0]'
+        Info: Total cell delay = 1.659 ns ( 40.33 % )
+        Info: Total interconnect delay = 2.455 ns ( 59.67 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 178 megabytes
+    Info: Processing ended: Tue Dec 01 09:39:57 2009
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:00:03
+</PRE>
+<HR>
+
+<A HREF="#top">Top</A>
+
+</BODY>
+
+</HTML>
+
