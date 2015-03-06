@@ -21,6 +21,7 @@ constant OUTPUT_MEM  	: std_logic_vector(3 downto 0) := x"7";  -- "0111";
 CONSTANT LONG_LOAD		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"8";  -- "1000";
 CONSTANT LONG_SAVE		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"9";  -- "1001";
 CONSTANT REG_ADDR_LOAD  : STD_LOGIC_VECTOR(3 DOWNTO 0) := x"A";  -- "1010";
+CONSTANT MULT				: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"B";  -- "1011";
 constant HALT  			: std_logic_vector(3 downto 0) := x"F";  -- "1111";
 
 component alu is

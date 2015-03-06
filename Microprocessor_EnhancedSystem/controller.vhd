@@ -62,6 +62,7 @@ architecture fsm of controller is
 			
 			S_ADD,S_ADDa,S_ADDb,																			-- x"4" RF[r1]    <= RF[r1] + RF[r2]
 			S_SUBT,S_SUBTa,S_SUBTb,																		-- x"5" RF[r1]    <= RF[r1] - RF[r2]
+			S_MULT,S_MULTa,S_MULTb,																		-- x"B" RF[r1]    <= RF[r1] * RF[r2]
 			
 			S_JUMP_Z,S_JUMP_Za,S_JUMP_Zb,																-- x"6" JUMP->M[8bit direct] if RF[r1] = 0
 			
@@ -113,16 +114,19 @@ begin
 				state <= S_FETCH_INST_wait;
 			END IF;
 		when S_FETCH_INST_wait =>
+			cur_state <= x"F";
 			-- Need to wait until the memory has retrieved the data
 			IF(main_mem_status = '1') THEN
 				state <= S_FETCH_INSTa;
 			END IF;
 	  when S_FETCH_INSTa => 	
+			cur_state <= x"E";
 	        IRld_ctrl <= '0';
 	        PCinc_ctrl <= '1';
 	        Mre_ctrl <= '0';
 	  		state <= S_FETCH_INSTb;			-- Fetch end ...
-	  when S_FETCH_INSTb => 
+	  when S_FETCH_INSTb => 	
+			cur_state <= x"D";
 			PCinc_ctrl <= '0';
 		   state <= S_DECODE_INST;
 
@@ -143,6 +147,7 @@ begin
 				 
 			    when ADD 				=> state <= S_ADD;
 			    when SUBT 				=>	state <= S_SUBT;
+			    when MULT 				=>	state <= S_MULT;
 				 
 			    when JUMP_Z 			=>	state <= S_JUMP_Z;
 				 
@@ -380,8 +385,27 @@ begin
 			RFwa_ctrl <= IR_word(11 downto 8);
 			RFwe_ctrl <= '1';
 			state <= S_SUBTb;
-	  when S_SUBTb =>   state <= S_FETCH_INST;
-	  
+	  when S_SUBTb =>   
+			state <= S_FETCH_INST;
+
+	  when S_MULT =>	
+			cur_state <= x"B";
+			RFr1a_ctrl <= IR_word(7 downto 4);	
+			RFr1e_ctrl <= '1'; -- RF[r1] <= RF[r2] * RF[r3]
+			RFr2a_ctrl <= IR_word(3 downto 0);
+			RFr2e_ctrl <= '1';  
+			ALUs_ctrl <= "100";
+			state <= S_MULTa;
+	  when S_MULTa =>   
+			RFr1e_ctrl <= '0';
+			RFr2e_ctrl <= '0';
+			RFs_ctrl <= "00";
+			RFwa_ctrl <= IR_word(11 downto 8);
+			RFwe_ctrl <= '1';
+			state <= S_MULTb;
+	  when S_MULTb =>   
+			state <= S_FETCH_INST;
+
 	  when S_JUMP_Z =>	
 			cur_state <= x"9";
 			jmpen_ctrl <= '1';
