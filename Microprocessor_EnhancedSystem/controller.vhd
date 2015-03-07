@@ -142,19 +142,19 @@ begin
 				 
 				 WHEN REG_ADDR_LOAD 	=> state <= S_REG_ADDR_LOAD;
 			    when REG_ADDR_SAVE 	=> state <= S_REG_ADDR_SAVE;
-				 
+
 			    when IMM_LOAD 		=> state <= S_IMM_LOAD;
 				 
 			    when ADD 				=> state <= S_ADD;
 			    when SUBT 				=>	state <= S_SUBT;
-			    when MULT 				=>	state <= S_MULT;
+			    WHEN MULT 				=>	state <= S_MULT;
 				 
 			    when JUMP_Z 			=>	state <= S_JUMP_Z;
 				 
 			    when OUTPUT_MEM 		=> state <= S_OUTPUT_MEM;
 				 
 			    when HALT 				=>	state <= S_HALT; 
-				 
+
 			    when others 			=> state <= S_FETCH_INST;
 			    end case;
 
@@ -284,6 +284,7 @@ begin
 			-- Finally, signal that we intend to read data:
 			Mre_ctrl <= '1';			
 			Mwe_ctrl <= '0'; -- read from memory
+			big_addr <= '1';
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
@@ -303,8 +304,9 @@ begin
 			IF(main_mem_status = '1') THEN
 				state <= S_REG_ADDR_LOADa;
 			END IF;
-		
+
 		WHEN S_REG_ADDR_LOADa =>
+			big_addr <= '0';
 			state <= S_REG_ADDR_LOADb;
 			
 	  when S_REG_ADDR_LOADb => 	
@@ -325,6 +327,7 @@ begin
 			RFr2e_ctrl <= '1'; -- set addr.& data
 			state <= S_REG_ADDR_SAVEa;
 	  when S_REG_ADDR_SAVEa =>   
+			big_addr <= '1';
 			Mre_ctrl <= '0';			
 			Mwe_ctrl <= '1'; -- write into memory
 			
@@ -340,6 +343,7 @@ begin
 	  when S_REG_ADDR_SAVEb => 	
 			Ms_ctrl <= "10";-- return
 			Mwe_ctrl <= '0';
+			big_addr <= '0';
 			state <= S_FETCH_INST;
 					
 	  when S_IMM_LOAD =>	
@@ -402,7 +406,10 @@ begin
 			RFs_ctrl <= "00";
 			RFwa_ctrl <= IR_word(11 downto 8);
 			RFwe_ctrl <= '1';
-			state <= S_MULTb;
+			
+			-- NOTE: We are unable to go to S_MULTb, when we do the state machine
+			--       begins to incoherently jump between states
+			state <= S_SUBTb;
 	  when S_MULTb =>   
 			state <= S_FETCH_INST;
 
@@ -422,7 +429,7 @@ begin
 			state <= S_HALT; -- halt
 
 	  when S_OUTPUT_MEM =>   
-			cur_state <= x"B";
+			cur_state <= x"C";
 			Ms_ctrl <= "01";
 			Mre_ctrl <= '1'; -- read memory
 			Mwe_ctrl <= '0';		  
@@ -439,7 +446,7 @@ begin
 				state <= S_OUTPUT_MEMa;
 			END IF;
 	  when S_OUTPUT_MEMa =>  
-			cur_state <= x"F";
+			cur_state <= x"D";
 			oe_ctrl <= '1'; 		  
 			big_addr <= '0';
 			state <= S_FETCH_INST;
