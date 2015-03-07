@@ -67,7 +67,7 @@ port(
 	Mre_ctrl:	out std_logic;
 	Mwe_ctrl:	out std_logic;
 	oe_ctrl:	out std_logic;
-	cur_state : OUT STD_logic_vector(3 DOWNTO 0);
+	cur_state : OUT STD_logic_vector(7 DOWNTO 0);
 	big_addr  : OUT STD_LOGIC
 );
 end component;
@@ -170,7 +170,7 @@ port(
 	Mre_cu:		out std_logic;
 	Mwe_cu:		out std_logic;
 	oe_cu:		out std_logic;
-	cur_state : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	cur_state : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	big_addr  : OUT STD_LOGIC
 );
 end component;

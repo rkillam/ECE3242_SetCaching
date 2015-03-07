@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TB_mp
-Sat Mar 07 12:36:43 2015
+Sat Mar 07 14:05:01 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -29,9 +29,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
  21. lpm_mult Parameter Settings by Entity Instance
  22. Port Connectivity Checks: "MainMemory:Unit2"
  23. Port Connectivity Checks: "ctrl_unit:Unit0|bigmux:U3"
- 24. Port Connectivity Checks: "ctrl_unit:Unit0"
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -57,18 +56,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 07 12:36:43 2015            ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 07 14:05:01 2015            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; TB_mp                                            ;
 ; Top-level Entity Name              ; microprocessor                                   ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 903                                              ;
-;     Total combinational functions  ; 642                                              ;
-;     Dedicated logic registers      ; 384                                              ;
-; Total registers                    ; 384                                              ;
-; Total pins                         ; 142                                              ;
+; Total logic elements               ; 971                                              ;
+;     Total combinational functions  ; 708                                              ;
+;     Dedicated logic registers      ; 422                                              ;
+; Total registers                    ; 422                                              ;
+; Total pins                         ; 146                                              ;
 ; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 4,096                                            ;
+; Total memory bits                  ; 65,536                                           ;
 ; Embedded Multiplier 9-bit elements ; 2                                                ;
 ; Total PLLs                         ; 0                                                ;
 +------------------------------------+--------------------------------------------------+
@@ -222,29 +221,29 @@ applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 903           ;
+; Estimated Total logic elements              ; 971           ;
 ;                                             ;               ;
-; Total combinational functions               ; 642           ;
+; Total combinational functions               ; 708           ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 473           ;
-;     -- 3 input functions                    ; 101           ;
-;     -- <=2 input functions                  ; 68            ;
+;     -- 4 input functions                    ; 499           ;
+;     -- 3 input functions                    ; 99            ;
+;     -- <=2 input functions                  ; 110           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 611           ;
-;     -- arithmetic mode                      ; 31            ;
+;     -- normal mode                          ; 646           ;
+;     -- arithmetic mode                      ; 62            ;
 ;                                             ;               ;
-; Total registers                             ; 384           ;
-;     -- Dedicated logic registers            ; 384           ;
+; Total registers                             ; 422           ;
+;     -- Dedicated logic registers            ; 422           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 142           ;
-; Total memory bits                           ; 4096          ;
+; I/O pins                                    ; 146           ;
+; Total memory bits                           ; 65536         ;
 ; Embedded Multiplier 9-bit elements          ; 2             ;
 ; Maximum fan-out node                        ; cpu_clk~input ;
-; Maximum fan-out                             ; 415           ;
-; Total fan-out                               ; 4345          ;
-; Average fan-out                             ; 3.27          ;
+; Maximum fan-out                             ; 422           ;
+; Total fan-out                               ; 4685          ;
+; Average fan-out                             ; 3.25          ;
 +---------------------------------------------+---------------+
 
 
@@ -253,15 +252,15 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
-; |microprocessor                           ; 642 (1)           ; 384 (0)      ; 4096        ; 2            ; 0       ; 1         ; 142  ; 0            ; |microprocessor                                                                                 ; work         ;
-;    |MainMemory:Unit2|                     ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2                                                                ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component                                ; work         ;
-;          |altsyncram_fos3:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated ; work         ;
-;    |ctrl_unit:Unit0|                      ; 166 (0)           ; 96 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0                                                                 ; work         ;
+; |microprocessor                           ; 708 (1)           ; 422 (0)      ; 65536       ; 2            ; 0       ; 1         ; 146  ; 0            ; |microprocessor                                                                                 ; work         ;
+;    |MainMemory:Unit2|                     ; 50 (50)           ; 34 (34)      ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2                                                                ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component                                ; work         ;
+;          |altsyncram_fos3:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated ; work         ;
+;    |ctrl_unit:Unit0|                      ; 182 (0)           ; 100 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0                                                                 ; work         ;
 ;       |IR:U2|                             ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0|IR:U2                                                           ; work         ;
 ;       |PC:U1|                             ; 18 (18)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0|PC:U1                                                           ; work         ;
 ;       |bigmux:U3|                         ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0|bigmux:U3                                                       ; work         ;
-;       |controller:U0|                     ; 104 (104)         ; 80 (80)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0|controller:U0                                                   ; work         ;
+;       |controller:U0|                     ; 120 (120)         ; 84 (84)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|ctrl_unit:Unit0|controller:U0                                                   ; work         ;
 ;    |datapath:Unit1|                       ; 475 (0)           ; 288 (0)      ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |microprocessor|datapath:Unit1                                                                  ; work         ;
 ;       |alu:U3|                            ; 107 (107)         ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |microprocessor|datapath:Unit1|alu:U3                                                           ; work         ;
 ;          |lpm_mult:Mult0|                 ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |microprocessor|datapath:Unit1|alu:U3|lpm_mult:Mult0                                            ; work         ;
@@ -435,14 +434,14 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------+
-; Registers Removed During Synthesis                               ;
-+---------------------------------------------+--------------------+
-; Register name                               ; Reason for Removal ;
-+---------------------------------------------+--------------------+
-; ctrl_unit:Unit0|controller:U0|state.S_MULTb ; Lost fanout        ;
-; Total Number of Removed Registers = 1       ;                    ;
-+---------------------------------------------+--------------------+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------------+----------------------------------------+
+; Register name                                ; Reason for Removal                     ;
++----------------------------------------------+----------------------------------------+
+; ctrl_unit:Unit0|controller:U0|cur_state[6,7] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2        ;                                        ;
++----------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -450,12 +449,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 384   ;
+; Total registers                              ; 422   ;
 ; Number of registers using Synchronous Clear  ; 12    ;
 ; Number of registers using Synchronous Load   ; 16    ;
-; Number of registers using Asynchronous Clear ; 363   ;
+; Number of registers using Asynchronous Clear ; 364   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 337   ;
+; Number of registers using Clock Enable       ; 340   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -477,19 +476,19 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[12]            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[7]             ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |microprocessor|ctrl_unit:Unit0|PC:U1|tmp_PC[10]            ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|controller:U0|RFr2a_ctrl[3] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |microprocessor|ctrl_unit:Unit0|controller:U0|RFr1a_ctrl[3] ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr1[8]          ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr2[12]         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux2              ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux7              ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux14             ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux5             ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr1[11]         ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |microprocessor|datapath:Unit1|reg_file:U2|RFr2[0]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux3              ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux5              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|bigmux:U3|Mux13             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux7             ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|smallmux:U1|Mux8             ;
-; 1:1                ; 16 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|alu:U3|Mux4                  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |microprocessor|datapath:Unit1|alu:U3|Mux25                 ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|controller:U0|Selector38    ;
+; 1:1                ; 16 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |microprocessor|datapath:Unit1|alu:U3|Mux13                 ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |microprocessor|datapath:Unit1|alu:U3|Mux22                 ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |microprocessor|ctrl_unit:Unit0|controller:U0|Selector35    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
@@ -656,15 +655,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ctrl_unit:Unit0"                                                                        ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; big_addr ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -680,7 +670,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Mar 07 12:36:39 2015
+    Info: Processing started: Sat Mar 07 14:04:57 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TB_mp -c TB_mp
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file mainmemory.vhd
@@ -729,7 +719,6 @@ Info (12021): Found 2 design units, including 0 entities, in source file mp_lib.
     Info (12022): Found design unit 1: MP_lib
     Info (12022): Found design unit 2: MP_lib-body
 Info (12127): Elaborating entity "microprocessor" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at microprocessor.vhd(50): used implicit default value for signal "big_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "ctrl_unit" for hierarchy "ctrl_unit:Unit0"
 Info (12128): Elaborating entity "controller" for hierarchy "ctrl_unit:Unit0|controller:U0"
 Info (12128): Elaborating entity "PC" for hierarchy "ctrl_unit:Unit0|PC:U1"
@@ -810,6 +799,7 @@ Info (10041): Inferred latch for "alu_tmp[14]" at alu.vhd(33)
 Info (10041): Inferred latch for "alu_tmp[15]" at alu.vhd(33)
 Info (12128): Elaborating entity "obuf" for hierarchy "datapath:Unit1|obuf:U4"
 Info (12128): Elaborating entity "MainMemory" for hierarchy "MainMemory:Unit2"
+Warning (10492): VHDL Process Statement warning at MainMemory.vhd(74): signal "clk_8th" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "altsyncram" for hierarchy "MainMemory:Unit2|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "MainMemory:Unit2|altsyncram:altsyncram_component"
 Info (12133): Instantiated megafunction "MainMemory:Unit2|altsyncram:altsyncram_component" with the following parameter:
@@ -937,21 +927,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "D_immd_bus[13]" is stuck at GND
     Warning (13410): Pin "D_immd_bus[14]" is stuck at GND
     Warning (13410): Pin "D_immd_bus[15]" is stuck at GND
-    Warning (13410): Pin "D_big_addr" is stuck at GND
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 4 MSB VCC or GND address nodes from RAM block "MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated|ALTSYNCRAM"
+    Warning (13410): Pin "D_cur_state[6]" is stuck at GND
+    Warning (13410): Pin "D_cur_state[7]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1079 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1151 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 140 output pins
-    Info (21061): Implemented 919 logic cells
+    Info (21059): Implemented 144 output pins
+    Info (21061): Implemented 987 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 2 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 48 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 49 warnings
     Info: Peak virtual memory: 525 megabytes
-    Info: Processing ended: Sat Mar 07 12:36:43 2015
+    Info: Processing ended: Sat Mar 07 14:05:01 2015
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
 
 
