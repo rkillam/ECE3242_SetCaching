@@ -1,0 +1,33 @@
+-- Compute C = A - B
+
+-- Has hard coded array starting and ending addresses
+
+-- A = x"50" -> x"46"
+-- B = x"47" -> x"5B"
+-- C = x"5C" -> x"70"
+
+3601	-- R6 = 1
+
+3032	-- R0 = starting address of A
+3147	-- R1 = starting address of B
+325C	-- R2 = starting address of C
+
+A300	-- R3 = M[R0]	START_LOOP
+A410	-- R4 = M[R1]
+
+5534	-- R5 = M[R1] - M[R2]
+2250	-- M[R2] = R5
+
+4006	-- R0 = R0 + R6
+4116	-- R1 = R1 + R6
+4226	-- R2 = R2 + R6
+
+0770	-- R7 = M[70]  (End of C)
+67??	-- IF R7 == 0 THEN goto START_LOOP
+
+703A	-- print(M[05A])
+703B	-- print(M[05B])
+703C	-- print(M[05C])
+703D	-- print(M[05D])
+
+F000	-- HALT

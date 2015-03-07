@@ -21,6 +21,7 @@ constant OUTPUT_MEM  	: std_logic_vector(3 downto 0) := x"7";  -- "0111";
 CONSTANT LONG_LOAD		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"8";  -- "1000";
 CONSTANT LONG_SAVE		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"9";  -- "1001";
 CONSTANT REG_ADDR_LOAD  : STD_LOGIC_VECTOR(3 DOWNTO 0) := x"A";  -- "1010";
+CONSTANT MULT				: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"B";  -- "1011";
 constant HALT  			: std_logic_vector(3 downto 0) := x"F";  -- "1111";
 
 component alu is
@@ -66,7 +67,7 @@ port(
 	Mre_ctrl:	out std_logic;
 	Mwe_ctrl:	out std_logic;
 	oe_ctrl:	out std_logic;
-	cur_state : OUT STD_logic_vector(3 DOWNTO 0);
+	cur_state : OUT STD_logic_vector(7 DOWNTO 0);
 	big_addr  : OUT STD_LOGIC
 );
 end component;
@@ -169,7 +170,7 @@ port(
 	Mre_cu:		out std_logic;
 	Mwe_cu:		out std_logic;
 	oe_cu:		out std_logic;
-	cur_state : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	cur_state : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	big_addr  : OUT STD_LOGIC
 );
 end component;

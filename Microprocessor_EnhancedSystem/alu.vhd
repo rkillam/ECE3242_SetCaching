@@ -40,7 +40,7 @@ begin
 		  WHEN "100" => 
 				mult_result <= num_A * num_B;
 				alu_tmp <= mult_result(15 DOWNTO 0);
-				
+
 		  when others =>
 	    end case; 					  
 	end process;

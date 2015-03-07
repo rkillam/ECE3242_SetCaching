@@ -27,7 +27,7 @@ port(
 		D_ALUs_s: out std_logic_vector(2 downto 0);
 		D_RFs_s: out std_logic_vector(1 downto 0);
 		D_PCld_s, D_Mre_s, D_Mwe_s, D_jpz_s, D_oe_s: out std_logic;
-		D_cur_state : OUT STD_logic_vector(3 DOWNTO 0);
+		D_cur_state : OUT STD_logic_vector(7 DOWNTO 0);
 		
 		D_big_addr : OUT STD_LOGIC;
 		D_main_mem_status : OUT STD_LOGIC;
@@ -51,7 +51,7 @@ SIGNAL big_addr : STD_LOGIC;
 SIGNAL main_mem_status : STD_LOGIC;
 
 -- Debug signals
-SIGNAL cur_state : STD_logic_vector(3 DOWNTO 0);
+SIGNAL cur_state : STD_logic_vector(7 DOWNTO 0);
 SIGNAL main_mem_clk : STD_LOGIC;
 -- End debug signals
 
@@ -80,7 +80,8 @@ begin
 		Mre_s,
 		Mwe_s,
 		oe_s,
-		cur_state
+		cur_state,
+		big_addr
 	);
 	Unit1: datapath port map(	cpu_clk,cpu_rst,immd_bus,mdout_bus,
 								RFs_s,RFwa_s,RFr1a_s,RFr2a_s,RFwe_s,RFr1e_s,

@@ -35,7 +35,7 @@ port(
 	Mre_cu:		out std_logic;
 	Mwe_cu:		out std_logic;
 	oe_cu:		out std_logic;
-	cur_state : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	cur_state : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	big_addr  : OUT STD_LOGIC
 );
 end ctrl_unit;
