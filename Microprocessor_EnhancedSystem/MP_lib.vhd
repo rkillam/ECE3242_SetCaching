@@ -139,7 +139,10 @@ port ( 	clock	: 	in std_logic;
 	RFr2a	: 	in std_logic_vector(3 downto 0);
 	RFw	: 	in std_logic_vector(15 downto 0);
 	RFr1	: 	out std_logic_vector(15 downto 0);
-	RFr2	:	out std_logic_vector(15 downto 0)
+	RFr2	:	out std_logic_vector(15 downto 0);
+	
+	-- Register debug lines
+	D_rf : OUT rf_type
 );
 end component;
 
@@ -200,7 +203,10 @@ port(
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0);
-	bufout_dp:	out 	std_logic_vector(15 downto 0)
+	bufout_dp:	out 	std_logic_vector(15 downto 0);
+	
+	-- Register debug lines
+	D_rf : OUT rf_type
 );
 end component;
 

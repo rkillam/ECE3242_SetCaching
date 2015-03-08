@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TB_mp
-Sat Mar 07 20:07:44 2015
+Sat Mar 07 20:45:47 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -55,7 +55,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 07 20:07:44 2015            ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 07 20:45:47 2015            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; TB_mp                                            ;
 ; Top-level Entity Name              ; microprocessor                                   ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 668                                              ;
 ;     Dedicated logic registers      ; 392                                              ;
 ; Total registers                    ; 392                                              ;
-; Total pins                         ; 146                                              ;
+; Total pins                         ; 402                                              ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 65,536                                           ;
 ; Embedded Multiplier 9-bit elements ; 2                                                ;
@@ -236,13 +236,13 @@ applicable agreement for further details.
 ;     -- Dedicated logic registers            ; 392           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 146           ;
+; I/O pins                                    ; 402           ;
 ; Total memory bits                           ; 65536         ;
 ; Embedded Multiplier 9-bit elements          ; 2             ;
 ; Maximum fan-out node                        ; cpu_clk~input ;
 ; Maximum fan-out                             ; 423           ;
-; Total fan-out                               ; 4545          ;
-; Average fan-out                             ; 3.32          ;
+; Total fan-out                               ; 5057          ;
+; Average fan-out                             ; 2.69          ;
 +---------------------------------------------+---------------+
 
 
@@ -251,7 +251,7 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
-; |microprocessor                           ; 668 (1)           ; 392 (0)      ; 65536       ; 2            ; 0       ; 1         ; 146  ; 0            ; |microprocessor                                                                                 ; work         ;
+; |microprocessor                           ; 668 (1)           ; 392 (0)      ; 65536       ; 2            ; 0       ; 1         ; 402  ; 0            ; |microprocessor                                                                                 ; work         ;
 ;    |MainMemory:Unit2|                     ; 4 (4)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2                                                                ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component                                ; work         ;
 ;          |altsyncram_fos3:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component|altsyncram_fos3:auto_generated ; work         ;
@@ -662,7 +662,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Mar 07 20:07:41 2015
+    Info: Processing started: Sat Mar 07 20:45:43 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TB_mp -c TB_mp
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file mainmemory.vhd
@@ -753,6 +753,7 @@ Info (12128): Elaborating entity "bigmux" for hierarchy "ctrl_unit:Unit0|bigmux:
 Info (12128): Elaborating entity "datapath" for hierarchy "datapath:Unit1"
 Info (12128): Elaborating entity "smallmux" for hierarchy "datapath:Unit1|smallmux:U1"
 Info (12128): Elaborating entity "reg_file" for hierarchy "datapath:Unit1|reg_file:U2"
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(43): signal "tmp_rf" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "alu" for hierarchy "datapath:Unit1|alu:U3"
 Warning (10492): VHDL Process Statement warning at alu.vhd(42): signal "mult_result" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10631): VHDL Process Statement warning at alu.vhd(33): inferring latch(es) for signal or variable "alu_tmp", which holds its previous value in one or more paths through the process
@@ -916,16 +917,16 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "D_immd_bus[15]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1114 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1370 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 144 output pins
+    Info (21059): Implemented 400 output pins
     Info (21061): Implemented 950 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 2 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 42 warnings
-    Info: Peak virtual memory: 529 megabytes
-    Info: Processing ended: Sat Mar 07 20:07:44 2015
-    Info: Elapsed time: 00:00:03
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 522 megabytes
+    Info: Processing ended: Sat Mar 07 20:45:47 2015
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 
 
