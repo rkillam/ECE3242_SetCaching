@@ -1,33 +1,79 @@
 -- Compute C = A - B
+ 
+-- row = x"04F8"
+-- col = x"04F9"
+-- A = x"0500"                   -> x"0500" + (row * col)
+-- B = x"0500" + (row * col)     -> x"0500" + (row * col * 2)
+-- C = x"0500" + (row * col * 2) -> x"0500" + (row * col * 3)
+ 
+C4F8	-- R0 <= x"4F8" Row size address
+A100	-- R1 <= M[R0]  Row size
+ 
+C4F9	-- R0 <= x"4F9" Col size address
+A200	-- R2 <= M[R0]  Col size
 
--- Has hard coded array starting and ending addresses
+B112	-- R1 <= R1 * R2   Matrix size
+ 
+C500	-- R0 <= x"500" Starting address of Matrix A
+3200	-- R2 <= 0
+4200	-- R2 <= R0 + R2
+ 
+4301	-- R3 <= R0 + R1 x"0500" + (row * col) Starting address of Matrix B
+ 
+4401	-- R4 <= R0 + R1 x"0500" + (row * col)
+4441	-- R4 <= R4 + R1 (x"0500" + (row * col)) + (row * col) Starting Matrix of C
+ 
+3700	-- R7 <= 0
+3801	-- R8 <= 1
+ 
+3A00	-- RA <= 0
+4AA4	-- RA <= RA + R4
+ 
+-- Now: R0 is accumulator
+--		R1 holds matrix size
+--      R2 holds starting address of matrix A
+--      R3 holds starting address of matrix B
+--      R4 holds starting address of matrix C
+--      RA holds starting address of matrix C
 
--- A = x"50" -> x"46"
--- B = x"47" -> x"5B"
--- C = x"5C" -> x"70"
+A520	-- R5 <= M[R2] (A[R2]) START_LOOP (#13)
+A630	-- R6 <= M[R3] (B[R3])
+5656	-- R6 <= R5 - R6 (A[R2] - B[R3])
+2460	-- M[R4] <= R6 (C[R4])
 
-3601	-- R6 = 1
+-- Now: C[R4] = A[R2] - B[R3]
 
-3032	-- R0 = starting address of A
-3147	-- R1 = starting address of B
-325C	-- R2 = starting address of C
+4778	-- R7 <= R7 + R8 (R7 + 1)
+4228	-- R2 <= R2 + R8 (R2 + 1)
+4338	-- R3 <= R4 + R8 (R3 + 1)
+4448	-- R4 <= R4 + R8 (R4 + 1)
 
-A300	-- R3 = M[R0]	START_LOOP
-A410	-- R4 = M[R1]
+-- Incremented addresses
 
-5534	-- R5 = M[R1] - M[R2]
-2250	-- M[R2] = R5
+5917	-- R9 <= R1 - R7 (Number of elements - number of elements done)
+690D	-- IF R9 == 0 THEN goto START_LOOP (Probably 0xD = #13)
 
-4006	-- R0 = R0 + R6
-4116	-- R1 = R1 + R6
-4226	-- R2 = R2 + R6
+-- Done matrix subtraction
 
-0770	-- R7 = M[70]  (End of C)
-67??	-- IF R7 == 0 THEN goto START_LOOP
+3700
 
-703A	-- print(M[05A])
-703B	-- print(M[05B])
-703C	-- print(M[05C])
-703D	-- print(M[05D])
+ABA0	-- RB <= M[RA] (C[RA]) START_PRINT_LOOP (#24)
+1BFF	-- M[0xFF] <= RB
+70FF	-- print(M[0xFF])
+
+-- Printed C[RA]
+
+4778	-- R7 <= R7 + R8 (R7 + 1)
+5C17	-- RC <= R1 - R7 (Number of elements - number of elements printed)
+6C18	-- IF RC == 0 THEN goto START_PRINT_LOOP (Probably 0x18 = #24)
+
+-- Done printing C
 
 F000	-- HALT
+
+-- Fast input
+C4F8	A100	C4F9	A200	B112	C500	3200	4200
+4301	4401	4441	3700	3801	3A00	4AA4	A520
+A630	5656	2460	4778	4228	4338	4448	5917
+690D	3700	ABA0	1BFF	70FF	4778	5C17	6C18
+F000	

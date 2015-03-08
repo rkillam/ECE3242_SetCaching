@@ -29,6 +29,7 @@ port(
 	jp_en:		in 	std_logic;
 	ALUs_dp:	in 	std_logic_vector(2 downto 0);
 	oe_dp:		in 	std_logic;
+	big_addr:	IN STD_LOGIC;
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0);
@@ -44,7 +45,7 @@ signal rf2alu2, alu2memmux: std_logic_vector(15 downto 0);
 begin		
 
   U1: smallmux port map(alu2memmux, mem_data, 
-			imm_data, RFs_dp, mux2rf);
+			imm_data, RFs_dp, big_addr, mux2rf);
   U2: reg_file port map(clock_dp, rst_dp, RFwe_dp, 
 			RFr1e_dp, RFr2e_dp, 
 			RFwa_dp, RFr1a_dp, RFr2a_dp, 

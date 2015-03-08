@@ -50,8 +50,8 @@ signal IR2mux_a, IR2mux_b: std_logic_vector(15 downto 0);
 
 begin
 
-  IR2mux_b <= "000000000000" & IR_sig(11 downto 8);	
-  immdata <= "00000000" & IR_sig(7 downto 0);
+  IR2mux_b <= "000000000000" & IR_sig(11 downto 8);
+  immdata <= "0000" & IR_sig(11 downto 0);
   
   U0: controller port map(clock_cu,rst_cu,IR_sig,main_mem_status,
 					RFs_cu,RFwa_cu,
