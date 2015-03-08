@@ -1,7 +1,0 @@
-<?xml version="1.0" ?>
-<LOG_ROOT>
-	<PROJECT NAME="TB_mp">
-		<CBX_INST_ENTRY INSTANCE_NAME="|microprocessor|MainMemory:Unit2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_fos3.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|microprocessor|datapath:Unit1|alu:U3|lpm_mult:Mult0" CBX_FILE_NAME="mult_7dt.tdf"/>
-	</PROJECT>
-</LOG_ROOT>

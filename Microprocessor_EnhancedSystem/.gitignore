@@ -1,0 +1,11 @@
+*
+!.gitignore
+!*.vhd
+!*.vhdl
+!*.qip
+!*.hex
+!*.qpf
+!db/
+!greybox_tmp/
+!incremental_db/
+!simulation/
