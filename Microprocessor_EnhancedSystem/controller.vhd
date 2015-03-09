@@ -454,13 +454,13 @@ begin
 
 	  when S_JUMP_Z =>	
 			cur_state <= x"29"; 
-			jmpen_ctrl <= '1';
-			RFr1a_ctrl <= IR_word(11 downto 8);	
+			RFr1a_ctrl <= IR_word(11 downto 8);
 			RFr1e_ctrl <= '1'; -- jz if R[rn] = 0
 			ALUs_ctrl <= "000";
 			state <= S_JUMP_Za;
 	  when S_JUMP_Za =>   
 			cur_state <= x"2A"; 
+			jmpen_ctrl <= '1';
 			state <= S_JUMP_Zb;
 	  when S_JUMP_Zb =>   
 			cur_state <= x"2B"; 

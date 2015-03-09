@@ -7,7 +7,7 @@ package MP_lib is
 
 type ram_type is array (0 to 255) of 
         		std_logic_vector(15 downto 0);
-				
+
 TYPE rf_type IS ARRAY(0 TO 15) OF
 				STD_LOGIC_VECTOR(15 DOWNTO 0);
 
