@@ -42,7 +42,7 @@ C500	-- RF <= x"500" Starting address of Matrix A
 --      R6 holds starting address of matrix C
 --      RA holds starting address of matrix C
 
-A740	-- R7 <= M[R4] (A[R4]) START_LOOP (#17)
+A740	-- R7 <= M[R4] (A[R4]) START_LOOP (#16)
 A850	-- R8 <= M[R5] (B[R5])
 5778	-- R7 <= R7 - R8 (A[R4] - B[R5])
 2670	-- M[R6] <= R7 (C[R6])
@@ -57,7 +57,7 @@ A850	-- R8 <= M[R5] (B[R5])
 -- Incremented addresses
 
 ADC0	-- RD <= M[RC]
-6D11	-- IF RD == 0 THEN goto START_LOOP (Probably 0x11 = #17)
+6D10	-- IF RD == 0 THEN goto START_LOOP (Probably 0x10 = #16)
 
 -- Done matrix subtraction
 
@@ -82,5 +82,5 @@ F000	-- HALT
 3000	3101	C4F8	A2F0	C4F9	A3F0	B223	3330
 4C32	2C10	4C30	C500	44F0	4542	4652	4A60
 A740	A850	5778	2670	4CC1	4441	4551	4661
-ADC0	6D11	4C30	ABA0	1BFF	70FF	4AA1	4CC1
+ADC0	6D10	4C30	ABA0	1BFF	70FF	4AA1	4CC1
 ADC0	6D1B	F000		
