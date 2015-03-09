@@ -42,7 +42,7 @@ set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS DEFAULT
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "T:\\ECE3242_SetCaching\\Microprocessor_EnhancedSystem\\simulation" -section_id eda_simulation
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:\\Users\\user\\Downloads\\ECE3242_SetCaching\\Microprocessor_EnhancedSystem\\simulation" -section_id eda_simulation
 set_global_assignment -name EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY "C:\\Users\\z63xn\\Desktop\\Microprocessor_2013\\simulation" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0

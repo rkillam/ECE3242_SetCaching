@@ -5,75 +5,82 @@
 -- A = x"0500"                   -> x"0500" + (row * col)
 -- B = x"0500" + (row * col)     -> x"0500" + (row * col * 2)
 -- C = x"0500" + (row * col * 2) -> x"0500" + (row * col * 3)
- 
-C4F8	-- R0 <= x"4F8" Row size address
-A100	-- R1 <= M[R0]  Row size
- 
-C4F9	-- R0 <= x"4F9" Col size address
-A200	-- R2 <= M[R0]  Col size
 
-B112	-- R1 <= R1 * R2   Matrix size
+3000	-- R0 <= 0 FINAL
+3101	-- R1 <= 1 FINAL
  
-C500	-- R0 <= x"500" Starting address of Matrix A
-3200	-- R2 <= 0
-4200	-- R2 <= R0 + R2
+C4F8	-- RF <= x"4F8" Row size address
+A2F0	-- R2 <= M[RF]  Row size
  
-4301	-- R3 <= R0 + R1 x"0500" + (row * col) Starting address of Matrix B
- 
-4401	-- R4 <= R0 + R1 x"0500" + (row * col)
-4441	-- R4 <= R4 + R1 (x"0500" + (row * col)) + (row * col) Starting Matrix of C
- 
-3700	-- R7 <= 0
-3801	-- R8 <= 1
- 
-3A00	-- RA <= 0
-4AA4	-- RA <= RA + R4
- 
--- Now: R0 is accumulator
---		R1 holds matrix size
---      R2 holds starting address of matrix A
---      R3 holds starting address of matrix B
---      R4 holds starting address of matrix C
+C4F9	-- RF <= x"4F9" Col size address
+A3F0	-- R3 <= M[RF]  Col size
+
+B223	-- R2 <= R2 * R3	Matrix size FINAL
+3330	-- R3 <= 0x30		Start of "Loop Counter" FINAL
+4C32	-- RC <= R3 + R2	End   of "Loop Counter"
+2C10	-- M[RC] <= R1 		End   of "Loop Counter" holds a 1
+
+4C30	-- RC <= R3 + R0	Start of "Loop Counter"
+
+C500	-- RF <= x"500" Starting address of Matrix A
+44F0	-- R4 <= RF + R0
+
+4542	-- R5 <= R4 + R2 [0x0500 + (row * col) Starting address of Matrix B]
+
+4652	-- R6 <= R5 + R2 [(0x0500 + (row * col)) + (row * col) Starting address of Matrix C]
+
+4A60	-- RA <= R6 + R0 [Starting address of Matrix C]
+
+-- Now: RF is accumulator
+--		R0 is 0 FINAL
+--		R1 is 1 FINAL
+--      R2 is matrix size FINAL
+--      R3 holds starting address of "Loop Counter" FINAL
+--		RC holds starting address of "Loop Counter"
+--      R4 holds starting address of matrix A
+--      R5 holds starting address of matrix B
+--      R6 holds starting address of matrix C
 --      RA holds starting address of matrix C
 
-A520	-- R5 <= M[R2] (A[R2]) START_LOOP (#13)
-A630	-- R6 <= M[R3] (B[R3])
-5656	-- R6 <= R5 - R6 (A[R2] - B[R3])
-2460	-- M[R4] <= R6 (C[R4])
+A740	-- R7 <= M[R4] (A[R4]) START_LOOP (#17)
+A850	-- R8 <= M[R5] (B[R5])
+5778	-- R7 <= R7 - R8 (A[R4] - B[R5])
+2670	-- M[R6] <= R7 (C[R6])
 
--- Now: C[R4] = A[R2] - B[R3]
+-- Now: C[R6] = A[R4] - B[R5]
 
-4778	-- R7 <= R7 + R8 (R7 + 1)
-4228	-- R2 <= R2 + R8 (R2 + 1)
-4338	-- R3 <= R4 + R8 (R3 + 1)
-4448	-- R4 <= R4 + R8 (R4 + 1)
+4CC1	-- RC <= RC + R1 "Loop Counter"
+4441	-- R4 <= R4 + R1
+4551	-- R5 <= R5 + R1
+4661	-- R6 <= R6 + R1
 
 -- Incremented addresses
 
-5917	-- R9 <= R1 - R7 (Number of elements - number of elements done)
-690D	-- IF R9 == 0 THEN goto START_LOOP (Probably 0xD = #13)
+ADC0	-- RD <= M[RC]
+6D11	-- IF RD == 0 THEN goto START_LOOP (Probably 0x11 = #17)
 
 -- Done matrix subtraction
 
-3700
+4C30	-- RC <= R3 + R0	Start of "Loop Counter"
 
-ABA0	-- RB <= M[RA] (C[RA]) START_PRINT_LOOP (#24)
+ABA0	-- RB <= M[RA] (C[RA]) START_PRINT_LOOP (#27)
 1BFF	-- M[0xFF] <= RB
 70FF	-- print(M[0xFF])
 
 -- Printed C[RA]
 
-4778	-- R7 <= R7 + R8 (R7 + 1)
-5C17	-- RC <= R1 - R7 (Number of elements - number of elements printed)
-6C18	-- IF RC == 0 THEN goto START_PRINT_LOOP (Probably 0x18 = #24)
+4AA1	-- RA <= RA + R1
+4CC1	-- RC <= RC + R1 "Loop Counter"
+ADC0	-- RD <= M[RC]
+6D1B	-- IF RD == 0 THEN goto START_PRINT_LOOP (Probably 0x1B = #27)
 
 -- Done printing C
 
 F000	-- HALT
 
 -- Fast input
-C4F8	A100	C4F9	A200	B112	C500	3200	4200
-4301	4401	4441	3700	3801	3A00	4AA4	A520
-A630	5656	2460	4778	4228	4338	4448	5917
-690D	3700	ABA0	1BFF	70FF	4778	5C17	6C18
-F000	
+3000	3101	C4F8	A2F0	C4F9	A3F0	B223	3330
+4C32	2C10	4C30	C500	44F0	4542	4652	4A60
+A740	A850	5778	2670	4CC1	4441	4551	4661
+ADC0	6D11	4C30	ABA0	1BFF	70FF	4AA1	4CC1
+ADC0	6D1B	F000		

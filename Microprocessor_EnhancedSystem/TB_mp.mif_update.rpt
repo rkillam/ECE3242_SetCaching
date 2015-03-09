@@ -1,5 +1,5 @@
 MIF/HEX Update report for TB_mp
-Thu Mar 05 20:02:51 2015
+Mon Mar 09 13:20:00 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Thu Mar 05 20:02:51 2015 ;
+; MIF/HEX Update Status ; Successful - Mon Mar 09 13:20:00 2015 ;
 ; Revision Name         ; TB_mp                                 ;
 ; Top-level Entity Name ; microprocessor                        ;
 ; Family                ; Cyclone IV E                          ;
@@ -58,13 +58,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit MIF/HEX Update
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Mar 05 20:02:50 2015
+    Info: Processing started: Mon Mar 09 13:19:59 2015
 Info: Command: quartus_cdb TB_mp -c TB_mp --update_mif
 Info (39024): Processed the following Memory Initialization File(s)
     Info (39025): Processed Memory Initialization File C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/m9k_mem.hex
 Info: Quartus II 64-Bit MIF/HEX Update was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 491 megabytes
-    Info: Processing ended: Thu Mar 05 20:02:51 2015
+    Info: Processing ended: Mon Mar 09 13:20:00 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

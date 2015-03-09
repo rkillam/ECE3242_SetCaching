@@ -16,7 +16,7 @@ entity alu is
 port (	
 		num_A: 	in std_logic_vector(15 downto 0);
 		num_B: 	in std_logic_vector(15 downto 0);
-		jpsign:	in std_logic;						 -- JMP?	
+		jpsign:	in std_logic;						 -- JMP?
 		ALUs:	in std_logic_vector(2 downto 0);     -- OP selector
 		ALUz:	out std_logic;                       -- Reached 0!   
 		ALUout:	out std_logic_vector(15 downto 0)    -- final calc value
