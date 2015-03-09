@@ -29,10 +29,14 @@ port(
 	jp_en:		in 	std_logic;
 	ALUs_dp:	in 	std_logic_vector(2 downto 0);
 	oe_dp:		in 	std_logic;
+	big_addr:	IN STD_LOGIC;
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0);
-	bufout_dp:	out 	std_logic_vector(15 downto 0)
+	bufout_dp:	out 	std_logic_vector(15 downto 0);
+	
+	-- Register debug lines
+	D_rf : OUT rf_type
 );
 end datapath;
 
@@ -44,11 +48,11 @@ signal rf2alu2, alu2memmux: std_logic_vector(15 downto 0);
 begin		
 
   U1: smallmux port map(alu2memmux, mem_data, 
-			imm_data, RFs_dp, mux2rf);
+			imm_data, RFs_dp, big_addr, mux2rf);
   U2: reg_file port map(clock_dp, rst_dp, RFwe_dp, 
 			RFr1e_dp, RFr2e_dp, 
 			RFwa_dp, RFr1a_dp, RFr2a_dp, 
-			mux2rf, rf2alu1, rf2alu2 );
+			mux2rf, rf2alu1, rf2alu2, D_rf);
   U3: alu port map( rf2alu1, rf2alu2, jp_en, ALUs_dp, 
 		    ALUz_dp, alu2memmux);
   U4: obuf port map(oe_dp, mem_data, bufout_dp);

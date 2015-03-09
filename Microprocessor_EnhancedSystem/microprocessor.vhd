@@ -32,7 +32,25 @@ port(
 		D_big_addr : OUT STD_LOGIC;
 		D_main_mem_status : OUT STD_LOGIC;
 		
-		D_main_mem_clk : OUT STD_LOGIC
+		D_main_mem_clk : OUT STD_LOGIC;
+		
+		-- Register debug lines
+		D_rf0 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf3 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf4 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf5 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf6 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf7 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf8 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rf9 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rfA : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rfB : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rfC : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rfD : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rfE : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_rfF : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 -- end debug variables		
 );
 end microprocessor;
@@ -53,6 +71,8 @@ SIGNAL main_mem_status : STD_LOGIC;
 -- Debug signals
 SIGNAL cur_state : STD_logic_vector(7 DOWNTO 0);
 SIGNAL main_mem_clk : STD_LOGIC;
+
+SIGNAL rf : rf_type;
 -- End debug signals
 
 begin
@@ -83,10 +103,29 @@ begin
 		cur_state,
 		big_addr
 	);
-	Unit1: datapath port map(	cpu_clk,cpu_rst,immd_bus,mdout_bus,
-								RFs_s,RFwa_s,RFr1a_s,RFr2a_s,RFwe_s,RFr1e_s,
-								RFr2e_s,jpz_s,ALUs_s,oe_s,PCld_s,rfout_bus,
-								mdin_bus,cpu_output);
+	Unit1: datapath port map(
+			cpu_clk,
+			cpu_rst,
+			immd_bus,
+			mdout_bus,
+			RFs_s,
+			RFwa_s,
+			RFr1a_s,
+			RFr2a_s,
+			RFwe_s,
+			RFr1e_s,
+			RFr2e_s,
+			jpz_s,
+			ALUs_s,
+			oe_s,
+			big_addr,
+			PCld_s,
+			rfout_bus,
+			mdin_bus,cpu_output,
+			
+			-- Register debug lines
+			rf
+	);
 --	Unit2: memory port map(	cpu_clk,cpu_rst,Mre_s,Mwe_s,mem_addr,mdin_bus,mdout_bus);
 	Unit2: MainMemory PORT MAP (
 		mem_addr, 			--		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
@@ -127,5 +166,23 @@ D_main_mem_status <= main_mem_status;
 
 D_cur_state     <= cur_state;
 D_main_mem_clk <= main_mem_clk;
+
+-- Register debug lines
+D_rf0 <= rf(0);
+D_rf1 <= rf(1);
+D_rf2 <= rf(2);
+D_rf3 <= rf(3);
+D_rf4 <= rf(4);
+D_rf5 <= rf(5);
+D_rf6 <= rf(6);
+D_rf7 <= rf(7);
+D_rf8 <= rf(8);
+D_rf9 <= rf(9);
+D_rfA <= rf(10);
+D_rfB <= rf(11);
+D_rfC <= rf(12);
+D_rfD <= rf(13);
+D_rfE <= rf(14);
+D_rfF <= rf(15);
 
 end structure;

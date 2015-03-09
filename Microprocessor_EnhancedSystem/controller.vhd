@@ -52,13 +52,14 @@ architecture fsm of controller is
 			S_SHORT_LOAD,S_SHORT_LOADa,S_SHORT_LOADb,S_SHORT_LOAD_wait,  					-- x"0" RF[r1]    <= M[8bit direct]
 			S_SHORT_SAVE,S_SHORT_SAVEa,S_SHORT_SAVEb,S_SHORT_SAVE_wait,  					-- x"1" RF[r1]    <= M[8bit direct]
 			
-			S_LONG_LOAD,S_LONG_LOAD_wait,S_LONG_LOAD_a,S_LONG_LOAD_b,  						-- x"8" RF[0]     <= M[12bit direct]
-			S_LONG_SAVE,S_LONG_SAVE_wait,S_LONG_SAVE_a,S_LONG_SAVE_b,  						-- x"9" RF[0]     <= M[12bit direct]
+			S_LONG_LOAD,S_LONG_LOAD_wait,S_LONG_LOAD_a,S_LONG_LOAD_b,  						-- x"8" RF[F]     <= M[12bit direct]
+			S_LONG_SAVE,S_LONG_SAVE_wait,S_LONG_SAVE_a,S_LONG_SAVE_b,  						-- x"9" RF[F]     <= M[12bit direct]
 			
 			S_REG_ADDR_LOAD,S_REG_ADDR_LOADa,S_REG_ADDR_LOADb,S_REG_ADDR_LOAD_wait,		-- x"A" RF[r1]    <= M[RF[r2]]
 			S_REG_ADDR_SAVE,S_REG_ADDR_SAVEa,S_REG_ADDR_SAVEb,S_REG_ADDR_SAVE_wait,		-- x"2" M[RF[r1]] <= RF[r2]
 			
-			S_IMM_LOAD,S_IMM_LOADa,																		-- x"3" RF[r1]    <= imm
+			S_IMM_LOAD,S_IMM_LOADa,																		-- x"3" RF[r1]    <= 8bit imm
+			S_LONG_IMM_LOAD,S_LONG_IMM_LOADa,														-- x"C" RF[F]     <= 12bit imm
 			
 			S_ADD,S_ADDa,S_ADDb,																			-- x"4" RF[r1]    <= RF[r1] + RF[r2]
 			S_SUBT,S_SUBTa,S_SUBTb,																		-- x"5" RF[r1]    <= RF[r1] - RF[r2]
@@ -103,6 +104,7 @@ begin
 			IRld_ctrl <= '1'; -- Fetch Instruction
 			Mre_ctrl <= '1';  
 			RFwe_ctrl <= '0'; 
+			big_addr <= '0';
 			RFr1e_ctrl <= '0'; 
 			RFr2e_ctrl <= '0'; 
 			Ms_ctrl <= "10";
@@ -145,6 +147,7 @@ begin
 			    when REG_ADDR_SAVE 	=> state <= S_REG_ADDR_SAVE;
 
 			    when IMM_LOAD 		=> state <= S_IMM_LOAD;
+			    when LONG_IMM_LOAD 	=> state <= S_LONG_IMM_LOAD;
 				 
 			    when ADD 				=> state <= S_ADD;
 			    when SUBT 				=>	state <= S_SUBT;
@@ -218,8 +221,8 @@ begin
 			
 		WHEN S_LONG_LOAD =>
 			cur_state <= x"0E";
-			RFwa_ctrl <= x"0";	-- Always reads into R0
-			RFs_ctrl <= "01";  	-- RF[0] <= mem[direct]
+			RFwa_ctrl <= x"F";	-- Always reads into RF
+			RFs_ctrl <= "01";  	-- RF[F] <= mem[direct]
 			Ms_ctrl <= "01";
 			Mre_ctrl <= '1';
 			Mwe_ctrl <= '0';	
@@ -249,8 +252,8 @@ begin
 			
 	  when S_LONG_SAVE =>	
 			cur_state <= x"12"; 
-			RFr1a_ctrl <= x"0";	
-			RFr1e_ctrl <= '1'; -- mem[direct] <= RF[0]			
+			RFr1a_ctrl <= x"F";	
+			RFr1e_ctrl <= '1'; -- mem[direct] <= RF[F]			
 			Ms_ctrl <= "01";
 			ALUs_ctrl <= "000";	  
 			IRld_ctrl <= '0';
@@ -365,16 +368,28 @@ begin
 			Mwe_ctrl <= '0';
 			big_addr <= '0';
 			state <= S_FETCH_INST;
-					
+
 	  when S_IMM_LOAD =>	
 			cur_state <= x"1E"; 
 			RFwa_ctrl <= IR_word(11 downto 8);	
-			RFwe_ctrl <= '1'; -- RF[rn] <= imm.
+			RFwe_ctrl <= '1'; -- RF[rn] <= 8bit imm.
 			RFs_ctrl <= "10";
 			IRld_ctrl <= '0';
 			state <= S_IMM_LOADa;
 	  when S_IMM_LOADa =>   
 			cur_state <= x"1F"; 
+			state <= S_FETCH_INST;
+
+	  when S_LONG_IMM_LOAD =>	
+			cur_state <= x"DE"; 
+			RFwa_ctrl <= x"F";	
+			RFwe_ctrl <= '1'; -- RF[F] <= 12bit imm.
+			RFs_ctrl <= "10";
+			IRld_ctrl <= '0';
+			big_addr <= '1';
+			state <= S_LONG_IMM_LOADa;
+	  when S_LONG_IMM_LOADa =>   
+			cur_state <= x"DF"; 
 			state <= S_FETCH_INST;
 	    
 	  when S_ADD =>	
@@ -439,19 +454,19 @@ begin
 
 	  when S_JUMP_Z =>	
 			cur_state <= x"29"; 
-			jmpen_ctrl <= '1';
-			RFr1a_ctrl <= IR_word(11 downto 8);	
+			RFr1a_ctrl <= IR_word(11 downto 8);
 			RFr1e_ctrl <= '1'; -- jz if R[rn] = 0
 			ALUs_ctrl <= "000";
 			state <= S_JUMP_Za;
 	  when S_JUMP_Za =>   
 			cur_state <= x"2A"; 
+			jmpen_ctrl <= '1';
 			state <= S_JUMP_Zb;
 	  when S_JUMP_Zb =>   
 			cur_state <= x"2B"; 
-				jmpen_ctrl <= '0';
-	        state <= S_FETCH_INST;
-			  
+			jmpen_ctrl <= '0';
+			state <= S_FETCH_INST;
+
 	  when S_HALT =>	
 			cur_state <= x"2C"; 
 			state <= S_HALT; -- halt

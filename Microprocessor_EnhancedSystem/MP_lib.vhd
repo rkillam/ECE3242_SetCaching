@@ -8,21 +8,25 @@ package MP_lib is
 type ram_type is array (0 to 255) of 
         		std_logic_vector(15 downto 0);
 
-constant ZERO 				: std_logic_vector(15 downto 0) := "0000000000000000";
-constant HIRES 			: std_logic_vector(15 downto 0) := "ZZZZZZZZZZZZZZZZ";
-constant SHORT_LOAD 		: std_logic_vector(3 downto 0) := x"0";  -- "0000";
-constant SHORT_SAVE 		: std_logic_vector(3 downto 0) := x"1";  -- "0001";
-constant REG_ADDR_SAVE 	: std_logic_vector(3 downto 0) := x"2";  -- "0010";
-constant IMM_LOAD 		: std_logic_vector(3 downto 0) := x"3";  -- "0011";
-constant ADD  				: std_logic_vector(3 downto 0) := x"4";  -- "0100";
-constant SUBT 				: std_logic_vector(3 downto 0) := x"5";  -- "0101";
-constant JUMP_Z  			: std_logic_vector(3 downto 0) := x"6";  -- "0110";
-constant OUTPUT_MEM  	: std_logic_vector(3 downto 0) := x"7";  -- "0111";
-CONSTANT LONG_LOAD		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"8";  -- "1000";
-CONSTANT LONG_SAVE		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"9";  -- "1001";
-CONSTANT REG_ADDR_LOAD  : STD_LOGIC_VECTOR(3 DOWNTO 0) := x"A";  -- "1010";
-CONSTANT MULT				: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"B";  -- "1011";
-constant HALT  			: std_logic_vector(3 downto 0) := x"F";  -- "1111";
+TYPE rf_type IS ARRAY(0 TO 15) OF
+				STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+constant ZERO 						: std_logic_vector(15 downto 0) := "0000000000000000";
+constant HIRES 					: std_logic_vector(15 downto 0) := "ZZZZZZZZZZZZZZZZ";
+constant SHORT_LOAD 				: std_logic_vector(3 downto 0) := x"0";  -- "0000";
+constant SHORT_SAVE 				: std_logic_vector(3 downto 0) := x"1";  -- "0001";
+constant REG_ADDR_SAVE 			: std_logic_vector(3 downto 0) := x"2";  -- "0010";
+constant IMM_LOAD 				: std_logic_vector(3 downto 0) := x"3";  -- "0011";
+constant ADD  						: std_logic_vector(3 downto 0) := x"4";  -- "0100";
+constant SUBT 						: std_logic_vector(3 downto 0) := x"5";  -- "0101";
+constant JUMP_Z  					: std_logic_vector(3 downto 0) := x"6";  -- "0110";
+constant OUTPUT_MEM  			: std_logic_vector(3 downto 0) := x"7";  -- "0111";
+CONSTANT LONG_LOAD				: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"8";  -- "1000";
+CONSTANT LONG_SAVE				: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"9";  -- "1001";
+CONSTANT REG_ADDR_LOAD  		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"A";  -- "1010";
+CONSTANT MULT						: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"B";  -- "1011";
+CONSTANT LONG_IMM_LOAD  		: STD_LOGIC_VECTOR(3 DOWNTO 0) := x"C";  -- "1100";
+constant HALT  					: std_logic_vector(3 downto 0) := x"F";  -- "1111";
 
 component alu is
 port (	
@@ -135,7 +139,10 @@ port ( 	clock	: 	in std_logic;
 	RFr2a	: 	in std_logic_vector(3 downto 0);
 	RFw	: 	in std_logic_vector(15 downto 0);
 	RFr1	: 	out std_logic_vector(15 downto 0);
-	RFr2	:	out std_logic_vector(15 downto 0)
+	RFr2	:	out std_logic_vector(15 downto 0);
+	
+	-- Register debug lines
+	D_rf : OUT rf_type
 );
 end component;
 
@@ -144,6 +151,7 @@ port( 	I0: 	in std_logic_vector(15 downto 0);
 		I1: 	in std_logic_vector(15 downto 0);	  
 		I2:		in std_logic_vector(15 downto 0);
 		Sel:	in std_logic_vector(1 downto 0);
+		big_addr: IN STD_LOGIC;
 		O: 		out std_logic_vector(15 downto 0)
 	);
 end component;
@@ -191,10 +199,14 @@ port(
 	jp_en:		in 	std_logic;
 	ALUs_dp:	in 	std_logic_vector(2 downto 0);
 	oe_dp:		in 	std_logic;
+	big_addr: IN STD_LOGIC;
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0);
-	bufout_dp:	out 	std_logic_vector(15 downto 0)
+	bufout_dp:	out 	std_logic_vector(15 downto 0);
+	
+	-- Register debug lines
+	D_rf : OUT rf_type
 );
 end component;
 
