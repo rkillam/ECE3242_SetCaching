@@ -91,7 +91,7 @@ BEGIN
 
 		-- Do NOT 1/8th the clock
 		clk_8th <= clock;
-		--main_mem_status <= clock;
+		main_mem_status <= clock;
 		D_main_mem_clk <= clock;
 	END PROCESS;
 
@@ -106,22 +106,22 @@ BEGIN
 	END PROCESS;
 
 	-- It always takes 2 clk_8th cycles to fetch any memory
-	setStatus:
-	PROCESS(clk_8th)
-		VARIABLE counter : INTEGER := 0;
-	BEGIN
-		IF(received_inst = '1') THEN
-			IF(rising_edge(clk_8th)) THEN
-				main_mem_status <= '0';
-				counter := counter + 1;
-
-				IF(counter = 1) THEN
-					counter := 0;
-					main_mem_status <= '1';
-				END IF;
-			END IF;
-		END IF;
-	END PROCESS;
+--	setStatus:
+--	PROCESS(clk_8th)
+--		VARIABLE counter : INTEGER := 0;
+--	BEGIN
+--		IF(received_inst = '1') THEN
+--			IF(rising_edge(clk_8th)) THEN
+--				main_mem_status <= '0';
+--				counter := counter + 1;
+--
+--				IF(counter = 1) THEN
+--					counter := 0;
+--					main_mem_status <= '1';
+--				END IF;
+--			END IF;
+--		END IF;
+--	END PROCESS;
 
 	altsyncram_component : altsyncram
 	GENERIC MAP (

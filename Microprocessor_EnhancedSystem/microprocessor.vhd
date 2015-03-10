@@ -36,6 +36,7 @@ port(
 		D_read_mem_status  : OUT STD_LOGIC;
 		
 		D_main_mem_clk : OUT STD_LOGIC;
+		D_main_mem_out	:	OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		
 		-- Register debug lines
 		D_rf0 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -74,6 +75,7 @@ SIGNAL main_mem_status : STD_LOGIC;
 -- Debug signals
 SIGNAL cur_state : STD_logic_vector(7 DOWNTO 0);
 SIGNAL main_mem_clk : STD_LOGIC;
+SIGNAL main_mem_out : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 SIGNAL write_mem_status : STD_LOGIC;
 SIGNAL read_mem_status  : STD_LOGIC;
@@ -157,7 +159,8 @@ begin
 		main_mem_status,	--		mem_status 			: 	out std_logic;
 		main_mem_clk,		--		main_mem_clk		: 	out std_logic
 		write_mem_status, -- D_write_mem_status:  OUT STD_LOGIC;
-		read_mem_status	-- D_read_mem_status :  OUT STD_LOGIC
+		read_mem_status,	-- D_read_mem_status :  OUT STD_LOGIC
+		main_mem_out		--		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
 
 -- Debug code
@@ -189,6 +192,8 @@ D_main_mem_clk <= main_mem_clk;
 
 D_write_mem_status <= write_mem_status;
 D_read_mem_status <= read_mem_status;
+
+D_main_mem_out <= main_mem_out;
 
 -- Register debug lines
 D_rf0 <= rf(0);

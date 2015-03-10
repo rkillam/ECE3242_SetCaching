@@ -152,11 +152,11 @@ begin
 			    when ADD 				=> state <= S_ADD;
 			    when SUBT 				=>	state <= S_SUBT;
 			    WHEN MULT 				=>	state <= S_MULT;
-				 
+
 			    when JUMP_Z 			=>	state <= S_JUMP_Z;
-				 
+
 			    when OUTPUT_MEM 		=> state <= S_OUTPUT_MEM;
-				 
+
 			    when HALT 				=>	state <= S_HALT; 
 
 			    when others 			=> state <= S_FETCH_INST;
@@ -232,7 +232,7 @@ begin
 			IF(main_mem_status = '1') THEN
 				state <= S_LONG_LOAD_wait;	
 			END IF;
-			
+
 		WHEN S_LONG_LOAD_wait =>
 			cur_state <= x"0F";
 			-- Need to wait until the memory has read the data

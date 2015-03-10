@@ -15,7 +15,8 @@ port (
 		mem_status 			: 	out STD_LOGIC;
 		D_main_mem_clk		: 	out STD_LOGIC;
 		D_write_mem_status:  OUT STD_LOGIC;
-		D_read_mem_status :  OUT STD_LOGIC
+		D_read_mem_status :  OUT STD_LOGIC;
+		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 );
 end SetAssociative2Way;
 
@@ -26,10 +27,10 @@ architecture behv of SetAssociative2Way is
 	SIGNAL word_decoder_en : STD_LOGIC_VECTOR(0 TO 7);
 				
 	SIGNAL selectWordSet0Line0,selectWordSet0Line1,
-	selectWordSet1Line0,selectWordSet1Line1: STD_LOGIC_VECTOR(15 downto 0);
+				selectWordSet1Line0,selectWordSet1Line1: STD_LOGIC_VECTOR(15 downto 0);
 
 	SIGNAL selectWordSet2Line0,selectWordSet2Line1,
-	selectWordSet3Line0,selectWordSet3Line1: STD_LOGIC_VECTOR(15 downto 0);
+				selectWordSet3Line0,selectWordSet3Line1: STD_LOGIC_VECTOR(15 downto 0);
 
 	SIGNAL output: STD_LOGIC_VECTOR(15 downto 0);
 
@@ -45,16 +46,22 @@ architecture behv of SetAssociative2Way is
 	SIGNAL word_statuses : STD_LOGIC_VECTOR(0 TO 3);
 
 	SIGNAL lineValue: INTEGER := 0;
-	
+
 	SIGNAL address_sent : STD_LOGIC_VECTOR(11 DOWNTO 0);
 	
 	SIGNAL write_mem_status, read_mem_status : STD_LOGIC;
+	
+	SIGNAL address_tag		: STD_LOGIC_VECTOR(7 DOWNTO 0) := address_sent(11 DOWNTO 4);
+	SIGNAL set_num_index 	: INTEGER := TO_INTEGER(UNSIGNED(address_sent(3 DOWNTO 2)));
+	SIGNAL word_num_index	: INTEGER := TO_INTEGER(UNSIGNED(address_sent(1 DOWNTO 0)));
 
 begin
-	mem_status <= write_mem_status OR read_mem_status;
+--	mem_status <= write_mem_status OR read_mem_status;
+	
+	D_main_mem_out <= main_mem_output;
 
-	D_write_mem_status <= write_mem_status;
-	D_read_mem_status <= read_mem_status;
+	D_write_mem_status <= main_mem_status;
+--	D_read_mem_status <= read_mem_status;
 
 	Unit1: MainMemory PORT MAP (
 		address_sent, --		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
@@ -62,13 +69,13 @@ begin
 		'1',		 			--		clken		: IN STD_LOGIC  := '1';
 		clock, 				--		clock		: IN STD_LOGIC  := '1';
 		data_in, 			--		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		main_mem_Mre,	 	--		rden		: IN STD_LOGIC  := '1';
-		main_mem_Mwe, 		--		wren		: IN STD_LOGIC ;
+		Mre, --main_mem_Mre,	 	--		rden		: IN STD_LOGIC  := '1';
+		Mwe, --main_mem_Mwe, 		--		wren		: IN STD_LOGIC ;
 		main_mem_status,  --		main_mem_status   : OUT STD_LOGIC;
 		D_main_mem_clk,
 		main_mem_output 	--		q			: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 	);
-	
+
 	setAddrType:
 	PROCESS(address, big_addr)
 	BEGIN
@@ -80,69 +87,85 @@ begin
 	END PROCESS;
 
 	write: 
-	PROCESS(clock, Mre, address_sent, data_in)
-		VARIABLE address_tag		: STD_LOGIC_VECTOR(7 DOWNTO 0) := address_sent(11 DOWNTO 4);
-		VARIABLE set_num_index 	: INTEGER := TO_INTEGER(UNSIGNED(address_sent(3 DOWNTO 2)));
-		VARIABLE word_num_index	: INTEGER := TO_INTEGER(UNSIGNED(address_sent(1 DOWNTO 0)));
+	PROCESS(clock, Mre, data_in, address_tag, set_num_index, word_num_index)
 	BEGIN
-		IF (rising_edge(clock)) THEN
-			write_mem_status <= '0';
-			
-			-- If we are only writting
-			IF (Mwe ='1' AND Mre = '0') THEN
+--		IF (rising_edge(clock)) THEN
+--			write_mem_status <= '0';
+--
+--			-- If we are only writting
+--			IF (Mwe ='1' AND Mre = '0') THEN
+--
+--				-- Always write to main memory
+--				write_mem_status <= main_mem_status;
+--				main_mem_Mwe <= '1';
+--
+--				-- TODO: Stop using an if else
+--
+--				-- Attempt to write to cache
+--				-- If the tag matches the first line in the set
+--				IF address_tag = tmp_cache(set_num_index)(0).tag THEN
+--					tmp_cache(set_num_index)(0).words(word_num_index) <= data_in;
+--
+--				-- If the tag matches the second line in the set
+--				ELSIF address_tag = tmp_cache(set_num_index)(1).tag THEN
+--					tmp_cache(set_num_index)(1).words(word_num_index) <= data_in;
+--
+--				END IF;
+--			END IF;
+--		END IF;
+	END PROCESS;
 
-				-- Always write to main memory
-				write_mem_status <= main_mem_status;
-				main_mem_Mwe <= '1';
+   read: 
+	PROCESS(clock, Mre, address_tag, set_num_index, word_num_index)
+	begin
+		if (rising_edge(clock)) then
+--			read_mem_status <= '0';
+--
+--			-- If we are only reading
+--			IF(Mre = '1' AND Mwe = '0') THEN
+--				-- TODO: Stop using an if else
+--
+--				-- Attempt to read from cache
+--				-- If the tag matches the first line in the set
+--				IF address_tag = tmp_cache(set_num_index)(0).tag THEN
+--					read_mem_status <= '1';
+--					data_out <= tmp_cache(set_num_index)(0).words(word_num_index);
+--
+--				-- If the tag matches the second line in the set
+--				ELSIF address_tag = tmp_cache(set_num_index)(1).tag THEN
+--					read_mem_status <= '1';
+--					data_out <= tmp_cache(set_num_index)(1).words(word_num_index);
+--
+--				-- If the address is not in cache
+--				ELSE
+--					read_mem_status <= main_mem_status;
+--					main_mem_Mre <= '1';
 
-				-- TODO: Stop using an if else
+					data_out <= main_mem_output;
 
-				-- Attempt to write to cache
-				-- If the tag matches the first line in the set
-				IF address_tag = tmp_cache(set_num_index)(0).tag THEN
-					tmp_cache(set_num_index)(0).words(word_num_index) <= data_in;
-				
-				-- If the tag matches the second line in the set
-				ELSIF address_tag = tmp_cache(set_num_index)(1).tag THEN
-					tmp_cache(set_num_index)(1).words(word_num_index) <= data_in;
+					-- TODO put data in cache
+--				END IF;
+--			END IF;
+		END IF;
+	END PROCESS;
+
+	manageStatus:
+	PROCESS(clock, main_mem_status)
+		VARIABLE old_main_mem_status : STD_LOGIC := '0';
+	BEGIN
+		IF(rising_edge(clock)) THEN
+			mem_status <= '0';
+			IF(main_mem_status = old_main_mem_status) THEN
+				old_main_mem_status := NOT main_mem_status;
+			ELSE
+				old_main_mem_status := main_mem_status;
+
+				IF(main_mem_status = '1') THEN
+					mem_status <= '1';
 				END IF;
 			END IF;
 		END IF;
 	END PROCESS;
-
-   read: process(clock, Mwe, address_sent)
-		VARIABLE address_tag		: STD_LOGIC_VECTOR(7 DOWNTO 0) := address_sent(11 DOWNTO 4);
-		VARIABLE set_num_index 	: INTEGER := TO_INTEGER(UNSIGNED(address(3 DOWNTO 2)));
-		VARIABLE word_num_index	: INTEGER := TO_INTEGER(UNSIGNED(address(1 DOWNTO 0)));
-	begin
-		if (rising_edge(clock)) then
-			read_mem_status <= '0';
-
-			-- If we are only reading
-			IF(Mre = '1' AND Mwe = '0') THEN
-				-- TODO: Stop using an if else
-
-				-- Attempt to read from cache
-				-- If the tag matches the first line in the set
-				IF address_tag = tmp_cache(set_num_index)(0).tag THEN
-					read_mem_status <= '1';
-					data_out <= tmp_cache(set_num_index)(0).words(word_num_index);
-
-				-- If the tag matches the second line in the set
-				ELSIF address_tag = tmp_cache(set_num_index)(1).tag THEN
-					read_mem_status <= '1';
-					data_out <= tmp_cache(set_num_index)(1).words(word_num_index);
-
-				-- If the address is not in cache
-				ELSE
-					read_mem_status <= main_mem_status;
-					main_mem_Mre <= '1';
-
-					data_out <= main_mem_output;
-					
-					-- TODO put data in cache
-				END IF;
-			END IF;
 
 --			mem_status <= '0';
 --			if (Mre ='1' and Mwe ='0') then
@@ -222,8 +245,6 @@ begin
 --					data_out <= output;
 --				end if;
 --			end if;
-		end if;
-	end process;
 	
 	
 --	setCheck: Decoder2to4 port map (Mre,address(3 downto 2),set0,set1,set2,set3);

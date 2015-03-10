@@ -137,7 +137,8 @@ COMPONENT SetAssociative2Way IS
 		mem_status 			: 	out STD_LOGIC;
 		D_main_mem_clk		: 	out STD_LOGIC;
 		D_write_mem_status:  OUT STD_LOGIC;
-		D_read_mem_status :  OUT STD_LOGIC
+		D_read_mem_status :  OUT STD_LOGIC;
+		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
 END COMPONENT;
 
