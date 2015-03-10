@@ -138,7 +138,10 @@ COMPONENT SetAssociative2Way IS
 		D_main_mem_clk		: 	out STD_LOGIC;
 		D_write_mem_status:  OUT STD_LOGIC;
 		D_read_mem_status :  OUT STD_LOGIC;
-		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache				:	OUT cache_type;
+		D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		D_set_num_index, D_word_num_index	:	OUT INTEGER
 	);
 END COMPONENT;
 

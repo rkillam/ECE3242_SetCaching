@@ -72,27 +72,27 @@ BEGIN
 		VARIABLE counter : INTEGER := 0;
 	BEGIN
 		-- 1/8th the clock
---		D_main_mem_clk <= clk_8th;
---		
---		IF(rising_edge(clock)) THEN	
---			main_mem_status <= '0';		
---
---			IF(counter = 3) THEN
---				clk_8th <= NOT clk_8th;
---				counter := 0;
---
---				IF(NOT clk_8th = '1') THEN
---					main_mem_status <= '1';
---				END IF;
---			ELSE
---				counter := counter + 1;
---			END IF;
---		END IF;
+		D_main_mem_clk <= clk_8th;
+		
+		IF(rising_edge(clock)) THEN	
+			main_mem_status <= '0';		
+
+			IF(counter = 3) THEN
+				clk_8th <= NOT clk_8th;
+				counter := 0;
+
+				IF(NOT clk_8th = '1') THEN
+					main_mem_status <= '1';
+				END IF;
+			ELSE
+				counter := counter + 1;
+			END IF;
+		END IF;
 
 		-- Do NOT 1/8th the clock
-		clk_8th <= clock;
-		main_mem_status <= clock;
-		D_main_mem_clk <= clock;
+--		clk_8th <= clock;
+--		main_mem_status <= clock;
+--		D_main_mem_clk <= clock;
 	END PROCESS;
 
 	setAddrType:

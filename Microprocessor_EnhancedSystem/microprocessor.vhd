@@ -39,23 +39,41 @@ port(
 		D_main_mem_out	:	OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		
 		-- Register debug lines
-		D_rf0 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf3 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf4 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf5 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf6 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf7 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf8 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rf9 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rfA : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rfB : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rfC : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rfD : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rfE : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_rfF : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
--- end debug variables		
+--		D_rf0 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf3 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf4 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf5 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf6 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf7 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf8 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rf9 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rfA : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rfB : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rfC : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rfD : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rfE : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_rfF : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		-- end debug variables
+		
+		-- Cache Debug lines
+		D_cache_set0_line0_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		D_cache_set0_line0_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set0_line0_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set0_line0_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set0_line0_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		
+		D_cache_set0_line1_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		D_cache_set0_line1_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set0_line1_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set0_line1_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set0_line1_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		
+		D_tagIn,D_tagCache	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		D_set_num_index, D_word_num_index	:	OUT INTEGER
+		-- end debug cache lines`
 );
 end microprocessor;
 
@@ -81,6 +99,10 @@ SIGNAL write_mem_status : STD_LOGIC;
 SIGNAL read_mem_status  : STD_LOGIC;
 
 SIGNAL rf : rf_type;
+
+SIGNAL cache : cache_type;
+SIGNAL tagIn,tagCache	: STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL set_num_index, word_num_index	:	INTEGER;
 -- End debug signals
 
 begin
@@ -160,7 +182,10 @@ begin
 		main_mem_clk,		--		main_mem_clk		: 	out std_logic
 		write_mem_status, -- D_write_mem_status:  OUT STD_LOGIC;
 		read_mem_status,	-- D_read_mem_status :  OUT STD_LOGIC
-		main_mem_out		--		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		main_mem_out,		--		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		cache,				-- D_cache					:	OUT cache_type
+		tagIn,tagCache,		-- D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		set_num_index, word_num_index	-- D_set_num_index, D_word_num_index	:	OUT INTEGER
 	);
 
 -- Debug code
@@ -196,21 +221,40 @@ D_read_mem_status <= read_mem_status;
 D_main_mem_out <= main_mem_out;
 
 -- Register debug lines
-D_rf0 <= rf(0);
-D_rf1 <= rf(1);
-D_rf2 <= rf(2);
-D_rf3 <= rf(3);
-D_rf4 <= rf(4);
-D_rf5 <= rf(5);
-D_rf6 <= rf(6);
-D_rf7 <= rf(7);
-D_rf8 <= rf(8);
-D_rf9 <= rf(9);
-D_rfA <= rf(10);
-D_rfB <= rf(11);
-D_rfC <= rf(12);
-D_rfD <= rf(13);
-D_rfE <= rf(14);
-D_rfF <= rf(15);
+--D_rf0 <= rf(0);
+--D_rf1 <= rf(1);
+--D_rf2 <= rf(2);
+--D_rf3 <= rf(3);
+--D_rf4 <= rf(4);
+--D_rf5 <= rf(5);
+--D_rf6 <= rf(6);
+--D_rf7 <= rf(7);
+--D_rf8 <= rf(8);
+--D_rf9 <= rf(9);
+--D_rfA <= rf(10);
+--D_rfB <= rf(11);
+--D_rfC <= rf(12);
+--D_rfD <= rf(13);
+--D_rfE <= rf(14);
+--D_rfF <= rf(15);
 
+
+-- Cache debug lines
+D_cache_set0_line0_tag <= cache(0)(0).tag;
+D_cache_set0_line0_word0 <= cache(0)(0).words(0);
+D_cache_set0_line0_word1 <= cache(0)(0).words(1);
+D_cache_set0_line0_word2 <= cache(0)(0).words(2);
+D_cache_set0_line0_word3 <= cache(0)(0).words(3);
+
+D_cache_set0_line1_tag <= cache(0)(1).tag;
+D_cache_set0_line1_word0 <= cache(0)(1).words(0);
+D_cache_set0_line1_word1 <= cache(0)(1).words(1);
+D_cache_set0_line1_word2 <= cache(0)(1).words(2);
+D_cache_set0_line1_word3 <= cache(0)(1).words(3);
+
+D_tagIn <= tagIn;
+D_tagCache <= tagCache;
+
+D_set_num_index <= set_num_index;
+D_word_num_index <= word_num_index;
 end structure;
