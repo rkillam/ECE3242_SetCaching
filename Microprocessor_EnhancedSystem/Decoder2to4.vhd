@@ -17,7 +17,7 @@ end Decoder2to4;
 
 architecture behv of Decoder2to4	 is			
 begin
-	process(en,set)
+	process(en, set)
 		begin
 			IF en = '1' THEN 
 				case set is

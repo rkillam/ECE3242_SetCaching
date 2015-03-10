@@ -43,13 +43,13 @@ USE altera_mf.altera_mf_components.all;
 ENTITY MainMemory IS
 	PORT
 	(
-		address				: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
-		big_addr				: IN STD_LOGIC;
-		clken					: IN STD_LOGIC  := '1';
-		clock					: IN STD_LOGIC  := '1';
-		data					: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		rden					: IN STD_LOGIC  := '1';
-		wren					: IN STD_LOGIC ;
+		address				: IN  STD_LOGIC_VECTOR (11 DOWNTO 0);
+		big_addr				: IN  STD_LOGIC;
+		clken					: IN  STD_LOGIC  := '1';
+		clock					: IN  STD_LOGIC  := '1';
+		data					: IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
+		rden					: IN  STD_LOGIC  := '1';
+		wren					: IN  STD_LOGIC;
 		main_mem_status	: OUT STD_LOGIC;
 		D_main_mem_clk 	: OUT STD_LOGIC; -- Outputs the clock given to the memory
 		q						: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
@@ -62,6 +62,7 @@ ARCHITECTURE SYN OF mainmemory IS
 	SIGNAL sub_wire0		: STD_LOGIC_VECTOR (15 DOWNTO 0);
 	SIGNAL address_sent	: STD_LOGIC_VECTOR(11 DOWNTO 0);
 	SIGNAL clk_8th 		: STD_LOGIC;
+	SIGNAL received_inst : STD_LOGIC := rden OR wren;
 
 BEGIN
 	q    <= sub_wire0(15 DOWNTO 0);
@@ -71,29 +72,29 @@ BEGIN
 		VARIABLE counter : INTEGER := 0;
 	BEGIN
 		-- 1/8th the clock
-		D_main_mem_clk <= clk_8th;
-		
-		IF(rising_edge(clock)) THEN	
-			main_mem_status <= '0';		
-
-			IF(counter = 3) THEN
-				clk_8th <= NOT clk_8th;
-				counter := 0;
-
-				IF(NOT clk_8th = '1') THEN
-					main_mem_status <= '1';
-				END IF;
-			ELSE
-				counter := counter + 1;
-			END IF;
-		END IF;
+--		D_main_mem_clk <= clk_8th;
+--		
+--		IF(rising_edge(clock)) THEN	
+--			main_mem_status <= '0';		
+--
+--			IF(counter = 3) THEN
+--				clk_8th <= NOT clk_8th;
+--				counter := 0;
+--
+--				IF(NOT clk_8th = '1') THEN
+--					main_mem_status <= '1';
+--				END IF;
+--			ELSE
+--				counter := counter + 1;
+--			END IF;
+--		END IF;
 
 		-- Do NOT 1/8th the clock
---		clk_8th <= clock;
---		main_mem_status <= clock;
---		D_main_mem_clk <= clock;
+		clk_8th <= clock;
+		--main_mem_status <= clock;
+		D_main_mem_clk <= clock;
 	END PROCESS;
-	
+
 	setAddrType:
 	PROCESS(address, big_addr)
 	BEGIN
@@ -101,6 +102,24 @@ BEGIN
 			address_sent <= address;
 		ELSE
 			address_sent <= "0000" & address(7 DOWNTO 0);
+		END IF;
+	END PROCESS;
+
+	-- It always takes 2 clk_8th cycles to fetch any memory
+	setStatus:
+	PROCESS(clk_8th)
+		VARIABLE counter : INTEGER := 0;
+	BEGIN
+		IF(received_inst = '1') THEN
+			IF(rising_edge(clk_8th)) THEN
+				main_mem_status <= '0';
+				counter := counter + 1;
+
+				IF(counter = 1) THEN
+					counter := 0;
+					main_mem_status <= '1';
+				END IF;
+			END IF;
 		END IF;
 	END PROCESS;
 

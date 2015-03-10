@@ -72,7 +72,7 @@ architecture fsm of controller is
 			S_HALT                             														-- x"F" Stay in this state
 	);
   signal state: state_type;
-	
+
 begin
   process(clock, rst, IR_word, main_mem_status)
     variable OPCODE: std_logic_vector(3 downto 0);

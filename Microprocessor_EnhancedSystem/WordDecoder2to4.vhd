@@ -8,7 +8,7 @@ entity WordDecoder2to4 is
 port (
 		en					: 	in std_logic;
 		word				: 	in std_logic_vector(1 downto 0);
-		words				:	in words_type;
+		words				:	in word_type;
 		selectedWord	:	out std_logic_vector(15 downto 0)
 );
 end WordDecoder2to4;

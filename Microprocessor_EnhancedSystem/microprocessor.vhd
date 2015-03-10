@@ -32,6 +32,9 @@ port(
 		D_big_addr : OUT STD_LOGIC;
 		D_main_mem_status : OUT STD_LOGIC;
 		
+		D_write_mem_status : OUT STD_LOGIC;
+		D_read_mem_status  : OUT STD_LOGIC;
+		
 		D_main_mem_clk : OUT STD_LOGIC;
 		
 		-- Register debug lines
@@ -71,6 +74,9 @@ SIGNAL main_mem_status : STD_LOGIC;
 -- Debug signals
 SIGNAL cur_state : STD_logic_vector(7 DOWNTO 0);
 SIGNAL main_mem_clk : STD_LOGIC;
+
+SIGNAL write_mem_status : STD_LOGIC;
+SIGNAL read_mem_status  : STD_LOGIC;
 
 SIGNAL rf : rf_type;
 -- End debug signals
@@ -126,18 +132,32 @@ begin
 			-- Register debug lines
 			rf
 	);
---	Unit2: memory port map(	cpu_clk,cpu_rst,Mre_s,Mwe_s,mem_addr,mdin_bus,mdout_bus);
-	Unit2: MainMemory PORT MAP (
-		mem_addr, 			--		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
-		big_addr, 			--		big_addr			: IN STD_LOGIC;
-		'1',		 			--		clken		: IN STD_LOGIC  := '1';
-		cpu_clk, 			--		clock		: IN STD_LOGIC  := '1';
-		mdin_bus, 			--		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		Mre_s, 				--		rden		: IN STD_LOGIC  := '1';
-		Mwe_s, 				--		wren		: IN STD_LOGIC ;
-		main_mem_status,  --		main_mem_status   : OUT STD_LOGIC;
-		main_mem_clk,
-		mdout_bus 			--		q			: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+
+--	Unit2: MainMemory PORT MAP (
+--		mem_addr, 			--		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
+--		big_addr, 			--		big_addr			: IN STD_LOGIC;
+--		'1',		 			--		clken		: IN STD_LOGIC  := '1';
+--		cpu_clk, 			--		clock		: IN STD_LOGIC  := '1';
+--		mdin_bus, 			--		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+--		Mre_s, 				--		rden		: IN STD_LOGIC  := '1';
+--		Mwe_s, 				--		wren		: IN STD_LOGIC ;
+--		main_mem_status,  --		main_mem_status   : OUT STD_LOGIC;
+--		main_mem_clk,
+--		mdout_bus 			--		q			: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+--	);
+
+	Unit2: SetAssociative2Way PORT MAP(
+		cpu_clk,				--		clock					: 	in std_logic;
+		Mre_s,				--		Mre					:	in std_logic;
+		Mwe_s,				--		Mwe					:	in std_logic;
+		mem_addr,			--		address				:	in std_logic_vector(11 downto 0);
+		big_addr,			--		big_addr 			:	in std_logic;
+		mdin_bus,			--		data_in				:	in std_logic_vector(15 downto 0);
+		mdout_bus,			--		data_out				:	out std_logic_vector(15 downto 0);
+		main_mem_status,	--		mem_status 			: 	out std_logic;
+		main_mem_clk,		--		main_mem_clk		: 	out std_logic
+		write_mem_status, -- D_write_mem_status:  OUT STD_LOGIC;
+		read_mem_status	-- D_read_mem_status :  OUT STD_LOGIC
 	);
 
 -- Debug code
@@ -166,6 +186,9 @@ D_main_mem_status <= main_mem_status;
 
 D_cur_state     <= cur_state;
 D_main_mem_clk <= main_mem_clk;
+
+D_write_mem_status <= write_mem_status;
+D_read_mem_status <= read_mem_status;
 
 -- Register debug lines
 D_rf0 <= rf(0);
