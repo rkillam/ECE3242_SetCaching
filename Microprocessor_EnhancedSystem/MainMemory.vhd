@@ -62,7 +62,6 @@ ARCHITECTURE SYN OF mainmemory IS
 	SIGNAL sub_wire0		: STD_LOGIC_VECTOR (15 DOWNTO 0);
 	SIGNAL address_sent	: STD_LOGIC_VECTOR(11 DOWNTO 0);
 	SIGNAL clk_8th 		: STD_LOGIC;
-	SIGNAL received_inst : STD_LOGIC := rden OR wren;
 
 BEGIN
 	q    <= sub_wire0(15 DOWNTO 0);
@@ -108,7 +107,8 @@ BEGIN
 	-- It always takes 2 clk_8th cycles to fetch any memory
 --	setStatus:
 --	PROCESS(clk_8th)
---		VARIABLE counter : INTEGER := 0;
+--		VARIABLE counter 			: INTEGER := 0;
+--		VARIABLE received_inst 	: STD_LOGIC := rden OR wren;
 --	BEGIN
 --		IF(received_inst = '1') THEN
 --			IF(rising_edge(clk_8th)) THEN
