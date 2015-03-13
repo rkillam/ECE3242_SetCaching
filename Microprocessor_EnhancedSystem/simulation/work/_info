@@ -4,30 +4,31 @@ K3
 cModel Technology
 dC:\altera\14.0
 Emicroprocessor
-Z0 w1426090880
-Z1 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 Pha:T]_MmzTJCYhSbeLPQ1
-Z2 DPx10 cycloneive 21 cycloneive_components 0 22 mVG;b;]=zAIVfAk:WJ`El1
-Z3 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
-Z4 DPx6 altera 11 dffeas_pack 0 22 Giz7C_dB_=WZS^1=3P8073
-Z5 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
-Z6 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
-Z7 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z8 DPx6 altera 28 altera_primitives_components 0 22 W]_:GkoiISnEn83KNb:3:2
-Z9 dC:\Users\user\Downloads\ECE3242_SetCaching\Microprocessor_EnhancedSystem\simulation
-Z10 8C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
-Z11 FC:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
+Z0 w1426262549
+Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z2 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 Pha:T]_MmzTJCYhSbeLPQ1
+Z3 DPx10 cycloneive 21 cycloneive_components 0 22 mVG;b;]=zAIVfAk:WJ`El1
+Z4 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
+Z5 DPx6 altera 11 dffeas_pack 0 22 Giz7C_dB_=WZS^1=3P8073
+Z6 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
+Z7 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z8 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z9 DPx6 altera 28 altera_primitives_components 0 22 W]_:GkoiISnEn83KNb:3:2
+Z10 dC:\Users\user\Downloads\ECE3242_SetCaching\Microprocessor_EnhancedSystem\simulation
+Z11 8C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
+Z12 FC:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
 l0
-L36
-VWL_5Bef=>lIWZLBeiU4BX0
-!s100 =8Pl^MmUJbM53iE_iQ:Jk3
-Z12 OV;C;10.1d;51
+L39
+VzG[;0BgekW^_7_YlSCB3M2
+!s100 4B@oWkY=f;O=?B3CzPzC`3
+Z13 OV;C;10.1d;51
 32
 !i10b 1
-Z13 !s108 1426091006.427000
-Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
-Z15 !s107 C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
-Z16 o-work work -2002 -explicit -O0
-Z17 tExplicit 1
+Z14 !s108 1426262571.730000
+Z15 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
+Z16 !s107 C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
+Z17 o-work work -2002 -explicit -O0
+Z18 tExplicit 1
 Astructure
 R1
 R2
@@ -37,16 +38,17 @@ R5
 R6
 R7
 R8
-Z18 DEx4 work 14 microprocessor 0 22 WL_5Bef=>lIWZLBeiU4BX0
-l3556
-L475
-VG>X^1F:2LzSOc5m<>J`M_1
-!s100 cW35OgPHOKkm^K`PXBDMo1
-R12
+R9
+Z19 DEx4 work 14 microprocessor 0 22 zG[;0BgekW^_7_YlSCB3M2
+l3763
+L588
+V7^@d;zHAh0PI10TgEDRAW2
+!s100 g9K4[cdg<]>iMMaREAL8n2
+R13
 32
 !i10b 1
-R13
 R14
 R15
 R16
 R17
+R18

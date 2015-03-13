@@ -21,7 +21,8 @@ port (
 		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		D_cache				:	OUT cache_type;
 		D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		D_set_num_index, D_word_num_index	:	OUT INTEGER
+		D_set_num_index, D_word_num_index	:	OUT INTEGER;
+		D_read_line : OUT INTEGER
 );
 end SetAssociative2Way;
 
@@ -42,7 +43,8 @@ architecture behv of SetAssociative2Way is
 	SIGNAL read_replace, write_replace	: STD_LOGIC := '0';
 	SIGNAL word_num_index					: INTEGER := TO_INTEGER(UNSIGNED(address_sent(1 DOWNTO 0)));
 
-	SIGNAL tmp_mem_status	:STD_LOGIC;
+	SIGNAL tmp_mem_status	: STD_LOGIC;
+	SIGNAL replace_ctr : STD_LOGIC := '0';
 
 begin
 	mem_status <= tmp_mem_status AND (write_mem_status OR read_mem_status);
@@ -58,6 +60,7 @@ begin
 	
 	D_set_num_index <= set_num_index;
 	D_word_num_index <= word_num_index;
+	D_read_line <= read_line;
 
 	Unit1: MainMemory PORT MAP (
 		address_sent, --		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
@@ -106,7 +109,7 @@ begin
 			write_replace <= '0';
 
 			-- If we are only writing
-			IF (Mwe = '1' AND Mre = '0') THEN  -- Mwe ='1' AND Mre = '0') THEN
+			IF (Mwe = '1' AND Mre = '0') THEN
 
 				-- Always write to main memory
 				write_mem_status <= main_mem_status;
@@ -138,7 +141,7 @@ begin
 			read_replace <= '0';
 
 			-- If we are only reading
-			IF(Mwe = '0' AND Mre = '1') THEN  -- AND Mre = '1' ) THEN
+			IF(Mwe = '0' AND Mre = '1') THEN
 				-- TODO: Stop using an if else
 
 				-- Attempt to read from cache
@@ -154,13 +157,20 @@ begin
 
 				-- If the address is not in cache
 				ELSE
-					read_replace <= '1';
-					read_line <= line_to_replace;
-					line_to_replace := (line_to_replace + 1) mod 2;
+					IF replace_ctr = '0' THEN
+						read_replace <= '1';
+						read_line <= line_to_replace;
+						line_to_replace := (line_to_replace + 1) mod 2;
+						replace_ctr <= '1';
+					END IF;
 					
 					read_mem_status <= main_mem_status;
 
 					data_out <= main_mem_output;
+				END IF;
+				
+				IF read_mem_status = '1' THEN
+					replace_ctr <= '0';
 				END IF;
 			END IF;
 		END IF;

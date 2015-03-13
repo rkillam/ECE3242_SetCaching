@@ -64,15 +64,34 @@ port(
 		D_cache_set0_line0_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		D_cache_set0_line0_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		
-		D_cache_set0_line1_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		D_cache_set0_line1_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_cache_set0_line1_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_cache_set0_line1_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		D_cache_set0_line1_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set0_line1_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+--		D_cache_set0_line1_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set0_line1_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set0_line1_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set0_line1_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		
+		D_cache_set1_line0_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		D_cache_set1_line0_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set1_line0_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set1_line0_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set1_line0_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		
+		D_cache_set2_line0_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		D_cache_set2_line0_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set2_line0_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set2_line0_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_cache_set2_line0_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		
+--		D_cache_set3_line0_tag	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+--		D_cache_set3_line0_word0: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set3_line0_word1: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set3_line0_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+--		D_cache_set3_line0_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		
 		D_tagIn,D_tagCache	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		
-		D_set_num_index, D_word_num_index	:	OUT INTEGER
+		D_set_num_index, D_word_num_index	:	OUT INTEGER;
+		D_read_line : OUT INTEGER
 		-- end debug cache lines`
 );
 end microprocessor;
@@ -103,6 +122,7 @@ SIGNAL rf : rf_type;
 SIGNAL cache : cache_type;
 SIGNAL tagIn,tagCache	: STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL set_num_index, word_num_index	:	INTEGER;
+SIGNAL read_line : INTEGER;
 -- End debug signals
 
 begin
@@ -185,7 +205,8 @@ begin
 		main_mem_out,		--		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		cache,				-- D_cache					:	OUT cache_type
 		tagIn,tagCache,		-- D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
-		set_num_index, word_num_index	-- D_set_num_index, D_word_num_index	:	OUT INTEGER
+		set_num_index, word_num_index,	-- D_set_num_index, D_word_num_index	:	OUT INTEGER
+		read_line			-- D_read_line : OUT INTEGER
 	);
 
 -- Debug code
@@ -246,15 +267,34 @@ D_cache_set0_line0_word1 <= cache(0)(0).words(1);
 D_cache_set0_line0_word2 <= cache(0)(0).words(2);
 D_cache_set0_line0_word3 <= cache(0)(0).words(3);
 
-D_cache_set0_line1_tag <= cache(0)(1).tag;
-D_cache_set0_line1_word0 <= cache(0)(1).words(0);
-D_cache_set0_line1_word1 <= cache(0)(1).words(1);
-D_cache_set0_line1_word2 <= cache(0)(1).words(2);
-D_cache_set0_line1_word3 <= cache(0)(1).words(3);
+--D_cache_set0_line1_tag <= cache(0)(1).tag;
+--D_cache_set0_line1_word0 <= cache(0)(1).words(0);
+--D_cache_set0_line1_word1 <= cache(0)(1).words(1);
+--D_cache_set0_line1_word2 <= cache(0)(1).words(2);
+--D_cache_set0_line1_word3 <= cache(0)(1).words(3);
+
+D_cache_set1_line0_tag <= cache(1)(0).tag;
+D_cache_set1_line0_word0 <= cache(1)(0).words(0);
+D_cache_set1_line0_word1 <= cache(1)(0).words(1);
+D_cache_set1_line0_word2 <= cache(1)(0).words(2);
+D_cache_set1_line0_word3 <= cache(1)(0).words(3);
+
+D_cache_set2_line0_tag <= cache(2)(0).tag;
+D_cache_set2_line0_word0 <= cache(2)(0).words(0);
+D_cache_set2_line0_word1 <= cache(2)(0).words(1);
+D_cache_set2_line0_word2 <= cache(2)(0).words(2);
+D_cache_set2_line0_word3 <= cache(2)(0).words(3);
+
+--D_cache_set3_line0_tag <= cache(3)(0).tag;
+--D_cache_set3_line0_word0 <= cache(3)(0).words(0);
+--D_cache_set3_line0_word1 <= cache(3)(0).words(1);
+--D_cache_set3_line0_word2 <= cache(3)(0).words(2);
+--D_cache_set3_line0_word3 <= cache(3)(0).words(3);
 
 D_tagIn <= tagIn;
 D_tagCache <= tagCache;
 
 D_set_num_index <= set_num_index;
 D_word_num_index <= word_num_index;
+D_read_line <= read_line;
 end structure;

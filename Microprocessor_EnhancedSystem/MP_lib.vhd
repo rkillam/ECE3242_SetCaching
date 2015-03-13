@@ -141,58 +141,8 @@ COMPONENT SetAssociative2Way IS
 		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		D_cache				:	OUT cache_type;
 		D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		D_set_num_index, D_word_num_index	:	OUT INTEGER
-	);
-END COMPONENT;
-
-COMPONENT Decoder2to4 IS
-	PORT(
-		en		: IN  STD_LOGIC;
-		set	: IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
-		set0	: OUT STD_LOGIC;
-		set1	: OUT STD_LOGIC;
-		set2	: OUT STD_LOGIC;
-		set3	: OUT STD_LOGIC
-	);
-END COMPONENT;
-
-COMPONENT Comparator12Bits IS
-	PORT(
-		en			: IN  STD_LOGIC;
-		tag		: IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
-		cacheTag	: IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
-		compared	: OUT STD_LOGIC
-	);
-END COMPONENT;
-
-COMPONENT WordDecoder2to4 IS
-	PORT(
-		en					: STD_LOGIC;
-		word				: STD_LOGIC_VECTOR(1 DOWNTO 0);
-		words				: IN word_type;
-		selectedWord	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
-	);
-END COMPONENT;
-
-COMPONENT OutputSelection8to1 IS
-	PORT(
-		wordDecoder0En			: in std_logic;
-		wordDecoder1En			: in std_logic;
-		wordDecoder2En			: in std_logic;
-		wordDecoder3En			: in std_logic;
-		wordDecoder4En			: in std_logic;
-		wordDecoder5En			: in std_logic;
-		wordDecoder6En			: in std_logic;
-		wordDecoder7En			: in std_logic;
-		selectWordSet0Line0	: in std_logic_vector(15 downto 0);
-		selectWordSet0Line1	: in std_logic_vector(15 downto 0);
-		selectWordSet1Line0	: in std_logic_vector(15 downto 0);
-		selectWordSet1Line1	: in std_logic_vector(15 downto 0);
-		selectWordSet2Line0	: in std_logic_vector(15 downto 0);
-		selectWordSet2Line1	: in std_logic_vector(15 downto 0);
-		selectWordSet3Line0	: in std_logic_vector(15 downto 0);
-		selectWordSet3Line1 	: in std_logic_vector(15 downto 0);
-		output	:	out std_logic_vector(15 downto 0)
+		D_set_num_index, D_word_num_index	:	OUT INTEGER;
+		D_read_line : OUT INTEGER
 	);
 END COMPONENT;
 
