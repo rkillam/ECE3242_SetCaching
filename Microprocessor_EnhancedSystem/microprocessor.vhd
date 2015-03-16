@@ -20,7 +20,8 @@ port(
 		cpu_output:	out std_logic_vector(15 downto 0);
 
 -- Debug variables
-		D_addr_bus,D_mdin_bus,D_mdout_bus,D_immd_bus,D_rfout_bus: out std_logic_vector(15 downto 0);  
+		D_addr_bus,D_mdin_bus,D_mdout_bus: out std_logic_vector(15 downto 0);  
+--		D_immd_bus,D_rfout_bus: out std_logic_vector(15 downto 0);  
 		D_mem_addr: out std_logic_vector(11 downto 0);
 		D_RFwa_s, D_RFr1a_s, D_RFr2a_s: out std_logic_vector(3 downto 0);
 		D_RFwe_s, D_RFr1e_s, D_RFr2e_s: out std_logic;
@@ -36,7 +37,7 @@ port(
 		D_read_mem_status  : OUT STD_LOGIC;
 		
 		D_main_mem_clk : OUT STD_LOGIC;
-		D_main_mem_out	:	OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_main_mem_out	:	OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		
 		-- Register debug lines
 --		D_rf0 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -112,7 +113,7 @@ SIGNAL main_mem_status : STD_LOGIC;
 -- Debug signals
 SIGNAL cur_state : STD_logic_vector(7 DOWNTO 0);
 SIGNAL main_mem_clk : STD_LOGIC;
-SIGNAL main_mem_out : STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL main_mem_out : STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 SIGNAL write_mem_status : STD_LOGIC;
 SIGNAL read_mem_status  : STD_LOGIC;
@@ -214,8 +215,8 @@ begin
 D_addr_bus <=addr_bus;
 D_mdin_bus <=mdin_bus;
 D_mdout_bus <=mdout_bus;
-D_immd_bus <=immd_bus;
-D_rfout_bus<=rfout_bus;
+--D_immd_bus <=immd_bus;
+--D_rfout_bus<=rfout_bus;
 D_mem_addr<=mem_addr;
 D_RFwa_s<=RFwa_s;
 D_RFr1a_s<=RFr1a_s;

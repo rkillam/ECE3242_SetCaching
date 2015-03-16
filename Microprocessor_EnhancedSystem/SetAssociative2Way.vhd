@@ -19,7 +19,7 @@ port (
 		D_main_mem_clk		: 	out STD_LOGIC;
 		D_write_mem_status:  OUT STD_LOGIC;
 		D_read_mem_status :  OUT STD_LOGIC;
-		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		D_cache				:	OUT cache_type;
 		D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		D_set_num_index, D_word_num_index	:	OUT INTEGER;
@@ -32,7 +32,7 @@ architecture behv of SetAssociative2Way is
 	SIGNAL tmp_cache: cache_type;
 
 	SIGNAL main_mem_status: STD_LOGIC;
-	SIGNAL main_mem_output: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL main_mem_output: STD_LOGIC_VECTOR(63 downto 0);
 
 	SIGNAL address_sent : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
@@ -46,7 +46,7 @@ architecture behv of SetAssociative2Way is
 
 	SIGNAL tmp_mem_status	: STD_LOGIC;
 	
-	SIGNAL D_was_reset		: STD_LOGIC := '0';
+	SIGNAL data_to_write		: STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 begin
 	mem_status <= tmp_mem_status AND (write_mem_status OR read_mem_status);
@@ -64,17 +64,29 @@ begin
 	D_word_num_index <= word_num_index;
 	D_read_line <= read_line;
 
-	Unit1: MainMemory PORT MAP (
-		address_sent, --		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
-		big_addr, 			--		big_addr	: IN STD_LOGIC;
-		'1',		 			--		clken		: IN STD_LOGIC  := '1';
-		clock, 				--		clock		: IN STD_LOGIC  := '1';
-		data_in, 			--		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		Mre, 					--		rden		: IN STD_LOGIC  := '1';
-		Mwe, 			 		--		wren		: IN STD_LOGIC ;
-		main_mem_status,  --		main_mem_status   : OUT STD_LOGIC;
-		D_main_mem_clk,
-		main_mem_output 	--		q			: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+--	Unit1: MainMemory PORT MAP (
+--		address_sent, 		--		address	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
+--		big_addr, 			--		big_addr	: IN STD_LOGIC;
+--		'1',		 			--		clken		: IN STD_LOGIC  := '1';
+--		clock, 				--		clock		: IN STD_LOGIC  := '1';
+--		data_in, 			--		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+--		Mre, 					--		rden		: IN STD_LOGIC  := '1';
+--		Mwe, 			 		--		wren		: IN STD_LOGIC ;
+--		main_mem_status,  --		main_mem_status   : OUT STD_LOGIC;
+--		D_main_mem_clk,
+--		main_mem_output 	--		q			: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+--	);
+
+	Unit1: MainMemory64Words PORT MAP (
+		address_sent(11 downto 2),		-- address	: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
+		'1',									-- clken		: IN STD_LOGIC  := '1';
+		clock,								-- clock		: IN STD_LOGIC  := '1';
+		data_to_write,						-- data		: IN STD_LOGIC_VECTOR (63 DOWNTO 0);
+		Mre, 									-- rden		: IN STD_LOGIC  := '1';
+		Mwe,									-- wren		: IN STD_LOGIC ;
+		main_mem_status,					-- main_mem_status	: OUT STD_LOGIC;
+		D_main_mem_clk,					--D_main_mem_clk 	: OUT STD_LOGIC; -- Outputs the clock given to the memory
+		main_mem_output					-- q		: OUT STD_LOGIC_VECTOR (63 DOWNTO 0)
 	);
 
 	setAddrType:
@@ -92,8 +104,6 @@ begin
 	BEGIN
 		IF(rising_edge(clock)) THEN
 			IF(reset = '1') THEN
-				D_was_reset <= '1';
-
 				FOR i IN 0 TO 3 LOOP
 					tmp_cache(i)(0).tag <= x"FF";
 					tmp_cache(i)(1).tag <= x"FF";
@@ -102,7 +112,10 @@ begin
 			ELSE
 				IF(read_replace = '1') THEN
 					tmp_cache(set_num_index)(read_line).tag <= address_tag;
-					tmp_cache(set_num_index)(read_line).words(word_num_index) <= main_mem_output;
+					tmp_cache(set_num_index)(read_line).words(0) <= main_mem_output(63 downto 48);
+					tmp_cache(set_num_index)(read_line).words(1) <= main_mem_output(47 downto 32);
+					tmp_cache(set_num_index)(read_line).words(2) <= main_mem_output(31 downto 16);
+					tmp_cache(set_num_index)(read_line).words(3) <= main_mem_output(15 downto 0);
 
 				ELSIF(write_replace = '1') THEN
 					tmp_cache(set_num_index)(write_line).tag <= address_tag;
@@ -115,6 +128,15 @@ begin
 
 	write: 
 	PROCESS(clock, data_in, address_tag, set_num_index, word_num_index)
+		TYPE state_type IS (
+			Wait_For_Read_Inst_Received,
+			Wait_For_Read_Data,
+			Update_Block,
+			Wait_Write_Back_Inst_Received
+		);
+		VARIABLE state : state_type;
+		
+		VARIABLE changeBlock : STD_LOGIC_VECTOR (63 DOWNTO 0);
 	BEGIN
 		IF (rising_edge(clock)) THEN
 			write_mem_status <= '0';
@@ -122,9 +144,45 @@ begin
 
 			-- If we are only writing
 			IF (Mwe = '1' AND Mre = '0') THEN
+				CASE state IS
+					WHEN Wait_For_Read_Inst_Received =>
+						IF (main_mem_status = '1') THEN
+							state := Wait_For_Read_Data;
+						END IF;
+						
+					WHEN Wait_For_Read_Data =>
+						IF (main_mem_status = '1') THEN
+							changeBlock := main_mem_output;
+							state := Update_Block;
+						END IF;
 
-				-- Always write to main memory
-				write_mem_status <= main_mem_status;
+					WHEN Update_Block =>
+						CASE word_num_index IS
+							WHEN 0 =>
+								changeBlock(63 downto 48) := data_in;
+							WHEN 1 =>
+								changeBlock(47 downto 32) := data_in;
+							WHEN 2 =>
+								changeBlock(31 downto 16) := data_in;
+							WHEN 3 =>
+								changeBlock(15 downto 0)  := data_in;
+							WHEN OTHERS =>
+								NULL;
+								
+						END CASE;
+						state := Wait_Write_Back_Inst_Received;
+
+					WHEN Wait_Write_Back_Inst_Received =>
+						data_to_write <= changeBlock;
+						
+						IF(main_mem_status = '1') THEN
+							write_mem_status <= '1';
+							state := Wait_For_Read_Inst_Received;
+						END IF;
+
+					WHEN OTHERS =>
+						state := Wait_For_Read_Inst_Received;
+				END CASE;
 
 				-- TODO: Stop using an if else
 
@@ -143,7 +201,7 @@ begin
 			END IF;
 		END IF;
 	END PROCESS;
-
+	
    read: 
 	PROCESS(clock, address_tag, set_num_index, word_num_index)
 		VARIABLE line_to_replace : INTEGER := 0;
@@ -192,13 +250,15 @@ begin
 						WHEN Write_To_Cache =>
 							read_replace <= '1';
 							read_line <= line_to_replace;
-							line_to_replace := (line_to_replace + 1) mod 2;
+							
 							state := Output_data;
 
 						WHEN Output_data =>
 							read_mem_status <= '1';
-							data_out <= main_mem_output;
-
+							data_out <= tmp_cache(set_num_index)(line_to_replace).words(word_num_index);
+							
+							line_to_replace := (line_to_replace + 1) mod 2;
+							
 							state := Wait_For_Inst_Received;
 
 						WHEN OTHERS =>

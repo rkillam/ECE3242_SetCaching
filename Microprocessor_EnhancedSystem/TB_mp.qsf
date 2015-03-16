@@ -72,4 +72,6 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE TestControllerTiming.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE TestControlUnit.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE TestMicroprocessor.vwf
 set_global_assignment -name HEX_FILE m9k_mem.hex
+set_global_assignment -name QIP_FILE MainMemory64Words.qip
+set_global_assignment -name HEX_FILE 16BitHexFile.hex
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

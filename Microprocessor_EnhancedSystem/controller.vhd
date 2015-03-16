@@ -198,6 +198,7 @@ begin
 			ALUs_ctrl <= "000";	  
 			IRld_ctrl <= '0';
 			state <= S_SHORT_SAVEa;			-- read value from RF
+			
 	  when S_SHORT_SAVEa =>  
 			cur_state <= x"0B"; 
 			Mre_ctrl <= '0';
@@ -207,6 +208,7 @@ begin
 			IF(main_mem_status = '1') THEN
 				state <= S_SHORT_SAVE_wait;			-- write into memory
 			END IF;
+			
 		when S_SHORT_SAVE_wait =>
 			cur_state <= x"0C";
 			-- Need to wait until the memory has written the data

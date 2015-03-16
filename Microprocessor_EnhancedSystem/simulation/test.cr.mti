@@ -9,6 +9,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package altera_primitives_components
 -- Loading package cycloneive_atom_pack
 -- Loading package cycloneive_components
+-- Loading package std_logic_arith
 -- Compiling entity microprocessor
 -- Compiling architecture structure of microprocessor
 
