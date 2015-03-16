@@ -114,14 +114,14 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_FETCH_INST_wait;
-			END IF;
-		when S_FETCH_INST_wait =>
-			cur_state <= x"02";
-			-- Need to wait until the memory has retrieved the data
-			IF(main_mem_status = '1') THEN
 				state <= S_FETCH_INSTa;
 			END IF;
+--		when S_FETCH_INST_wait =>
+--			cur_state <= x"02";
+--			-- Need to wait until the memory has retrieved the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_FETCH_INSTa;
+--			END IF;
 	  when S_FETCH_INSTa => 
 			cur_state <= x"03";
 	        IRld_ctrl <= '0';
@@ -172,14 +172,14 @@ begin
 
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_SHORT_LOAD_wait;
-			END IF;
-		when S_SHORT_LOAD_wait =>
-			cur_state <= x"07";
-			-- Need to wait until the memory has retrieved the data
-			IF(main_mem_status = '1') THEN
 				state <= S_SHORT_LOADa;
 			END IF;
+--		when S_SHORT_LOAD_wait =>
+--			cur_state <= x"07";
+--			-- Need to wait until the memory has retrieved the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_SHORT_LOADa;
+--			END IF;
 	  when S_SHORT_LOADa =>  
 			cur_state <= x"08"; 
 				RFwe_ctrl <= '1'; 
@@ -206,15 +206,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_SHORT_SAVE_wait;			-- write into memory
+				state <= S_SHORT_SAVEb;			-- write into memory
 			END IF;
 			
-		when S_SHORT_SAVE_wait =>
-			cur_state <= x"0C";
-			-- Need to wait until the memory has written the data
-			IF(main_mem_status = '1') THEN
-				state <= S_SHORT_SAVEb;
-			END IF;
+--		when S_SHORT_SAVE_wait =>
+--			cur_state <= x"0C";
+--			-- Need to wait until the memory has written the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_SHORT_SAVEb;
+--			END IF;
 	  when S_SHORT_SAVEb =>  
 			cur_state <= x"0D"; 
 			Ms_ctrl <= "10";				  
@@ -232,15 +232,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_LONG_LOAD_wait;	
+				state <= S_LONG_LOAD_a;	
 			END IF;
 
-		WHEN S_LONG_LOAD_wait =>
-			cur_state <= x"0F";
-			-- Need to wait until the memory has read the data
-			IF(main_mem_status = '1') THEN
-				state <= S_LONG_LOAD_a;
-			END IF;
+--		WHEN S_LONG_LOAD_wait =>
+--			cur_state <= x"0F";
+--			-- Need to wait until the memory has read the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_LONG_LOAD_a;
+--			END IF;
 		WHEN S_LONG_LOAD_a =>  
 			cur_state <= x"10"; 
 			RFwe_ctrl <= '1'; 
@@ -269,15 +269,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_LONG_SAVE_wait;				-- write into memory
+				state <= S_LONG_SAVE_b;				-- write into memory
 			END IF;
 			
-		when S_LONG_SAVE_wait =>
-			cur_state <= x"14"; 
-			-- Need to wait until the memory has written the data
-			IF(main_mem_status = '1') THEN
-				state <= S_LONG_SAVE_b;
-			END IF;
+--		when S_LONG_SAVE_wait =>
+--			cur_state <= x"14"; 
+--			-- Need to wait until the memory has written the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_LONG_SAVE_b;
+--			END IF;
 	  when S_LONG_SAVE_b => 
 			cur_state <= x"15";   
 			Ms_ctrl <= "10";				  
@@ -307,23 +307,23 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_REG_ADDR_LOAD_wait;	
+				state <= S_REG_ADDR_LOADa;	
 			END IF;
 			
-		when S_REG_ADDR_LOAD_wait =>
-			cur_state <= x"17"; 
-			RFr1e_ctrl <= '0';
-			
-			-- At this point, the data at the address specified by R1 is now on the data_out bus of the memory unit.
-			-- data_out is connected to mem_data bus (and IR bus, but we don't care)
-			-- mem_data is option "01" on the smallmux unit.
-			-- We want to connect the mem_data bus to the RFw bus:
-			RFs_ctrl <= "01";
-		
-			-- Need to wait until the memory has read the data
-			IF(main_mem_status = '1') THEN
-				state <= S_REG_ADDR_LOADa;
-			END IF;
+--		when S_REG_ADDR_LOAD_wait =>
+--			cur_state <= x"17"; 
+--			RFr1e_ctrl <= '0';
+--			
+--			-- At this point, the data at the address specified by R1 is now on the data_out bus of the memory unit.
+--			-- data_out is connected to mem_data bus (and IR bus, but we don't care)
+--			-- mem_data is option "01" on the smallmux unit.
+--			-- We want to connect the mem_data bus to the RFw bus:
+--			RFs_ctrl <= "01";
+--		
+--			-- Need to wait until the memory has read the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_REG_ADDR_LOADa;
+--			END IF;
 
 		WHEN S_REG_ADDR_LOADa =>
 			cur_state <= x"18"; 
@@ -356,14 +356,14 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_REG_ADDR_SAVE_wait;	
+				state <= S_REG_ADDR_SAVEb;	
 			END IF;
-		when S_REG_ADDR_SAVE_wait =>
-			cur_state <= x"1C"; 
-			-- Need to wait until the memory has written the data
-			IF(main_mem_status = '1') THEN
-				state <= S_REG_ADDR_SAVEb;
-			END IF;
+--		when S_REG_ADDR_SAVE_wait =>
+--			cur_state <= x"1C"; 
+--			-- Need to wait until the memory has written the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_REG_ADDR_SAVEb;
+--			END IF;
 	  when S_REG_ADDR_SAVEb => 
 			cur_state <= x"1D"; 	
 			Ms_ctrl <= "10";-- return
@@ -482,15 +482,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_OUTPUT_MEM_wait;	
+				state <= S_OUTPUT_MEMa;	
 			END IF;
 			
-		when S_OUTPUT_MEM_wait =>
-			cur_state <= x"2E"; 
-			-- Need to wait until the memory has read the data
-			IF(main_mem_status = '1') THEN
-				state <= S_OUTPUT_MEMa;
-			END IF;
+--		when S_OUTPUT_MEM_wait =>
+--			cur_state <= x"2E"; 
+--			-- Need to wait until the memory has read the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_OUTPUT_MEMa;
+--			END IF;
 	  when S_OUTPUT_MEMa =>  
 			cur_state <= x"2F"; 
 			oe_ctrl <= '1'; 		  

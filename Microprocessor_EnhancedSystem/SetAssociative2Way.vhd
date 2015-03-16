@@ -47,9 +47,13 @@ architecture behv of SetAssociative2Way is
 	SIGNAL tmp_mem_status	: STD_LOGIC;
 	
 	SIGNAL data_to_write		: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	
+	SIGNAL main_mem_read_en, main_mem_ren, main_mem_ren_for_write, main_mem_wen : STD_LOGIC := '0';
 
 begin
 	mem_status <= tmp_mem_status AND (write_mem_status OR read_mem_status);
+	
+	main_mem_read_en <= main_mem_ren OR main_mem_ren_for_write;
 
 	D_main_mem_out <= main_mem_output;
 
@@ -82,8 +86,8 @@ begin
 		'1',									-- clken		: IN STD_LOGIC  := '1';
 		clock,								-- clock		: IN STD_LOGIC  := '1';
 		data_to_write,						-- data		: IN STD_LOGIC_VECTOR (63 DOWNTO 0);
-		Mre, 									-- rden		: IN STD_LOGIC  := '1';
-		Mwe,									-- wren		: IN STD_LOGIC ;
+		main_mem_read_en, 				-- rden		: IN STD_LOGIC  := '1';
+		main_mem_wen,						-- wren		: IN STD_LOGIC ;
 		main_mem_status,					-- main_mem_status	: OUT STD_LOGIC;
 		D_main_mem_clk,					--D_main_mem_clk 	: OUT STD_LOGIC; -- Outputs the clock given to the memory
 		main_mem_output					-- q		: OUT STD_LOGIC_VECTOR (63 DOWNTO 0)
@@ -132,7 +136,8 @@ begin
 			Wait_For_Read_Inst_Received,
 			Wait_For_Read_Data,
 			Update_Block,
-			Wait_Write_Back_Inst_Received
+			Wait_Write_Back_Inst_Received,
+			Wait_Write_Back_Complete
 		);
 		VARIABLE state : state_type;
 		
@@ -146,10 +151,12 @@ begin
 			IF (Mwe = '1' AND Mre = '0') THEN
 				CASE state IS
 					WHEN Wait_For_Read_Inst_Received =>
+						main_mem_ren_for_write <= '1';
+
 						IF (main_mem_status = '1') THEN
 							state := Wait_For_Read_Data;
 						END IF;
-						
+
 					WHEN Wait_For_Read_Data =>
 						IF (main_mem_status = '1') THEN
 							changeBlock := main_mem_output;
@@ -157,6 +164,8 @@ begin
 						END IF;
 
 					WHEN Update_Block =>
+						main_mem_ren_for_write <= '0';
+
 						CASE word_num_index IS
 							WHEN 0 =>
 								changeBlock(63 downto 48) := data_in;
@@ -173,9 +182,31 @@ begin
 						state := Wait_Write_Back_Inst_Received;
 
 					WHEN Wait_Write_Back_Inst_Received =>
+						main_mem_wen <= '1';
 						data_to_write <= changeBlock;
-						
+
 						IF(main_mem_status = '1') THEN
+							-- TODO: Stop using an if else
+
+							-- Attempt to write to cache
+							-- If the tag matches the first line in the set
+							IF address_tag = tmp_cache(set_num_index)(0).tag THEN
+								write_replace <= '1';
+								write_line <= 0;
+
+							-- If the tag matches the second line in the set
+							ELSIF address_tag = tmp_cache(set_num_index)(1).tag THEN
+								write_replace <= '1';
+								write_line <= 1;
+
+							END IF;
+
+							state := Wait_Write_Back_Complete;
+						END IF;
+
+					WHEN Wait_Write_Back_Complete =>
+						IF(main_mem_status = '1') THEN
+							main_mem_wen <= '0';
 							write_mem_status <= '1';
 							state := Wait_For_Read_Inst_Received;
 						END IF;
@@ -183,21 +214,6 @@ begin
 					WHEN OTHERS =>
 						state := Wait_For_Read_Inst_Received;
 				END CASE;
-
-				-- TODO: Stop using an if else
-
-				-- Attempt to write to cache
-				-- If the tag matches the first line in the set
-				IF address_tag = tmp_cache(set_num_index)(0).tag THEN
-					write_replace <= '1';
-					write_line <= 0;
-
-				-- If the tag matches the second line in the set
-				ELSIF address_tag = tmp_cache(set_num_index)(1).tag THEN
-					write_replace <= '1';
-					write_line <= 1;
-
-				END IF;
 			END IF;
 		END IF;
 	END PROCESS;
@@ -213,7 +229,7 @@ begin
 			Output_data
 		);
 		VARIABLE state : state_type;
-		
+
 	begin
 		if (rising_edge(clock)) then
 			read_mem_status <= '0';
@@ -238,12 +254,15 @@ begin
 				ELSE
 					CASE state IS
 						WHEN Wait_For_Inst_Received =>
+							main_mem_ren <= '1';
+							
 							IF (main_mem_status = '1') THEN
 								state := Wait_For_Data;
 							END IF;
 
 						WHEN Wait_For_Data =>
 							IF (main_mem_status = '1') THEN
+								main_mem_ren <= '0';
 								state := Write_To_Cache;
 							END IF;
 
@@ -255,9 +274,10 @@ begin
 
 						WHEN Output_data =>
 							read_mem_status <= '1';
+							
 							data_out <= tmp_cache(set_num_index)(line_to_replace).words(word_num_index);
 							
-							line_to_replace := (line_to_replace + 1) mod 2;
+--							line_to_replace := (line_to_replace + 1) mod 2;
 							
 							state := Wait_For_Inst_Received;
 
