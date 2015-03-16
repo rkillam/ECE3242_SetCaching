@@ -14,7 +14,7 @@ TYPE rf_type IS ARRAY(0 TO 15) OF
 -- Cache Datatypes	
 TYPE word_type IS ARRAY(0 TO 3) OF
 				STD_LOGIC_VECTOR(15 DOWNTO 0);
-				
+
 TYPE line_type IS RECORD
 	tag:		STD_LOGIC_VECTOR(7 DOWNTO 0);
 	words:	word_type;
@@ -128,6 +128,7 @@ END COMPONENT;
 COMPONENT SetAssociative2Way IS
 	PORT(
 		clock					: 	in STD_LOGIC;
+		reset					:  IN STD_LOGIC;
 		Mre					:	in STD_LOGIC;
 		Mwe					:	in STD_LOGIC;
 		address				:	in STD_LOGIC_VECTOR(11 downto 0);

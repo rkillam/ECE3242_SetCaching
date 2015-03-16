@@ -6,6 +6,7 @@ use work.MP_lib.all;
 entity SetAssociative2Way is
 port ( 	
 		clock					: 	in STD_LOGIC;
+		reset					:  IN STD_LOGIC;
 		Mre					:	in STD_LOGIC;
 		Mwe					:	in STD_LOGIC;
 		address				:	in STD_LOGIC_VECTOR(11 downto 0);
@@ -34,7 +35,7 @@ architecture behv of SetAssociative2Way is
 	SIGNAL main_mem_output: STD_LOGIC_VECTOR(15 downto 0);
 
 	SIGNAL address_sent : STD_LOGIC_VECTOR(11 DOWNTO 0);
-	
+
 	SIGNAL write_mem_status, read_mem_status : STD_LOGIC;
 
 	SIGNAL address_tag						: STD_LOGIC_VECTOR(7 DOWNTO 0) := address_sent(11 DOWNTO 4);
@@ -44,7 +45,8 @@ architecture behv of SetAssociative2Way is
 	SIGNAL word_num_index					: INTEGER := TO_INTEGER(UNSIGNED(address_sent(1 DOWNTO 0)));
 
 	SIGNAL tmp_mem_status	: STD_LOGIC;
-	SIGNAL replace_ctr : STD_LOGIC := '0';
+	
+	SIGNAL D_was_reset		: STD_LOGIC := '0';
 
 begin
 	mem_status <= tmp_mem_status AND (write_mem_status OR read_mem_status);
@@ -86,17 +88,27 @@ begin
 	END PROCESS;
 
 	cacheWrite:
-	PROCESS(clock, read_replace, read_line, write_replace, write_line, data_in)
+	PROCESS(clock, reset, read_replace, read_line, write_replace, write_line, data_in)
 	BEGIN
 		IF(rising_edge(clock)) THEN
-			IF(read_replace = '1') THEN
-				tmp_cache(set_num_index)(read_line).tag <= address_tag;
-				tmp_cache(set_num_index)(read_line).words(word_num_index) <= main_mem_output;
+			IF(reset = '1') THEN
+				D_was_reset <= '1';
 
-			ELSIF(write_replace = '1') THEN
-				tmp_cache(set_num_index)(write_line).tag <= address_tag;
-				tmp_cache(set_num_index)(write_line).words(word_num_index) <= data_in;
+				FOR i IN 0 TO 3 LOOP
+					tmp_cache(i)(0).tag <= x"FF";
+					tmp_cache(i)(1).tag <= x"FF";
+				END LOOP;
 
+			ELSE
+				IF(read_replace = '1') THEN
+					tmp_cache(set_num_index)(read_line).tag <= address_tag;
+					tmp_cache(set_num_index)(read_line).words(word_num_index) <= main_mem_output;
+
+				ELSIF(write_replace = '1') THEN
+					tmp_cache(set_num_index)(write_line).tag <= address_tag;
+					tmp_cache(set_num_index)(write_line).words(word_num_index) <= data_in;
+
+				END IF;
 			END IF;
 		END IF;
 	END PROCESS;
@@ -135,6 +147,15 @@ begin
    read: 
 	PROCESS(clock, address_tag, set_num_index, word_num_index)
 		VARIABLE line_to_replace : INTEGER := 0;
+
+		TYPE state_type IS (
+			Wait_For_Inst_Received,
+			Wait_For_Data,
+			Write_To_Cache,
+			Output_data
+		);
+		VARIABLE state : state_type;
+		
 	begin
 		if (rising_edge(clock)) then
 			read_mem_status <= '0';
@@ -157,20 +178,33 @@ begin
 
 				-- If the address is not in cache
 				ELSE
-					IF replace_ctr = '0' THEN
-						read_replace <= '1';
-						read_line <= line_to_replace;
-						line_to_replace := (line_to_replace + 1) mod 2;
-						replace_ctr <= '1';
-					END IF;
-					
-					read_mem_status <= main_mem_status;
+					CASE state IS
+						WHEN Wait_For_Inst_Received =>
+							IF (main_mem_status = '1') THEN
+								state := Wait_For_Data;
+							END IF;
 
-					data_out <= main_mem_output;
-				END IF;
-				
-				IF read_mem_status = '1' THEN
-					replace_ctr <= '0';
+						WHEN Wait_For_Data =>
+							IF (main_mem_status = '1') THEN
+								state := Write_To_Cache;
+							END IF;
+
+						WHEN Write_To_Cache =>
+							read_replace <= '1';
+							read_line <= line_to_replace;
+							line_to_replace := (line_to_replace + 1) mod 2;
+							state := Output_data;
+
+						WHEN Output_data =>
+							read_mem_status <= '1';
+							data_out <= main_mem_output;
+
+							state := Wait_For_Inst_Received;
+
+						WHEN OTHERS =>
+							state := Wait_For_Inst_Received;
+					
+					END CASE;
 				END IF;
 			END IF;
 		END IF;

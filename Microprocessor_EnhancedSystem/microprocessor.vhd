@@ -18,7 +18,7 @@ port(
 		cpu_clk:	in std_logic;
 		cpu_rst:	in std_logic;
 		cpu_output:	out std_logic_vector(15 downto 0);
-		
+
 -- Debug variables
 		D_addr_bus,D_mdin_bus,D_mdout_bus,D_immd_bus,D_rfout_bus: out std_logic_vector(15 downto 0);  
 		D_mem_addr: out std_logic_vector(11 downto 0);
@@ -192,6 +192,7 @@ begin
 
 	Unit2: SetAssociative2Way PORT MAP(
 		cpu_clk,				--		clock					: 	in std_logic;
+		cpu_rst,				--		reset					:  IN STD_LOGIC;
 		Mre_s,				--		Mre					:	in std_logic;
 		Mwe_s,				--		Mwe					:	in std_logic;
 		mem_addr,			--		address				:	in std_logic_vector(11 downto 0);
