@@ -221,6 +221,7 @@ begin
    read: 
 	PROCESS(clock, address_tag, set_num_index, word_num_index)
 		VARIABLE line_to_replace : INTEGER := 0;
+		VARIABLE lines_to_replace : STD_LOGIC_VECTOR(0 TO 3) := "0000";
 
 		TYPE state_type IS (
 			Wait_For_Inst_Received,
@@ -232,6 +233,8 @@ begin
 
 	begin
 		if (rising_edge(clock)) then
+			line_to_replace := TO_INTEGER(lines_to_replace(set_num_index));
+
 			read_mem_status <= '0';
 			read_replace <= '0';
 
@@ -255,7 +258,7 @@ begin
 					CASE state IS
 						WHEN Wait_For_Inst_Received =>
 							main_mem_ren <= '1';
-							
+
 							IF (main_mem_status = '1') THEN
 								state := Wait_For_Data;
 							END IF;
@@ -274,11 +277,12 @@ begin
 
 						WHEN Output_data =>
 							read_mem_status <= '1';
-							
+
 							data_out <= tmp_cache(set_num_index)(line_to_replace).words(word_num_index);
-							
---							line_to_replace := (line_to_replace + 1) mod 2;
-							
+
+--							lines_to_replace(set_num_index) := (line_to_replace + 1) mod 2;
+							lines_to_replace(set_num_index) := std_logic_vector(TO_UNSIGNED((line_to_replace + 1) mod 2, 1));
+
 							state := Wait_For_Inst_Received;
 
 						WHEN OTHERS =>
