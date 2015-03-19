@@ -45,7 +45,7 @@ architecture behv of SetAssociative2Way is
 	SIGNAL word_num_index					: INTEGER := TO_INTEGER(UNSIGNED(address_sent(1 DOWNTO 0)));
 
 	SIGNAL tmp_mem_status	: STD_LOGIC;
-	
+
 	SIGNAL data_to_write		: STD_LOGIC_VECTOR(63 DOWNTO 0);
 	
 	SIGNAL main_mem_read_en, main_mem_ren, main_mem_ren_for_write, main_mem_wen : STD_LOGIC := '0';
@@ -107,6 +107,7 @@ begin
 	PROCESS(clock, reset, read_replace, read_line, write_replace, write_line, data_in)
 	BEGIN
 		IF(rising_edge(clock)) THEN
+			-- Try this instead of this reset -> http://www.edaboard.com/thread88582.html
 			IF(reset = '1') THEN
 				FOR i IN 0 TO 3 LOOP
 					tmp_cache(i)(0).tag <= x"FF";
@@ -217,11 +218,12 @@ begin
 			END IF;
 		END IF;
 	END PROCESS;
-	
+
    read: 
 	PROCESS(clock, address_tag, set_num_index, word_num_index)
-		VARIABLE line_to_replace : INTEGER := 0;
-		VARIABLE lines_to_replace : STD_LOGIC_VECTOR(0 TO 3) := "0000";
+		TYPE set_lines IS ARRAY (0 TO 3) OF INTEGER;
+
+		VARIABLE lines_to_replace : set_lines := (others => 0);
 
 		TYPE state_type IS (
 			Wait_For_Inst_Received,
@@ -233,8 +235,6 @@ begin
 
 	begin
 		if (rising_edge(clock)) then
-			line_to_replace := TO_INTEGER(lines_to_replace(set_num_index));
-
 			read_mem_status <= '0';
 			read_replace <= '0';
 
@@ -271,23 +271,22 @@ begin
 
 						WHEN Write_To_Cache =>
 							read_replace <= '1';
-							read_line <= line_to_replace;
-							
+							read_line <= lines_to_replace(set_num_index);
+
 							state := Output_data;
 
 						WHEN Output_data =>
 							read_mem_status <= '1';
 
-							data_out <= tmp_cache(set_num_index)(line_to_replace).words(word_num_index);
+							data_out <= tmp_cache(set_num_index)(lines_to_replace(set_num_index)).words(word_num_index);
 
---							lines_to_replace(set_num_index) := (line_to_replace + 1) mod 2;
-							lines_to_replace(set_num_index) := std_logic_vector(TO_UNSIGNED((line_to_replace + 1) mod 2, 1));
+							lines_to_replace(set_num_index) := (lines_to_replace(set_num_index) + 1) MOD 2;
 
 							state := Wait_For_Inst_Received;
 
 						WHEN OTHERS =>
 							state := Wait_For_Inst_Received;
-					
+
 					END CASE;
 				END IF;
 			END IF;
