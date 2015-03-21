@@ -43,13 +43,13 @@ USE altera_mf.altera_mf_components.all;
 ENTITY MainMemory IS
 	PORT
 	(
-		address				: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
-		big_addr				: IN STD_LOGIC;
-		clken					: IN STD_LOGIC  := '1';
-		clock					: IN STD_LOGIC  := '1';
-		data					: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		rden					: IN STD_LOGIC  := '1';
-		wren					: IN STD_LOGIC ;
+		address				: IN  STD_LOGIC_VECTOR (11 DOWNTO 0);
+		big_addr				: IN  STD_LOGIC;
+		clken					: IN  STD_LOGIC  := '1';
+		clock					: IN  STD_LOGIC  := '1';
+		data					: IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
+		rden					: IN  STD_LOGIC  := '1';
+		wren					: IN  STD_LOGIC;
 		main_mem_status	: OUT STD_LOGIC;
 		D_main_mem_clk 	: OUT STD_LOGIC; -- Outputs the clock given to the memory
 		q						: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
@@ -93,7 +93,7 @@ BEGIN
 --		main_mem_status <= clock;
 --		D_main_mem_clk <= clock;
 	END PROCESS;
-	
+
 	setAddrType:
 	PROCESS(address, big_addr)
 	BEGIN
@@ -103,6 +103,25 @@ BEGIN
 			address_sent <= "0000" & address(7 DOWNTO 0);
 		END IF;
 	END PROCESS;
+
+	-- It always takes 2 clk_8th cycles to fetch any memory
+--	setStatus:
+--	PROCESS(clk_8th)
+--		VARIABLE counter 			: INTEGER := 0;
+--		VARIABLE received_inst 	: STD_LOGIC := rden OR wren;
+--	BEGIN
+--		IF(received_inst = '1') THEN
+--			IF(rising_edge(clk_8th)) THEN
+--				main_mem_status <= '0';
+--				counter := counter + 1;
+--
+--				IF(counter = 1) THEN
+--					counter := 0;
+--					main_mem_status <= '1';
+--				END IF;
+--			END IF;
+--		END IF;
+--	END PROCESS;
 
 	altsyncram_component : altsyncram
 	GENERIC MAP (

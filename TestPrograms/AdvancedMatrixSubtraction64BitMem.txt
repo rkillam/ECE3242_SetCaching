@@ -1,0 +1,82 @@
+-- Compute C = A - B
+--                                                          64 bit memory address locations
+-- row = x"4F8"                                             -> [01 | 00 11 | 11 10] 00 -> x"13E"
+-- col = x"4F9"                                             -> [01 | 00 11 | 11 10] 01 -> x"13E"
+-- A = x"500"                   -> x"500" + (row * col)     -> [01 | 01 00 | 00 00]00 -> x"140"
+-- B = x"500" + (row * col)     -> x"500" + (row * col * 2)
+-- C = x"500" + (row * col * 2) -> x"500" + (row * col * 3)
+
+3000	-- R0 <= 0 FINAL
+3101	-- R1 <= 1 FINAL
+
+C4F8	-- RF <= x"4F8" Row size address
+A2F0	-- R2 <= M[RF]  Row size
+
+C4F9	-- RF <= x"4F9" Col size address
+A3F0	-- R3 <= M[RF]  Col size
+
+B223	-- R2 <= R2 * R3	Matrix size FINAL
+4320	-- R3 <= R2 + R0 	Matrix size
+
+C500	-- RF <= x"500" Starting address of Matrix A
+44F0	-- R4 <= RF + R0
+
+4542	-- R5 <= R4 + R2 [0x0500 + (row * col) Starting address of Matrix B]
+
+4652	-- R6 <= R5 + R2 [(0x0500 + (row * col)) + (row * col) Starting address of Matrix C]
+
+4A60	-- RA <= R6 + R0 [Starting address of Matrix C]
+
+-- Now: RF is accumulator
+--		R0 is 0 FINAL
+--		R1 is 1 FINAL
+--      R2 is matrix size FINAL
+--      R3 is matrix size
+--      R4 holds starting address of matrix A
+--      R5 holds starting address of matrix B
+--      R6 holds starting address of matrix C
+--      RA holds starting address of matrix C
+
+6317	-- IF R3 == 0 THEN goto END_SUBTRACTION_LOOP (Probably 0x17)	START_SUBTRACTION_LOOP (#13)
+
+A740	-- R7 <= M[R4] (A[R4])
+A850	-- R8 <= M[R5] (B[R5])
+5778	-- R7 <= R7 - R8 (A[R4] - B[R5])
+2670	-- M[R6] <= R7 (C[R6])
+
+-- Now: C[R6] = A[R4] - B[R5]
+
+5331	-- R3 <= R3 - R1 [Number of elements left to do]
+4441	-- R4 <= R4 + R1
+4551	-- R5 <= R5 + R1
+4661	-- R6 <= R6 + R1
+
+-- Incremented addresses
+
+600D	-- IF R0 == 0 THEN goto START_LOOP (Probably 0x0D = #13) ALWAYS JUMPS!!
+
+-- Done matrix subtraction
+
+4320	-- R3 <= R2 + R0 Matrix size	END_SUBTRACTION_LOOP (#23)
+
+6321	-- IF R3 == 0 THEN goto END_PRINT_LOOP (Probably 0x21 = #33)	START_PRINT_LOOP (#24)
+
+ABA0	-- RB <= M[RA] (C[RA]) 
+1BFF	-- M[0xFF] <= RB
+70FF	-- print(M[0xFF])
+
+-- Printed C[RA]
+
+4AA1	-- RA <= RA + R1
+5331	-- R3 <= R3 - R1 [Number of elements left to print]
+6018	-- IF R0 == 0 THEN goto START_PRINT_LOOP (Probably 0x18 = #24) ALWAYS JUMP
+
+-- Done printing C
+
+F000	-- HALT		END_PRINT_LOOP (#33)
+
+-- Fast input
+30003101C4F8A2F0	C4F9A3F0B2234320
+C50044F045424652	4A606317A740A850
+5778267053314441	45514661600D4320
+6321ABA01BFF70FF	4AA153316018F000		

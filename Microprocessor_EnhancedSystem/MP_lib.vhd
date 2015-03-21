@@ -11,6 +11,20 @@ type ram_type is array (0 to 255) of
 TYPE rf_type IS ARRAY(0 TO 15) OF
 				STD_LOGIC_VECTOR(15 DOWNTO 0);
 
+-- Cache Datatypes	
+TYPE word_type IS ARRAY(0 TO 3) OF
+				STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+TYPE line_type IS RECORD
+	tag:		STD_LOGIC_VECTOR(7 DOWNTO 0);
+	words:	word_type;
+END RECORD;
+
+TYPE set_type IS ARRAY(0 TO 1) OF line_type;
+TYPE cache_type IS ARRAY(0 TO 3) OF set_type;
+-- End Cache Datatypes
+
+
 constant ZERO 						: std_logic_vector(15 downto 0) := "0000000000000000";
 constant HIRES 					: std_logic_vector(15 downto 0) := "ZZZZZZZZZZZZZZZZ";
 constant SHORT_LOAD 				: std_logic_vector(3 downto 0) := x"0";  -- "0000";
@@ -108,6 +122,43 @@ COMPONENT MainMemory IS
 		main_mem_status	: OUT STD_LOGIC;
 		D_main_mem_clk 	: OUT STD_LOGIC; -- Outputs the clock given to the memory
 		q						: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT MainMemory64Words IS
+	PORT
+	(
+		address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
+		clken			: IN STD_LOGIC  := '1';
+		clock			: IN STD_LOGIC  := '1';
+		data		: IN STD_LOGIC_VECTOR (63 DOWNTO 0);
+		rden			: IN STD_LOGIC  := '1';
+		wren			: IN STD_LOGIC ;
+		main_mem_status	: OUT STD_LOGIC;
+		D_main_mem_clk 	: OUT STD_LOGIC; -- Outputs the clock given to the memory
+		q				: OUT STD_LOGIC_VECTOR (63 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT SetAssociative2Way IS
+	PORT(
+		clock					: 	in STD_LOGIC;
+		reset					:  IN STD_LOGIC;
+		Mre					:	in STD_LOGIC;
+		Mwe					:	in STD_LOGIC;
+		address				:	in STD_LOGIC_VECTOR(11 downto 0);
+		big_addr 			:	in STD_LOGIC;
+		data_in				:	in STD_LOGIC_VECTOR(15 downto 0);
+		data_out				:	out STD_LOGIC_VECTOR(15 downto 0);
+		mem_status 			: 	out STD_LOGIC;
+		D_main_mem_clk		: 	out STD_LOGIC;
+		D_write_mem_status:  OUT STD_LOGIC;
+		D_read_mem_status :  OUT STD_LOGIC;
+		D_main_mem_out		:  OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		D_cache				:	OUT cache_type;
+		D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		D_set_num_index, D_word_num_index	:	OUT INTEGER;
+		D_read_line : OUT INTEGER
 	);
 END COMPONENT;
 

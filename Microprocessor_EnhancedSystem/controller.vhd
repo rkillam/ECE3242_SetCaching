@@ -47,7 +47,7 @@ architecture fsm of controller is
 			S_INIT,
 			S_FETCH_INST,S_FETCH_INSTa,S_FETCH_INSTb,S_FETCH_INST_wait,
 			S_DECODE_INST,
-			
+
 			-- Instruction Executions
 			S_SHORT_LOAD,S_SHORT_LOADa,S_SHORT_LOADb,S_SHORT_LOAD_wait,  					-- x"0" RF[r1]    <= M[8bit direct]
 			S_SHORT_SAVE,S_SHORT_SAVEa,S_SHORT_SAVEb,S_SHORT_SAVE_wait,  					-- x"1" RF[r1]    <= M[8bit direct]
@@ -57,7 +57,7 @@ architecture fsm of controller is
 			
 			S_REG_ADDR_LOAD,S_REG_ADDR_LOADa,S_REG_ADDR_LOADb,S_REG_ADDR_LOAD_wait,		-- x"A" RF[r1]    <= M[RF[r2]]
 			S_REG_ADDR_SAVE,S_REG_ADDR_SAVEa,S_REG_ADDR_SAVEb,S_REG_ADDR_SAVE_wait,		-- x"2" M[RF[r1]] <= RF[r2]
-			
+
 			S_IMM_LOAD,S_IMM_LOADa,																		-- x"3" RF[r1]    <= 8bit imm
 			S_LONG_IMM_LOAD,S_LONG_IMM_LOADa,														-- x"C" RF[F]     <= 12bit imm
 			
@@ -72,7 +72,7 @@ architecture fsm of controller is
 			S_HALT                             														-- x"F" Stay in this state
 	);
   signal state: state_type;
-	
+
 begin
   process(clock, rst, IR_word, main_mem_status)
     variable OPCODE: std_logic_vector(3 downto 0);
@@ -114,14 +114,14 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_FETCH_INST_wait;
-			END IF;
-		when S_FETCH_INST_wait =>
-			cur_state <= x"02";
-			-- Need to wait until the memory has retrieved the data
-			IF(main_mem_status = '1') THEN
 				state <= S_FETCH_INSTa;
 			END IF;
+--		when S_FETCH_INST_wait =>
+--			cur_state <= x"02";
+--			-- Need to wait until the memory has retrieved the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_FETCH_INSTa;
+--			END IF;
 	  when S_FETCH_INSTa => 
 			cur_state <= x"03";
 	        IRld_ctrl <= '0';
@@ -152,11 +152,11 @@ begin
 			    when ADD 				=> state <= S_ADD;
 			    when SUBT 				=>	state <= S_SUBT;
 			    WHEN MULT 				=>	state <= S_MULT;
-				 
+
 			    when JUMP_Z 			=>	state <= S_JUMP_Z;
-				 
+
 			    when OUTPUT_MEM 		=> state <= S_OUTPUT_MEM;
-				 
+
 			    when HALT 				=>	state <= S_HALT; 
 
 			    when others 			=> state <= S_FETCH_INST;
@@ -172,14 +172,14 @@ begin
 
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_SHORT_LOAD_wait;
-			END IF;
-		when S_SHORT_LOAD_wait =>
-			cur_state <= x"07";
-			-- Need to wait until the memory has retrieved the data
-			IF(main_mem_status = '1') THEN
 				state <= S_SHORT_LOADa;
 			END IF;
+--		when S_SHORT_LOAD_wait =>
+--			cur_state <= x"07";
+--			-- Need to wait until the memory has retrieved the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_SHORT_LOADa;
+--			END IF;
 	  when S_SHORT_LOADa =>  
 			cur_state <= x"08"; 
 				RFwe_ctrl <= '1'; 
@@ -198,6 +198,7 @@ begin
 			ALUs_ctrl <= "000";	  
 			IRld_ctrl <= '0';
 			state <= S_SHORT_SAVEa;			-- read value from RF
+			
 	  when S_SHORT_SAVEa =>  
 			cur_state <= x"0B"; 
 			Mre_ctrl <= '0';
@@ -205,14 +206,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_SHORT_SAVE_wait;			-- write into memory
+				state <= S_SHORT_SAVEb;			-- write into memory
 			END IF;
-		when S_SHORT_SAVE_wait =>
-			cur_state <= x"0C";
-			-- Need to wait until the memory has written the data
-			IF(main_mem_status = '1') THEN
-				state <= S_SHORT_SAVEb;
-			END IF;
+			
+--		when S_SHORT_SAVE_wait =>
+--			cur_state <= x"0C";
+--			-- Need to wait until the memory has written the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_SHORT_SAVEb;
+--			END IF;
 	  when S_SHORT_SAVEb =>  
 			cur_state <= x"0D"; 
 			Ms_ctrl <= "10";				  
@@ -230,15 +232,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_LONG_LOAD_wait;	
+				state <= S_LONG_LOAD_a;	
 			END IF;
-			
-		WHEN S_LONG_LOAD_wait =>
-			cur_state <= x"0F";
-			-- Need to wait until the memory has read the data
-			IF(main_mem_status = '1') THEN
-				state <= S_LONG_LOAD_a;
-			END IF;
+
+--		WHEN S_LONG_LOAD_wait =>
+--			cur_state <= x"0F";
+--			-- Need to wait until the memory has read the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_LONG_LOAD_a;
+--			END IF;
 		WHEN S_LONG_LOAD_a =>  
 			cur_state <= x"10"; 
 			RFwe_ctrl <= '1'; 
@@ -267,15 +269,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_LONG_SAVE_wait;				-- write into memory
+				state <= S_LONG_SAVE_b;				-- write into memory
 			END IF;
 			
-		when S_LONG_SAVE_wait =>
-			cur_state <= x"14"; 
-			-- Need to wait until the memory has written the data
-			IF(main_mem_status = '1') THEN
-				state <= S_LONG_SAVE_b;
-			END IF;
+--		when S_LONG_SAVE_wait =>
+--			cur_state <= x"14"; 
+--			-- Need to wait until the memory has written the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_LONG_SAVE_b;
+--			END IF;
 	  when S_LONG_SAVE_b => 
 			cur_state <= x"15";   
 			Ms_ctrl <= "10";				  
@@ -296,7 +298,7 @@ begin
 			-- RFr1out_dp bus is connected to dpdata_out bus.
 			-- Next, we need to wire the dpdata_out bus to the maddr_in bus:
 			Ms_ctrl <= "00";
-			
+
 			-- Now the memory unit sees the value from R2 on its address bus.
 			-- Finally, signal that we intend to read data:
 			Mre_ctrl <= '1';			
@@ -351,7 +353,7 @@ begin
 			big_addr <= '1';
 			Mre_ctrl <= '0';			
 			Mwe_ctrl <= '1'; -- write into memory
-			
+
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
 				state <= S_REG_ADDR_SAVE_wait;	
@@ -480,15 +482,15 @@ begin
 			
 			-- Need to wait until the memory has received the instruction
 			IF(main_mem_status = '1') THEN
-				state <= S_OUTPUT_MEM_wait;	
+				state <= S_OUTPUT_MEMa;	
 			END IF;
 			
-		when S_OUTPUT_MEM_wait =>
-			cur_state <= x"2E"; 
-			-- Need to wait until the memory has read the data
-			IF(main_mem_status = '1') THEN
-				state <= S_OUTPUT_MEMa;
-			END IF;
+--		when S_OUTPUT_MEM_wait =>
+--			cur_state <= x"2E"; 
+--			-- Need to wait until the memory has read the data
+--			IF(main_mem_status = '1') THEN
+--				state <= S_OUTPUT_MEMa;
+--			END IF;
 	  when S_OUTPUT_MEMa =>  
 			cur_state <= x"2F"; 
 			oe_ctrl <= '1'; 		  
