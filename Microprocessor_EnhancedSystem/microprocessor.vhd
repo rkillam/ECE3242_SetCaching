@@ -17,7 +17,8 @@ entity microprocessor is
 port( 	
 		cpu_clk:	in std_logic;
 		cpu_rst:	in std_logic;
-		cpu_output:	out std_logic_vector(15 downto 0);
+		lcd_output:	out std_logic_vector(7 downto 0);
+		lcd_control: out std_logic_vector(1 downto 0);
 
 -- Debug variables
 		D_addr_bus,D_mdin_bus,D_mdout_bus: out std_logic_vector(15 downto 0);  
@@ -111,6 +112,13 @@ signal PCld_s, Mre_s, Mwe_s, jpz_s, oe_s: std_logic;
 SIGNAL big_addr : STD_LOGIC;
 SIGNAL main_mem_status : STD_LOGIC;
 
+--LCD output control
+SIGNAL newDateOutputControl: STD_LOGIC;
+SIGNAL outputReady: STD_LOGIC;
+SIGNAL cpu_output:	std_logic_vector(15 downto 0);
+
+--End LCD output control
+
 -- Debug signals
 SIGNAL cur_state : STD_logic_vector(7 DOWNTO 0);
 SIGNAL main_mem_clk : STD_LOGIC;
@@ -153,7 +161,8 @@ begin
 		Mwe_s,
 		oe_s,
 		cur_state,
-		big_addr
+		big_addr,
+		outputReady
 	);
 	
 	Unit1: datapath port map(
@@ -176,6 +185,7 @@ begin
 		rfout_bus,
 		mdin_bus,
 		cpu_output,
+		newDateOutputControl,
 		
 		-- Register debug lines
 		rf
@@ -212,6 +222,15 @@ begin
 		tagIn,tagCache,		-- D_tagIn,D_tagCache:	OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 		set_num_index, word_num_index,	-- D_set_num_index, D_word_num_index	:	OUT INTEGER
 		read_line			-- D_read_line : OUT INTEGER
+	);
+	
+	Unit3: outputControl port map(
+		cpu_clk,					--		clock		: 	in std_logic;
+		newDateOutputControl,--		newData	: 	in std_logic;
+		cpu_output,				--		data_in	:	in std_logic_vector(15 downto 0);
+		lcd_output,				--		data_out	:	out std_logic_vector(7 downto 0);
+		lcd_control,			--		control_out	: out std_logic_vector(1 downto 0);
+		outputReady				--		ready		: out std_logic
 	);
 
 -- Debug code

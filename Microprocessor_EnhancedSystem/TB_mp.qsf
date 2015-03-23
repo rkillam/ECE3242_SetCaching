@@ -25,7 +25,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY outputControl
+set_global_assignment -name TOP_LEVEL_ENTITY microprocessor
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "8.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:35:59  NOVEMBER 30, 2009"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -70,11 +70,11 @@ set_global_assignment -name QIP_FILE MainMemory64Words.qip
 set_global_assignment -name HEX_FILE 16BitHexFile.hex
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name VHDL_FILE outputControl.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE outputConrtolTest.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/outputConrtolTest.vwf"
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 14622752 -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name VECTOR_WAVEFORM_FILE outputControlTest.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/outputControlTest.vwf"

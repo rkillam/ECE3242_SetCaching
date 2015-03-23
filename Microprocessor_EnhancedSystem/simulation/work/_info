@@ -3,50 +3,129 @@ K3
 13
 cModel Technology
 dC:\altera\14.0
-Emicroprocessor
-Z0 w1426690868
-Z1 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 Pha:T]_MmzTJCYhSbeLPQ1
-Z2 DPx10 cycloneive 21 cycloneive_components 0 22 mVG;b;]=zAIVfAk:WJ`El1
-Z3 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
-Z4 DPx6 altera 11 dffeas_pack 0 22 Giz7C_dB_=WZS^1=3P8073
-Z5 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
-Z6 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
-Z7 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z8 DPx6 altera 28 altera_primitives_components 0 22 W]_:GkoiISnEn83KNb:3:2
-Z9 dC:\Users\user\Downloads\ECE3242_SetCaching\Microprocessor_EnhancedSystem\simulation
-Z10 8C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
-Z11 FC:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
+vmicroprocessor
+I<MW0ZU?[_KBOGd7<4I_Al2
+V7XDV=aX:W1f:;^bheoHk:1
+Z0 dC:\Users\user\Downloads\ECE3242_SetCaching\Microprocessor_EnhancedSystem\simulation
+w1427129601
+8C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vo
+FC:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vo
+L0 31
+Z1 OV;L;10.1d;51
+r1
+31
+Z2 o-work work -O0
+!i10b 1
+!s100 mh9]KC0KIlZ=bzPUc^<[90
+!s85 0
+!s108 1427129715.162000
+!s107 C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vo|
+!s90 -reportprogress|300|-work|work|C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vo|
+!s101 -O0
+Eoutputcontrol
+Z3 w1427125026
+Z4 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 Pha:T]_MmzTJCYhSbeLPQ1
+Z5 DPx10 cycloneive 21 cycloneive_components 0 22 mVG;b;]=zAIVfAk:WJ`El1
+Z6 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
+Z7 DPx6 altera 11 dffeas_pack 0 22 Giz7C_dB_=WZS^1=3P8073
+Z8 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
+Z9 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z10 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z11 DPx6 altera 28 altera_primitives_components 0 22 W]_:GkoiISnEn83KNb:3:2
+Z12 dC:\Users\user\Downloads\ECE3242_SetCaching\Microprocessor_EnhancedSystem\simulation
+Z13 8C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
+Z14 FC:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho
 l0
 L36
-V[k;6;TajRj:z[n:b]fjC21
-!s100 X5ziRz4G@J^KTh;57ddn=2
-Z12 OV;C;10.1d;51
+VgB`;8e6FeZhMm2ZLJKIdc3
+!s100 LS7hKCYD?`S9<4^U`k>Ll2
+Z15 OV;C;10.1d;51
 32
 !i10b 1
-Z13 !s108 1426690913.126000
-Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
-Z15 !s107 C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
-Z16 o-work work -2002 -explicit -O0
-Z17 tExplicit 1
+Z16 !s108 1427129960.447000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
+Z18 !s107 C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/TB_mp.vho|
+Z19 o-work work -2002 -explicit -O0
+Z20 tExplicit 1
 Astructure
-R1
-R2
-R3
 R4
 R5
 R6
 R7
 R8
-Z18 DEx4 work 14 microprocessor 0 22 [k;6;TajRj:z[n:b]fjC21
-l4008
-L571
-V?XDaI:9;F>C^MCWmQTO>K3
-!s100 M45@PhHKb3JTITUoaak=C3
-R12
+R9
+R10
+R11
+Z21 DEx4 work 13 outputcontrol 0 22 gB`;8e6FeZhMm2ZLJKIdc3
+l7628
+L77
+Z22 Vb67XWfb=jl60ZJ>YmLQWC0
+Z23 !s100 [gDJQ:T_jKHbN]b@<?=_T0
+R15
 32
 !i10b 1
-R13
-R14
-R15
 R16
 R17
+R18
+R19
+R20
+voutputControl_vlg_check_tst
+INd7db1o>Ul;06nSW5USZQ3
+V>k<2MCLS;Lo`@47AkH?ah0
+R12
+Z24 w1427126003
+Z25 8C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/modelsim/outputConrtolTest.vwf.vt
+Z26 FC:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/modelsim/outputConrtolTest.vwf.vt
+L0 61
+R1
+r1
+31
+Z27 !s108 1427126099.834000
+Z28 !s107 C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/modelsim/outputConrtolTest.vwf.vt|
+Z29 !s90 -reportprogress|300|-work|work|C:/Users/user/Downloads/ECE3242_SetCaching/Microprocessor_EnhancedSystem/simulation/modelsim/outputConrtolTest.vwf.vt|
+R2
+noutput@control_vlg_check_tst
+!s100 VLEa2jzTi7czY7iO>Gi4`0
+!i10b 1
+!s85 0
+!s101 -O0
+voutputControl_vlg_sample_tst
+Ia2S_`CK_J_M_kl;2obYeT2
+V?V5AD5b88dlzOTIN32eB43
+R12
+R24
+R25
+R26
+L0 29
+R1
+r1
+31
+R27
+R28
+R29
+R2
+noutput@control_vlg_sample_tst
+!s100 NN@C9?^^3B^^CTRZS^:R32
+!i10b 1
+!s85 0
+!s101 -O0
+voutputControl_vlg_vec_tst
+IPgUeM90oicLNFK;Iac8Q91
+V7mKHS:jceFBW[ld0i5:Nn3
+R12
+R24
+R25
+R26
+L0 352
+R1
+r1
+31
+R27
+R28
+R29
+R2
+noutput@control_vlg_vec_tst
+!s100 n1D=Y`1WkN?GUAXS1[gDn1
+!i10b 1
+!s85 0
+!s101 -O0

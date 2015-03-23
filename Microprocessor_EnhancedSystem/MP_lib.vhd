@@ -86,7 +86,8 @@ port(
 	Mwe_ctrl:	out std_logic;
 	oe_ctrl:	out std_logic;
 	cur_state : OUT STD_logic_vector(7 DOWNTO 0);
-	big_addr  : OUT STD_LOGIC
+	big_addr  : OUT STD_LOGIC;
+	outputReady : in std_logic
 );
 end component;
 
@@ -108,6 +109,16 @@ port ( 	clock	: 	in std_logic;
 		data_out:	out std_logic_vector(15 downto 0)
 );
 end component;
+
+COMPONENT outputControl is
+port (clock		: 	in std_logic;
+		newData	: 	in std_logic;
+		data_in	:	in std_logic_vector(15 downto 0);
+		data_out	:	out std_logic_vector(7 downto 0);
+		control_out	: out std_logic_vector(1 downto 0);
+		ready		: out std_logic
+);
+END COMPONENT;
 
 COMPONENT MainMemory IS
 	PORT
@@ -165,7 +176,8 @@ END COMPONENT;
 component obuf is
 port(	O_en: 		in std_logic;
 		obuf_in: 	in std_logic_vector(15 downto 0);
-		obuf_out: 	out std_logic_vector(15 downto 0)
+		obuf_out: 	out std_logic_vector(15 downto 0);
+		newDateOutputControl: out std_logic
 );
 end component;
 
@@ -230,7 +242,8 @@ port(
 	Mwe_cu:		out std_logic;
 	oe_cu:		out std_logic;
 	cur_state : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-	big_addr  : OUT STD_LOGIC
+	big_addr  : OUT STD_LOGIC;
+	outputReady : in std_logic
 );
 end component;
 
@@ -255,6 +268,7 @@ port(
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0);
 	bufout_dp:	out 	std_logic_vector(15 downto 0);
+	newDateOutputControl: out std_logic;
 	
 	-- Register debug lines
 	D_rf : OUT rf_type

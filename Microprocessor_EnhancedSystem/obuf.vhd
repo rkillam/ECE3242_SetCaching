@@ -14,7 +14,8 @@ use work.MP_lib.all;
 entity obuf is
 port(	O_en: 		in std_logic;
 	obuf_in: 	in std_logic_vector(15 downto 0);
-	obuf_out: 	out std_logic_vector(15 downto 0)
+	obuf_out: 	out std_logic_vector(15 downto 0);
+	newDateOutputControl: out std_logic
 );
 end obuf;
 
@@ -25,8 +26,10 @@ begin
   begin
     if O_en = '1' then
 		obuf_out <= obuf_in;
+		newDateOutputControl <= '1';
 	 else
 		obuf_out <= HIRES;
+		newDateOutputControl <= '0';
     end if;
   end process;
 
