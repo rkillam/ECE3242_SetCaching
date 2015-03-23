@@ -47,8 +47,11 @@ architecture behv of SetAssociative2Way is
 	SIGNAL tmp_mem_status	: STD_LOGIC;
 
 	SIGNAL data_to_write		: STD_LOGIC_VECTOR(63 DOWNTO 0);
-	
+
 	SIGNAL main_mem_read_en, main_mem_ren, main_mem_ren_for_write, main_mem_wen : STD_LOGIC := '0';
+
+	SIGNAL writing : STD_LOGIC;
+	SIGNAL writing_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
 
 begin
 	mem_status <= tmp_mem_status AND (write_mem_status OR read_mem_status);
@@ -141,7 +144,7 @@ begin
 			Wait_Write_Back_Complete
 		);
 		VARIABLE state : state_type;
-		
+
 		VARIABLE changeBlock : STD_LOGIC_VECTOR (63 DOWNTO 0);
 	BEGIN
 		IF (rising_edge(clock)) THEN
@@ -178,12 +181,13 @@ begin
 								changeBlock(15 downto 0)  := data_in;
 							WHEN OTHERS =>
 								NULL;
-								
+
 						END CASE;
 						state := Wait_Write_Back_Inst_Received;
 
 					WHEN Wait_Write_Back_Inst_Received =>
-						main_mem_wen <= '1';
+						writing <= '1';
+						write_mem_status <= '1';
 						data_to_write <= changeBlock;
 
 						IF(main_mem_status = '1') THEN
@@ -207,8 +211,9 @@ begin
 
 					WHEN Wait_Write_Back_Complete =>
 						IF(main_mem_status = '1') THEN
+							writing <= '0';
+							main_mem_wen <= '1';
 							main_mem_wen <= '0';
-							write_mem_status <= '1';
 							state := Wait_For_Read_Inst_Received;
 						END IF;
 
@@ -239,7 +244,8 @@ begin
 			read_replace <= '0';
 
 			-- If we are only reading
-			IF(Mwe = '0' AND Mre = '1') THEN
+			IF(Mwe = '0' AND Mre = '1') THEN  -- AND 
+--				(writing = '0' OR address_sent(11 DOWNTO 2) /= writing_address)) THEN
 				-- TODO: Stop using an if else
 
 				-- Attempt to read from cache
