@@ -111,23 +111,17 @@ begin
 			Mwe_ctrl <= '0';
 			jmpen_ctrl <= '0';
 			oe_ctrl <= '0';
-			
-			-- Need to wait until the memory has received the instruction
-			IF(main_mem_status = '1') THEN
-				state <= S_FETCH_INSTa;
-			END IF;
---		when S_FETCH_INST_wait =>
---			cur_state <= x"02";
---			-- Need to wait until the memory has retrieved the data
---			IF(main_mem_status = '1') THEN
---				state <= S_FETCH_INSTa;
---			END IF;
+
+			state <= S_FETCH_INSTa;
 	  when S_FETCH_INSTa => 
 			cur_state <= x"03";
-	        IRld_ctrl <= '0';
-	        PCinc_ctrl <= '1';
-	        Mre_ctrl <= '0';
-	  		state <= S_FETCH_INSTb;			-- Fetch end ...
+			-- Need to wait until the memory has received the instruction
+			IF(main_mem_status = '1') THEN
+				IRld_ctrl <= '0';
+				PCinc_ctrl <= '1';
+				Mre_ctrl <= '0';
+				state <= S_FETCH_INSTb;			-- Fetch end ...
+			END IF;
 	  when S_FETCH_INSTb => 	
 			cur_state <= x"04";
 			PCinc_ctrl <= '0';

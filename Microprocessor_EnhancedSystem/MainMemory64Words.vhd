@@ -60,7 +60,7 @@ ARCHITECTURE SYN OF mainmemory64words IS
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (63 DOWNTO 0);
 	SIGNAL address_sent	: STD_LOGIC_VECTOR(11 DOWNTO 0);
 	SIGNAL clk_8th 		: STD_LOGIC;
-	
+
 	COMPONENT altsyncram
 	GENERIC (
 		clock_enable_input_a		: STRING;
@@ -103,7 +103,7 @@ BEGIN
 		IF(rising_edge(clock)) THEN	
 			main_mem_status <= '0';		
 
-			IF(counter = 3) THEN
+			IF(counter = 1) THEN
 				clk_8th <= NOT clk_8th;
 				counter := 0;
 
@@ -120,7 +120,6 @@ BEGIN
 --		main_mem_status <= clock;
 --		D_main_mem_clk <= clock;
 	END PROCESS;
-
 
 	-- It always takes 2 clk_8th cycles to fetch any memory
 --	setStatus:

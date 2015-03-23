@@ -76,7 +76,7 @@ BEGIN
 		IF(rising_edge(clock)) THEN	
 			main_mem_status <= '0';		
 
-			IF(counter = 1) THEN
+			IF(counter = 3) THEN
 				clk_8th <= NOT clk_8th;
 				counter := 0;
 

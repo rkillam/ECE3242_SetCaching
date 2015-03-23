@@ -110,14 +110,7 @@ begin
 	PROCESS(clock, reset, read_replace, read_line, write_replace, write_line, data_in)
 	BEGIN
 		IF(rising_edge(clock)) THEN
-			-- Try this instead of this reset -> http://www.edaboard.com/thread88582.html
-			IF(reset = '1') THEN
-				FOR i IN 0 TO 3 LOOP
-					tmp_cache(i)(0).tag <= x"FF";
-					tmp_cache(i)(1).tag <= x"FF";
-				END LOOP;
-
-			ELSE
+			IF(reset = '0') THEN  -- If not reset
 				IF(read_replace = '1') THEN
 					tmp_cache(set_num_index)(read_line).tag <= address_tag;
 					tmp_cache(set_num_index)(read_line).words(0) <= main_mem_output(63 downto 48);
@@ -130,6 +123,13 @@ begin
 					tmp_cache(set_num_index)(write_line).words(word_num_index) <= data_in;
 
 				END IF;
+
+			ELSE  -- If reseting
+			-- Try this instead of this reset -> http://www.edaboard.com/thread88582.html
+				FOR i IN 0 TO 3 LOOP
+					tmp_cache(i)(0).tag <= x"FF";
+					tmp_cache(i)(1).tag <= x"FF";
+				END LOOP;
 			END IF;
 		END IF;
 	END PROCESS;
