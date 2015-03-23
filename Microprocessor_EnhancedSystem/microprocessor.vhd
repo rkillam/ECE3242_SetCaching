@@ -91,8 +91,9 @@ port(
 --		D_cache_set3_line0_word2: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 --		D_cache_set3_line0_word3: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		
-		D_tagIn,D_tagCache	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		D_tagIn,D_tagCache	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		
+		D_cpu_output : OUT std_logic_vector(15 downto 0)
 --		D_set_num_index, D_word_num_index	:	OUT INTEGER;
 --		D_read_line : OUT INTEGER
 		-- end debug cache lines`
@@ -115,7 +116,7 @@ SIGNAL main_mem_status : STD_LOGIC;
 --LCD output control
 SIGNAL newDateOutputControl: STD_LOGIC;
 SIGNAL outputReady: STD_LOGIC;
-SIGNAL cpu_output:	std_logic_vector(15 downto 0);
+SIGNAL cpu_output: std_logic_vector(15 downto 0);
 
 --End LCD output control
 
@@ -134,6 +135,10 @@ SIGNAL tagIn,tagCache	: STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL set_num_index, word_num_index	:	INTEGER;
 SIGNAL read_line : INTEGER;
 -- End debug signals
+
+
+--SIGNAL lcd_output: std_logic_vector(7 downto 0);
+--SIGNAL lcd_control: std_logic_vector(1 downto 0);
 
 begin
 	
@@ -317,6 +322,7 @@ D_cache_set0_line0_word3 <= cache(0)(0).words(3);
 
 D_tagIn <= tagIn;
 D_tagCache <= tagCache;
+D_cpu_output <= cpu_output;
 
 --D_set_num_index <= set_num_index;
 --D_word_num_index <= word_num_index;
