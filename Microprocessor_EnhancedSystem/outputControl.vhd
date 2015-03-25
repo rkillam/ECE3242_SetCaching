@@ -5,6 +5,7 @@ use work.MP_lib.all;
 
 entity outputControl is
 port (clock		: 	in std_logic;
+		getNext	: 	in std_logic;
 		newData	: 	in std_logic;
 		data_in	:	in std_logic_vector(15 downto 0);
 		data_out	:	out std_logic_vector(7 downto 0);
@@ -32,7 +33,9 @@ architecture behv of outputControl is
 		printData3,
 		printData2,
 		printData1,
-		printData0
+		printData0,
+		waitState0,
+		waitState1
 	);
 	
 	VARIABLE state : state_type := decodeData;
@@ -112,9 +115,19 @@ architecture behv of outputControl is
 				WHEN printData0 =>
 					data_out <= Dout0;
 					control_out <= "00"; --write and no command
-					ready <= '1';
-					state := decodeData;
 					
+					state := waitState0;
+				
+				WHEN waitState0 => -- Using push button to get next output data, negative logic
+					IF (getNext = '0') THEN
+						state := waitState1;
+					END IF;
+				WHEN waitState1 =>
+					IF (getNext = '1') THEN
+						ready <= '1';
+						state := decodeData;
+					END IF;
+				
 				WHEN OTHERS =>
 					state := decodeData;
 					

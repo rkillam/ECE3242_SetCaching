@@ -112,6 +112,7 @@ end component;
 
 COMPONENT outputControl is
 port (clock		: 	in std_logic;
+		getNext	: 	in std_logic;
 		newData	: 	in std_logic;
 		data_in	:	in std_logic_vector(15 downto 0);
 		data_out	:	out std_logic_vector(7 downto 0);
