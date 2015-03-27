@@ -115,8 +115,8 @@ port (clock		: 	in std_logic;
 		getNext	: 	in std_logic;
 		newData	: 	in std_logic;
 		data_in	:	in std_logic_vector(15 downto 0);
-		data_out	:	out std_logic_vector(7 downto 0);
-		control_out	: out std_logic_vector(1 downto 0);
+		data_out0,data_out1,data_out2,data_out3,data_out4	:	out std_logic_vector(3 downto 0);
+		sign_out	:	out std_logic_vector(3 downto 0);
 		ready		: out std_logic
 );
 END COMPONENT;

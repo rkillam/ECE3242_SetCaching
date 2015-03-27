@@ -18,8 +18,8 @@ port(
 		cpu_clk:	in std_logic;
 		cpu_rst:	in std_logic;
 		getNextOutput: in std_logic;
-		lcd_output:	out std_logic_vector(7 downto 0);
-		lcd_control: out std_logic_vector(1 downto 0)
+		hex0,hex1,hex2,hex3,hex4,hex5:	out std_logic_vector(3 downto 0)
+--		lcd_control: out std_logic_vector(1 downto 0)
 
 -- Debug variables
 --		D_addr_bus,D_mdin_bus,D_mdout_bus: out std_logic_vector(15 downto 0);  
@@ -235,8 +235,8 @@ begin
 		getNextOutput,			--		getNext	: 	in std_logic;
 		newDateOutputControl,--		newData	: 	in std_logic;
 		cpu_output,				--		data_in	:	in std_logic_vector(15 downto 0);
-		lcd_output,				--		data_out	:	out std_logic_vector(7 downto 0);
-		lcd_control,			--		control_out	: out std_logic_vector(1 downto 0);
+		hex0,hex1,hex2,hex3,hex4,
+		hex5,
 		outputReady				--		ready		: out std_logic
 	);
 
