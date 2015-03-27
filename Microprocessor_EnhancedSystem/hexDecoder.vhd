@@ -31,7 +31,7 @@ begin
 		when "1100" => data_out	 <= not ("0001101");
 		when "1101" => data_out	 <= not ("0111101");
 		when "1110" => data_out	 <= not ("0000000");
-		when "1111" => data_out	 <= not ("1000000");
+		when "1111" => data_out	 <= not ("0000001");
 	 end case;
   end process;
 end behv;
