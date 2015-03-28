@@ -5,6 +5,9 @@
 !*.qip
 !*.hex
 !*.qpf
+!*.bdf
+!*.bsf
+!*.qsf
 !db/
 !greybox_tmp/
 !incremental_db/

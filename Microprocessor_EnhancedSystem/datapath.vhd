@@ -34,6 +34,7 @@ port(
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0);
 	bufout_dp:	out 	std_logic_vector(15 downto 0);
+	newDateOutputControl: out std_logic;
 	
 	-- Register debug lines
 	D_rf : OUT rf_type
@@ -55,7 +56,7 @@ begin
 			mux2rf, rf2alu1, rf2alu2, D_rf);
   U3: alu port map( rf2alu1, rf2alu2, jp_en, ALUs_dp, 
 		    ALUz_dp, alu2memmux);
-  U4: obuf port map(oe_dp, mem_data, bufout_dp);
+  U4: obuf port map(oe_dp, mem_data, bufout_dp, newDateOutputControl);
 	
   ALUout_dp <= alu2memmux;
   RF1out_dp <= rf2alu1;

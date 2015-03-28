@@ -36,7 +36,8 @@ port(
 	Mwe_ctrl:	out std_logic;
 	oe_ctrl:	out std_logic;
 	cur_state : OUT STD_logic_vector(7 DOWNTO 0);
-	big_addr  : OUT STD_LOGIC
+	big_addr  : OUT STD_LOGIC;
+	outputReady: in std_logic
 );
 end controller;
 
@@ -473,18 +474,19 @@ begin
 			cur_state <= x"2C"; 
 			state <= S_HALT; -- halt
 
-	  when S_OUTPUT_MEM =>   
-			cur_state <= x"2D"; 
-			Ms_ctrl <= "01";
-			Mre_ctrl <= '1'; -- read memory
-			Mwe_ctrl <= '0';		  
-			big_addr <= '1';
-			
-			-- Need to wait until the memory has received the instruction
-			IF(main_mem_status = '1') THEN
-				state <= S_OUTPUT_MEMa;	
+	  when S_OUTPUT_MEM =>  
+			IF (outputReady = '1') THEN
+				cur_state <= x"2D"; 
+				Ms_ctrl <= "01";
+				Mre_ctrl <= '1'; -- read memory
+				Mwe_ctrl <= '0';		  
+				big_addr <= '1';
+				
+				-- Need to wait until the memory has received the instruction
+				IF(main_mem_status = '1') THEN
+					state <= S_OUTPUT_MEMa;	
+				END IF;
 			END IF;
-			
 --		when S_OUTPUT_MEM_wait =>
 --			cur_state <= x"2E"; 
 --			-- Need to wait until the memory has read the data
